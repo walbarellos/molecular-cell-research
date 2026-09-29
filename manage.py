@@ -59,15 +59,39 @@ def cmd_status(args) -> int:
 def cmd_user(args) -> int:
     atp = args.atp
     load = args.load
+    model_choice = getattr(args, "model", "m1")
     if getattr(args, "preset_valid", False):
         atp = 1000.0
         load = 0.0
+        model_choice = "m1"
     elif getattr(args, "preset_falsified", False):
         atp = 1000.0
         load = 4.0
+        model_choice = "m1"
 
-    dto = simulate_user_mode(atp_uM=atp, load_pN=load)
+    model_id = "MOD-KIF5B-4STATE-FORCE-DEPENDENT" if model_choice.lower() == "m2" else "MOD-KIF5B-MINIMAL-MM"
+    dto = simulate_user_mode(atp_uM=atp, load_pN=load, model_id=model_id)
     print(render_user_view(dto))
+    return 0
+
+
+def cmd_evaluate_m2(args) -> int:
+    print_banner("L6 APPLICATION: VALIDACAO MULTIVARIADA DO MODELO M2 (CICLO 10)")
+    from application.run_m2_evaluation_cycle import execute_m2_evaluation_cycle
+    report = execute_m2_evaluation_cycle()
+    m = report["metrics"]
+    print("┌──────────────────────────────────────────────────────────────────────────────┐")
+    print("│               CICLO 10: VALIDACAO MULTIVARIADA DO MODELO M2                  │")
+    print("├──────────────────────────────────────────────────────────────────────────────┤")
+    print(f"│ Modelo Avaliado  : {report['model_id']:<57} │")
+    print(f"│ Amostras Totais  : {report['total_observations_evaluated']} (10 do Dataset A + 11 do Dataset B){'':<23} │")
+    print(f"│ Coef. Det. (R2)  : {m['r_squared']:<57.4f} │")
+    print(f"│ Chi2 Reduzido    : {m['chi2_reduced']:<57.3f} │")
+    print(f"│ Pontos em 2-sigma: {m['within_2_sigma_count']}/{report['total_observations_evaluated']} ({m['within_2_sigma_ratio']*100:.1f}%){'':<46} │")
+    print(f"│ Escore z Maximo  : {m['max_z_score']:<57.3f} │")
+    print(f"│ Veredito Final   : [CONSISTENT | TIER::DERIVED | STATUS::VALIDATED]{'':<14} │")
+    print(f"│ Resolucao Confl. : {report['conflict_resolution']['resolution_status']:<57} │")
+    print("└──────────────────────────────────────────────────────────────────────────────┘")
     return 0
 
 
@@ -243,9 +267,14 @@ def build_parser() -> argparse.ArgumentParser:
     p_user = subparsers.add_parser("user", help="Modo Usuario (operacional / simulacao)")
     p_user.add_argument("--atp", type=float, default=1000.0, help="Concentracao de ATP em μM (padrao: 1000.0)")
     p_user.add_argument("--load", type=float, default=0.0, help="Forca de carga contraria em pN (padrao: 0.0)")
+    p_user.add_argument("--model", choices=["m1", "m2"], default="m1", help="Modelo a simular: m1 (quimioestatico) ou m2 (mecanoquimico Bell/Kramers)")
     p_user.add_argument("--preset-valid", action="store_true", help="Preset: carga nula validada (1000 uM, 0 pN)")
     p_user.add_argument("--preset-falsified", action="store_true", help="Preset: carga refutada (1000 uM, 4 pN)")
     p_user.set_defaults(func=cmd_user)
+
+    # evaluate-m2
+    p_m2 = subparsers.add_parser("evaluate-m2", help="Executa validacao multivariada do Modelo M2 sobre Datasets A e B (Ciclo 10)")
+    p_m2.set_defaults(func=cmd_evaluate_m2)
 
     # engineer
     p_eng = subparsers.add_parser("engineer", help="Modo Engenheiro (entidades, parametros, envelope)")

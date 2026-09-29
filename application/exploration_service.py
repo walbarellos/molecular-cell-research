@@ -53,30 +53,46 @@ def get_system_overview() -> SystemOverviewDTO:
     )
 
 
-def simulate_user_mode(atp_uM: float = 1000.0, load_pN: float = 0.0) -> UserViewDTO:
-    model = build_kif5b_minimal_model(k_cat_default=103.92, k_m_default=94.63, step_size_default=8.2)
+def simulate_user_mode(
+    atp_uM: float = 1000.0,
+    load_pN: float = 0.0,
+    model_id: str = "MOD-KIF5B-MINIMAL-MM",
+) -> UserViewDTO:
+    is_m2 = model_id.upper() in ("M2", "MOD-KIF5B-4STATE-FORCE-DEPENDENT")
 
-    simulation, predictions = run_kif5b_simulation(
-        model=model,
-        atp_concentrations_uM=[atp_uM],
-        load_force_pN=load_pN,
-        mode="analytical",
-    )
-    pred = predictions[0]
-    vel = pred.quantity.value
-    unc = pred.quantity.uncertainty or 0.04
+    if is_m2:
+        from computation.models.kinesin_force_dependent import KinesinForceDependentModel
+        m2 = KinesinForceDependentModel()
+        vel = m2.predict_velocity(atp_uM=atp_uM, load_pN=load_pN)
+        unc = 0.035 if load_pN > 0 else 0.04
+        is_valid_envelope = (0.0 <= load_pN <= 6.0 and 2.0 <= atp_uM <= 2000.0)
+        warning = None
+        if not is_valid_envelope:
+            warning = f"AVISO: Condicoes ([ATP]={atp_uM} uM, F={load_pN} pN) extrapolam o envelope validado do Modelo M2."
+    else:
+        model = build_kif5b_minimal_model(k_cat_default=103.92, k_m_default=94.63, step_size_default=8.2)
 
-    # Avalia envelope de validacao
-    is_valid_envelope = (load_pN == 0.0 and 2.0 <= atp_uM <= 2000.0)
-    warning = None
-
-    if load_pN > 0.0:
-        warning = (
-            f"ALERTA EPISTEMICO: Regime sob carga contraria (F = {load_pN} pN) foi EMPIRICAMENTE REFUTADO "
-            "pelo Dataset B (ver CONFLICT CONF-KIF5B-LOAD-001). A velocidade real esperada e muito inferior a calculada."
+        simulation, predictions = run_kif5b_simulation(
+            model=model,
+            atp_concentrations_uM=[atp_uM],
+            load_force_pN=load_pN,
+            mode="analytical",
         )
-    elif atp_uM < 2.0 or atp_uM > 2000.0:
-        warning = f"AVISO: Concentracao de ATP ({atp_uM} uM) extrapola a faixa empiricamente validada [2.0, 2000.0] uM."
+        pred = predictions[0]
+        vel = pred.quantity.value
+        unc = pred.quantity.uncertainty or 0.04
+
+        # Avalia envelope de validacao do M1
+        is_valid_envelope = (load_pN == 0.0 and 2.0 <= atp_uM <= 2000.0)
+        warning = None
+
+        if load_pN > 0.0:
+            warning = (
+                f"ALERTA EPISTEMICO: Regime sob carga contraria (F = {load_pN} pN) foi EMPIRICAMENTE REFUTADO "
+                "pelo Dataset B (ver CONFLICT CONF-KIF5B-LOAD-001). A velocidade real esperada e muito inferior a calculada."
+            )
+        elif atp_uM < 2.0 or atp_uM > 2000.0:
+            warning = f"AVISO: Concentracao de ATP ({atp_uM} uM) extrapola a faixa empiricamente validada [2.0, 2000.0] uM."
 
     state = "Saturating ATP Motility" if atp_uM >= 500 else ("Sub-saturating Stepping" if atp_uM >= 50 else "Limiting ATP Kinetics")
 

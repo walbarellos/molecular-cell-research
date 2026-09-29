@@ -1,0 +1,109 @@
+{
+  "cycle": "CICLO_09_EXPERIMENTAL_DESIGN",
+  "phenomenon": "CELL-LAB-001",
+  "target_hypothesis": {
+    "id": "HYP-KIF5B-KRAMERS-COUPLING-001",
+    "created_at": "2026-09-29T16:04:55.658466Z",
+    "lifecycle_status": "active",
+    "version": "1.0.0",
+    "statement": "O avanço de KIF5B sob forca contraria e governado por transicoes conformacionais do neck linker com taxa catalitica dependente de energia de deformacao mecânica (k_cat(F) = k_cat_0 * exp(-F*delta / k_B*T)), prevendo cessacao de avanço proximo a stall force de ~6.0 pN.",
+    "rationale": "A refutacao sistematica de ate 50 sigma observada no modelo M1 sob carga contraria (CONF-KIF5B-LOAD-001) exige a introducao de um termo mecanoquimico exponencial dependente de carga.",
+    "competing_model_ids": [
+      "MOD-KIF5B-MINIMAL-MM",
+      "MOD-KIF5B-4STATE-FORCE-DEPENDENT"
+    ],
+    "falsification_criteria": [
+      "Se em ensaio com carga contraria de 5.0 pN e 1000 uM ATP a velocidade for > 0.5 um/s, M2 e falsificado.",
+      "Se em ensaio com carga contraria de 5.0 pN e 1000 uM ATP a velocidade for < 0.4 um/s, M1 e falsificado."
+    ],
+    "epistemic_record": {
+      "status": "HYPOTHESIS",
+      "data_tier": "DERIVED",
+      "provenance": null,
+      "basis": [
+        "CONF-KIF5B-LOAD-001",
+        "DTS-CELL-LAB-001-FALSIFICATION"
+      ],
+      "conditions": {
+        "temperature_degC": 24.0,
+        "buffer": "BRB80"
+      },
+      "limitations": [
+        "Hipotese computacional candidata sujeita a ensaios discriminatorios adicionais."
+      ],
+      "confidence_evidence_count": 0
+    }
+  },
+  "optimal_experiment_design": {
+    "id": "EXP-DESIGN-KIF5B-LOAD-DISCRIM-001",
+    "created_at": "2026-09-29T16:04:55.658447Z",
+    "lifecycle_status": "active",
+    "version": "1.0.0",
+    "title": "Ensaio de Pinca de Forca Optica para Discriminacao Quimioestatica vs. Mecanoquimica",
+    "objective": "Discriminar categoricamente entre o modelo quimioestatico (M1) e o modelo mecanoquimico com acoplamento de Bell (M2) sob regime de alta carga contraria e saturacao de ATP.",
+    "competing_model_ids": [
+      "MOD-KIF5B-MINIMAL-MM",
+      "MOD-KIF5B-4STATE-FORCE-DEPENDENT"
+    ],
+    "target_conditions": {
+      "load_force_pN": 2.5,
+      "atp_concentration_uM": 1000.0,
+      "temperature_degC": 24.0,
+      "buffer": "BRB80"
+    },
+    "proposed_technique": "optical_force_clamp",
+    "predicted_outcomes": {
+      "MOD-KIF5B-MINIMAL-MM": "Velocidade calculada: 0.77848 um/s (insensivel a carga)",
+      "MOD-KIF5B-4STATE-FORCE-DEPENDENT": "Velocidade calculada: 0.15688 um/s (desaceleracao mecanoquimica)"
+    },
+    "discriminatory_power_score": 1.0
+  },
+  "top_5_discriminatory_conditions": [
+    {
+      "atp_concentration_uM": 1000.0,
+      "load_force_pN": 2.5,
+      "m1_predicted_velocity": 0.77848,
+      "m2_predicted_velocity": 0.15688,
+      "delta_velocity": 0.6216,
+      "discriminatory_power_score": 1.0,
+      "expected_sigma_um_s": 0.03
+    },
+    {
+      "atp_concentration_uM": 1000.0,
+      "load_force_pN": 4.0,
+      "m1_predicted_velocity": 0.77848,
+      "m2_predicted_velocity": 0.04416,
+      "delta_velocity": 0.73431,
+      "discriminatory_power_score": 1.0,
+      "expected_sigma_um_s": 0.03
+    },
+    {
+      "atp_concentration_uM": 1000.0,
+      "load_force_pN": 5.0,
+      "m1_predicted_velocity": 0.77848,
+      "m2_predicted_velocity": 0.01349,
+      "delta_velocity": 0.76498,
+      "discriminatory_power_score": 1.0,
+      "expected_sigma_um_s": 0.03
+    },
+    {
+      "atp_concentration_uM": 1000.0,
+      "load_force_pN": 5.8,
+      "m1_predicted_velocity": 0.77848,
+      "m2_predicted_velocity": 0.0018,
+      "delta_velocity": 0.77668,
+      "discriminatory_power_score": 1.0,
+      "expected_sigma_um_s": 0.03
+    },
+    {
+      "atp_concentration_uM": 2000.0,
+      "load_force_pN": 2.5,
+      "m1_predicted_velocity": 0.81365,
+      "m2_predicted_velocity": 0.16948,
+      "delta_velocity": 0.64416,
+      "discriminatory_power_score": 1.0,
+      "expected_sigma_um_s": 0.03
+    }
+  ],
+  "total_conditions_evaluated": 30
+}

@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 420" width="100%" height="100%">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 2 L 8 5 L 0 8 z" fill="#475569" />
+    </marker>
+    <marker id="arr-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 2 L 8 5 L 0 8 z" fill="#059669" />
+    </marker>
+    <marker id="arr-red" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 2 L 8 5 L 0 8 z" fill="#dc2626" />
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#ffffff" />
+
+  <!-- Title -->
+  <text x="440" y="32" font-family="sans-serif" font-size="16" fill="#0f172a" font-weight="bold" text-anchor="middle">
+    MÁQUINA DE ESTADOS EPISTÊMICA E PROPAGAÇÃO DE CONHECIMENTO
+  </text>
+  <text x="440" y="52" font-family="sans-serif" font-size="12" fill="#64748b" text-anchor="middle">
+    Classificação Normativa de Conhecimento e Isolamento de Tiers (INV-DATA-001, INV-CLAIM-001)
+  </text>
+
+  <!-- Left: Empirical Zone -->
+  <rect x="30" y="75" width="250" height="320" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,5"/>
+  <rect x="40" y="65" width="150" height="20" rx="4" fill="#0284c7"/>
+  <text x="115" y="79" font-family="sans-serif" font-size="10" fill="#ffffff" font-weight="bold" text-anchor="middle">[TIER::RAW / DERIVED]</text>
+
+  <!-- Node: UNKNOWN -->
+  <rect x="75" y="105" width="160" height="42" rx="6" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+  <text x="155" y="125" font-family="sans-serif" font-size="12" fill="#1e293b" font-weight="bold" text-anchor="middle">UNKNOWN</text>
+  <text x="155" y="138" font-family="sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Parâmetro Não Medido</text>
+
+  <!-- Node: OBSERVED -->
+  <rect x="75" y="190" width="160" height="46" rx="6" fill="#f0fdf4" stroke="#059669" stroke-width="2"/>
+  <text x="155" y="209" font-family="sans-serif" font-size="12" fill="#065f46" font-weight="bold" text-anchor="middle">OBSERVED</text>
+  <text x="155" y="224" font-family="sans-serif" font-size="9" fill="#047857" text-anchor="middle">Medição Física Direta (SHA-256)</text>
+
+  <!-- Node: DERIVED -->
+  <rect x="75" y="280" width="160" height="46" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="155" y="299" font-family="sans-serif" font-size="12" fill="#1e40af" font-weight="bold" text-anchor="middle">DERIVED / CURATED</text>
+  <text x="155" y="314" font-family="sans-serif" font-size="9" fill="#1d4ed8" text-anchor="middle">Transformação Sem Ruído Epistêmico</text>
+
+  <!-- Center: Theoretical / Modeling Zone -->
+  <rect x="315" y="75" width="250" height="320" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,5"/>
+  <rect x="325" y="65" width="160" height="20" rx="4" fill="#6366f1"/>
+  <text x="405" y="79" font-family="sans-serif" font-size="10" fill="#ffffff" font-weight="bold" text-anchor="middle">[THEORY &amp; COMPUTATION]</text>
+
+  <!-- Node: HYPOTHESIS -->
+  <rect x="360" y="105" width="160" height="46" rx="6" fill="#fdf4ff" stroke="#a855f7" stroke-width="2"/>
+  <text x="440" y="124" font-family="sans-serif" font-size="12" fill="#6b21a8" font-weight="bold" text-anchor="middle">HYPOTHESIS</text>
+  <text x="440" y="139" font-family="sans-serif" font-size="9" fill="#7e22ce" text-anchor="middle">Proposição Teórica Formal</text>
+
+  <!-- Node: MODELED -->
+  <rect x="360" y="190" width="160" height="46" rx="6" fill="#faf5ff" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="440" y="209" font-family="sans-serif" font-size="12" fill="#5b21b6" font-weight="bold" text-anchor="middle">MODELED</text>
+  <text x="440" y="224" font-family="sans-serif" font-size="9" fill="#6d28d9" text-anchor="middle">Código Executável + Premissas</text>
+
+  <!-- Node: PREDICTED -->
+  <rect x="360" y="280" width="160" height="46" rx="6" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/>
+  <text x="440" y="299" font-family="sans-serif" font-size="12" fill="#92400e" font-weight="bold" text-anchor="middle">[TIER::GENERATED]</text>
+  <text x="440" y="314" font-family="sans-serif" font-size="10" fill="#b45309" font-weight="bold" text-anchor="middle">PREDICTED</text>
+
+  <!-- Right: Verification & Knowledge Zone -->
+  <rect x="600" y="75" width="250" height="320" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,5"/>
+  <rect x="610" y="65" width="160" height="20" rx="4" fill="#0f172a"/>
+  <text x="690" y="79" font-family="sans-serif" font-size="10" fill="#ffffff" font-weight="bold" text-anchor="middle">[EPISTEMIC CLAIM STATUS]</text>
+
+  <!-- Node: VALIDATED -->
+  <rect x="645" y="130" width="160" height="50" rx="6" fill="#ecfdf5" stroke="#10b981" stroke-width="2.5"/>
+  <text x="725" y="150" font-family="sans-serif" font-size="12" fill="#065f46" font-weight="bold" text-anchor="middle">VALIDATED</text>
+  <text x="725" y="165" font-family="sans-serif" font-size="9" fill="#047857" text-anchor="middle">|z| &le; 2.0σ (Restrito a Condições)</text>
+
+  <!-- Node: CONTRADICTED (Negative Knowledge) -->
+  <rect x="645" y="250" width="160" height="52" rx="6" fill="#fef2f2" stroke="#ef4444" stroke-width="2.5"/>
+  <text x="725" y="270" font-family="sans-serif" font-size="12" fill="#991b1b" font-weight="bold" text-anchor="middle">CONTRADICTED</text>
+  <text x="725" y="284" font-family="sans-serif" font-size="9" fill="#b91c1c" text-anchor="middle">|z| &gt; 2.0σ (Negative Knowledge)</text>
+  <text x="725" y="295" font-family="sans-serif" font-size="8" fill="#7f1d1d" text-anchor="middle">Gera ConflictRecord Obrigatório</text>
+
+  <!-- Connectors -->
+  <!-- UNKNOWN -> OBSERVED -->
+  <path d="M 155 147 L 155 186" fill="none" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- OBSERVED -> DERIVED -->
+  <path d="M 155 236 L 155 276" fill="none" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- DERIVED / OBSERVED -> HYPOTHESIS -->
+  <path d="M 235 210 Q 300 130 356 128" fill="none" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- HYPOTHESIS -> MODELED -->
+  <path d="M 440 151 L 440 186" fill="none" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- MODELED -> PREDICTED -->
+  <path d="M 440 236 L 440 276" fill="none" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- PREDICTED + OBSERVED -> VALIDATED -->
+  <path d="M 520 290 Q 580 250 642 165" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arr-green)"/>
+  <!-- PREDICTED + OBSERVED -> CONTRADICTED -->
+  <path d="M 520 310 Q 580 320 642 285" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#arr-red)"/>
+
+  <!-- Feedback Loop: CONTRADICTED -> New HYPOTHESIS (Discriminatory Cycle) -->
+  <path d="M 725 302 Q 725 380 440 380 Q 280 380 340 140" fill="none" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="4,4" marker-end="url(#arr)"/>
+  <text x="540" y="375" font-family="sans-serif" font-size="9" fill="#4338ca" font-weight="bold">Retroalimentação Epistêmica: Conflito motiva Novo Modelo / Novo Desenho</text>
+</svg>

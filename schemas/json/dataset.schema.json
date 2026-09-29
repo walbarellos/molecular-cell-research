@@ -1,0 +1,107 @@
+{
+  "$defs": {
+    "DataTier": {
+      "description": "Classificacao estrita da camada de dados.",
+      "enum": [
+        "RAW",
+        "DERIVED",
+        "GENERATED"
+      ],
+      "title": "DataTier",
+      "type": "string"
+    },
+    "SoftLifecycleStatus": {
+      "description": "Ciclo de vida do registro cientifico (sem delecao destrutiva).",
+      "enum": [
+        "active",
+        "superseded",
+        "deprecated",
+        "invalidated",
+        "retracted"
+      ],
+      "title": "SoftLifecycleStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Colecao curada de dados (RAW ou DERIVED) sob controle estrito de proveniencia.",
+  "properties": {
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "lifecycle_status": {
+      "$ref": "#/$defs/SoftLifecycleStatus",
+      "default": "active"
+    },
+    "version": {
+      "default": "1.0.0",
+      "title": "Version",
+      "type": "string"
+    },
+    "name": {
+      "description": "Nome identificador do dataset (ex: KIF5B_in_vitro_velocity_data)",
+      "title": "Name",
+      "type": "string"
+    },
+    "data_tier": {
+      "$ref": "#/$defs/DataTier",
+      "description": "Tier estrito do dataset (RAW ou DERIVED)"
+    },
+    "description": {
+      "title": "Description",
+      "type": "string"
+    },
+    "source_ids": {
+      "description": "IDs das Sources de onde o dataset foi derivado ou ingerido",
+      "items": {
+        "type": "string"
+      },
+      "title": "Source Ids",
+      "type": "array"
+    },
+    "storage_uri": {
+      "description": "Localizacao do arquivo no armazenamento L1",
+      "title": "Storage Uri",
+      "type": "string"
+    },
+    "checksum_sha256": {
+      "description": "Hash de integridade dos dados",
+      "title": "Checksum Sha256",
+      "type": "string"
+    },
+    "parameters_schema": {
+      "additionalProperties": true,
+      "description": "Esquema das variaveis presentes no dataset",
+      "title": "Parameters Schema",
+      "type": "object"
+    },
+    "record_count": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Record Count"
+    }
+  },
+  "required": [
+    "name",
+    "data_tier",
+    "description",
+    "storage_uri",
+    "checksum_sha256"
+  ],
+  "title": "Dataset",
+  "type": "object"
+}

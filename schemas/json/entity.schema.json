@@ -1,0 +1,136 @@
+{
+  "$defs": {
+    "EntityCategory": {
+      "enum": [
+        "biological",
+        "physical",
+        "conceptual"
+      ],
+      "title": "EntityCategory",
+      "type": "string"
+    },
+    "EntityType": {
+      "enum": [
+        "protein",
+        "molecule",
+        "complex",
+        "structure",
+        "filament",
+        "compartment",
+        "process",
+        "state"
+      ],
+      "title": "EntityType",
+      "type": "string"
+    },
+    "ExternalIdentifier": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        },
+        "lifecycle_status": {
+          "$ref": "#/$defs/SoftLifecycleStatus",
+          "default": "active"
+        },
+        "version": {
+          "default": "1.0.0",
+          "title": "Version",
+          "type": "string"
+        },
+        "database_name": {
+          "description": "UniProt, PDB, ChEMBL, NCBI, GO, etc.",
+          "title": "Database Name",
+          "type": "string"
+        },
+        "accession_code": {
+          "title": "Accession Code",
+          "type": "string"
+        }
+      },
+      "required": [
+        "database_name",
+        "accession_code"
+      ],
+      "title": "ExternalIdentifier",
+      "type": "object"
+    },
+    "SoftLifecycleStatus": {
+      "description": "Ciclo de vida do registro cientifico (sem delecao destrutiva).",
+      "enum": [
+        "active",
+        "superseded",
+        "deprecated",
+        "invalidated",
+        "retracted"
+      ],
+      "title": "SoftLifecycleStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Objeto biologico, fisico ou conceitual com identidade persistente.",
+  "properties": {
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "lifecycle_status": {
+      "$ref": "#/$defs/SoftLifecycleStatus",
+      "default": "active"
+    },
+    "version": {
+      "default": "1.0.0",
+      "title": "Version",
+      "type": "string"
+    },
+    "category": {
+      "$ref": "#/$defs/EntityCategory"
+    },
+    "entity_type": {
+      "$ref": "#/$defs/EntityType"
+    },
+    "canonical_name": {
+      "description": "Nome cientifico padronizado (ex: KIF5B, Microtubule, ATP)",
+      "title": "Canonical Name",
+      "type": "string"
+    },
+    "systematic_name": {
+      "description": "Identificador sistematico ou sinonimo primario",
+      "title": "Systematic Name",
+      "type": "string"
+    },
+    "external_identifiers": {
+      "items": {
+        "$ref": "#/$defs/ExternalIdentifier"
+      },
+      "title": "External Identifiers",
+      "type": "array"
+    },
+    "metadata": {
+      "additionalProperties": true,
+      "description": "Propriedades intrinsecas estaveis (ex: massa molecular, sequencia)",
+      "title": "Metadata",
+      "type": "object"
+    }
+  },
+  "required": [
+    "category",
+    "entity_type",
+    "canonical_name",
+    "systematic_name"
+  ],
+  "title": "Entity",
+  "type": "object"
+}

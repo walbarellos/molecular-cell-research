@@ -1,0 +1,129 @@
+{
+  "$defs": {
+    "DataTier": {
+      "description": "Classificacao estrita da camada de dados.",
+      "enum": [
+        "RAW",
+        "DERIVED",
+        "GENERATED"
+      ],
+      "title": "DataTier",
+      "type": "string"
+    },
+    "EpistemicStatus": {
+      "description": "Estados da maquina de estados de integridade epistemica.",
+      "enum": [
+        "UNKNOWN",
+        "OBSERVED",
+        "REPORTED",
+        "DERIVED",
+        "INFERRED",
+        "HYPOTHESIS",
+        "MODELED",
+        "PREDICTED",
+        "VALIDATED",
+        "CONTRADICTED"
+      ],
+      "title": "EpistemicStatus",
+      "type": "string"
+    },
+    "OperatorType": {
+      "enum": [
+        "HUMAN",
+        "SCRIPT",
+        "PIPELINE",
+        "MODEL"
+      ],
+      "title": "OperatorType",
+      "type": "string"
+    },
+    "ProvenanceRecord": {
+      "additionalProperties": false,
+      "description": "Rastreabilidade de origem de uma afirmacao ou medicao.",
+      "properties": {
+        "source_uri": {
+          "description": "URI, DOI ou identificador persistente da fonte",
+          "title": "Source Uri",
+          "type": "string"
+        },
+        "method": {
+          "description": "Tecnica experimental, algoritmo ou protocolo empregado",
+          "title": "Method",
+          "type": "string"
+        },
+        "operator": {
+          "$ref": "#/$defs/OperatorType",
+          "default": "HUMAN"
+        },
+        "conditions": {
+          "additionalProperties": true,
+          "description": "Parametros de contorno da medicao",
+          "title": "Conditions",
+          "type": "object"
+        }
+      },
+      "required": [
+        "source_uri",
+        "method"
+      ],
+      "title": "ProvenanceRecord",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Envelope transversal que carrega status epistemico, tier e condicoes.",
+  "properties": {
+    "status": {
+      "$ref": "#/$defs/EpistemicStatus"
+    },
+    "data_tier": {
+      "$ref": "#/$defs/DataTier"
+    },
+    "provenance": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ProvenanceRecord"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "basis": {
+      "description": "IDs de observacoes ou evidencias que sustentam este registro",
+      "items": {
+        "type": "string"
+      },
+      "title": "Basis",
+      "type": "array"
+    },
+    "conditions": {
+      "additionalProperties": true,
+      "description": "Condicoes fisico-quimicas especificas sob as quais este status e valido",
+      "title": "Conditions",
+      "type": "object"
+    },
+    "limitations": {
+      "description": "Limites explicitos de validade ou advertencias metodologicas",
+      "items": {
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "confidence_evidence_count": {
+      "default": 0,
+      "description": "Numero de evidencias independentes que suportam a proposicao",
+      "minimum": 0,
+      "title": "Confidence Evidence Count",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "status",
+    "data_tier"
+  ],
+  "title": "EpistemicRecord",
+  "type": "object"
+}

@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 440" width="100%" height="100%">
+  <defs>
+    <marker id="cycleArr" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7" />
+    </marker>
+    <linearGradient id="headGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#ffffff" />
+
+  <!-- Title -->
+  <text x="420" y="32" font-family="sans-serif" font-size="16" fill="#0f172a" font-weight="bold" text-anchor="middle">
+    CICLO MECANOQUÍMICO DE 4 ESTADOS DO DÍMERO DE CINESINA-1 (KIF5B)
+  </text>
+  <text x="420" y="52" font-family="sans-serif" font-size="12" fill="#64748b" text-anchor="middle">
+    Acoplamento entre Hidrólise de ATP, Ancoramento do Neck-Linker e Passo Discreto de 8.2 nm
+  </text>
+
+  <!-- Central Hub / Cycle Circle representation -->
+  <!-- Top Left: Estado 1 (Aguardando ATP) -->
+  <rect x="50" y="80" width="320" height="135" rx="8" fill="#f8fafc" stroke="#3b82f6" stroke-width="2"/>
+  <rect x="50" y="80" width="320" height="26" rx="8" fill="#3b82f6"/>
+  <text x="210" y="98" font-family="sans-serif" font-size="11" fill="#ffffff" font-weight="bold" text-anchor="middle">ESTADO 1: LIGAÇÃO DE ATP NA CABEÇA LÍDER</text>
+  <text x="65" y="125" font-family="sans-serif" font-size="10" fill="#1e293b" font-weight="bold">Transição:</text>
+  <text x="125" y="125" font-family="sans-serif" font-size="10" fill="#475569">Cabeça líder liga ATP (k_on * [ATP])</text>
+  <text x="65" y="145" font-family="sans-serif" font-size="10" fill="#1e293b" font-weight="bold">Conformação:</text>
+  <text x="145" y="145" font-family="sans-serif" font-size="10" fill="#475569">Cabeça traseira retém ADP fraco</text>
+  <text x="65" y="165" font-family="sans-serif" font-size="10" fill="#1e293b" font-weight="bold">Sensibilidade à Carga:</text>
+  <text x="180" y="165" font-family="sans-serif" font-size="10" fill="#047857">Baixa dependência direta de força</text>
+  <text x="65" y="195" font-family="sans-serif" font-size="9" fill="#2563eb" font-weight="bold">[K · MT] + ATP → [K · ATP · MT]</text>
+
+  <!-- Top Right: Estado 2 (Docking do Neck-Linker) -->
+  <rect x="470" y="80" width="320" height="135" rx="8" fill="#f8fafc" stroke="#8b5cf6" stroke-width="2"/>
+  <rect x="470" y="80" width="320" height="26" rx="8" fill="#8b5cf6"/>
+  <text x="630" y="98" font-family="sans-serif" font-size="11" fill="#ffffff" font-weight="bold" text-anchor="middle">ESTADO 2: ANCORAMENTO DO NECK-LINKER</text>
+  <text x="485" y="125" font-family="sans-serif" font-size="10" fill="#1e293b" font-weight="bold">Transição:</text>
+  <text x="545" y="125" font-family="sans-serif" font-size="10" fill="#475569">Zíper conformacional do linker (k_dock)</text>
+  <text x="485" y="145" font-family="sans-serif" font-size="10" fill="#1e293b" font-weight="bold">Mecânica:</text>
+  <text x="545" y="145" font-family="sans-serif" font-size="10" fill="#475569">Lança a cabeça parceira à frente</text>
+  <text x="485" y="165" font-family="sans-serif" font-size="10" fill="#1e293b" font-weight="bold">Sensibilidade à Carga:</text>
+  <text x="600" y="165" font-family="sans-serif" font-size="10" fill="#dc2626" font-weight="bold">CRÍTICA (exp(-Fδ/kBT))</text>
+  <text x="485" y="195" font-family="sans-serif" font-size="9" fill="#7c3aed" font-weight="bold">Isomerização Mecanoquímica (Power Stroke)</text>
+
+  <!-- Bottom Right: Estado 3 (Avanço & Captura de Microtúbulo) -->
+  <rect x="470" y="270" width="320" height="135" rx="8" fill="#f8fafc" stroke="#059669" stroke-width="2"/>
+  <rect x="470" y="270" width="320" height="26" rx="8" fill="#059669"/>
+  <text x="630" y="288" font-family="sans-serif" font-size="11" fill="#ffffff" font-weight="bold" text-anchor="middle">ESTADO 3: AVANÇO MECÂNICO (+8.2 nm)</text>
+  <text x="485" y="315" font-family="sans-serif" font-size="10" fill="#1e293b" font-weight="bold">Transição:</text>
+  <text x="545" y="315" font-family="sans-serif" font-size="10" fill="#475569">Ligação no próximo sítio β-tubulina</text>
+  <text x="485" y="335" font-family="sans-serif" font-size="10" fill="#1e293b" font-weight="bold">Cinética:</text>
+  <text x="535" y="335" font-family="sans-serif" font-size="10" fill="#475569">Liberação de ADP da nova cabeça líder</text>
+  <text x="485" y="355" font-family="sans-serif" font-size="10" fill="#1e293b" font-weight="bold">Deslocamento:</text>
+  <text x="570" y="355" font-family="sans-serif" font-size="10" fill="#059669" font-weight="bold">Δx = +8.2 nm discreto</text>
+  <text x="485" y="385" font-family="sans-serif" font-size="9" fill="#047857" font-weight="bold">Estado Bípede com Alta Afinidade</text>
+
+  <!-- Bottom Left: Estado 4 (Hidrólise & Liberação de Pi) -->
+  <rect x="50" y="270" width="320" height="135" rx="8" fill="#f8fafc" stroke="#d97706" stroke-width="2"/>
+  <rect x="50" y="270" width="320" height="26" rx="8" fill="#d97706"/>
+  <text x="210" y="288" font-family="sans-serif" font-size="11" fill="#ffffff" font-weight="bold" text-anchor="middle">ESTADO 4: HIDRÓLISE E LIBERAÇÃO DE Pi</text>
+  <text x="65" y="315" font-family="sans-serif" font-size="10" fill="#1e293b" font-weight="bold">Transição:</text>
+  <text x="125" y="315" font-family="sans-serif" font-size="10" fill="#475569">ATP → ADP + Pi na cabeça traseira</text>
+  <text x="65" y="335" font-family="sans-serif" font-size="10" fill="#1e293b" font-weight="bold">Consequência:</text>
+  <text x="145" y="335" font-family="sans-serif" font-size="10" fill="#475569">Desprendimento da cabeça traseira</text>
+  <text x="65" y="355" font-family="sans-serif" font-size="10" fill="#1e293b" font-weight="bold">Reset:</text>
+  <text x="105" y="355" font-family="sans-serif" font-size="10" fill="#475569">Retorno ao Estado 1 no novo sítio</text>
+  <text x="65" y="385" font-family="sans-serif" font-size="9" fill="#b45309" font-weight="bold">[K · ADP · Pi · MT] → [K · MT] + Pi</text>
+
+  <!-- Circular Directed Arrows -->
+  <!-- 1 -> 2 (Top horizontal) -->
+  <path d="M 370 145 L 460 145" fill="none" stroke="#0284c7" stroke-width="3" marker-end="url(#cycleArr)"/>
+  <text x="415" y="135" font-family="sans-serif" font-size="9" fill="#0284c7" font-weight="bold" text-anchor="middle">k_ATP</text>
+
+  <!-- 2 -> 3 (Right vertical) -->
+  <path d="M 630 215 L 630 260" fill="none" stroke="#0284c7" stroke-width="3" marker-end="url(#cycleArr)"/>
+  <text x="650" y="240" font-family="sans-serif" font-size="9" fill="#0284c7" font-weight="bold">k_dock(F)</text>
+
+  <!-- 3 -> 4 (Bottom horizontal reverse) -->
+  <path d="M 470 340 L 380 340" fill="none" stroke="#0284c7" stroke-width="3" marker-end="url(#cycleArr)"/>
+  <text x="425" y="330" font-family="sans-serif" font-size="9" fill="#0284c7" font-weight="bold" text-anchor="middle">k_step</text>
+
+  <!-- 4 -> 1 (Left vertical upward) -->
+  <path d="M 210 270 L 210 225" fill="none" stroke="#0284c7" stroke-width="3" marker-end="url(#cycleArr)"/>
+  <text x="190" y="248" font-family="sans-serif" font-size="9" fill="#0284c7" font-weight="bold" text-anchor="end">k_hydro</text>
+
+  <!-- Center Circle: Summary -->
+  <circle cx="420" cy="240" r="35" fill="#f8fafc" stroke="#64748b" stroke-width="1.5"/>
+  <text x="420" y="236" font-family="sans-serif" font-size="10" fill="#0f172a" font-weight="bold" text-anchor="middle">ΔG_ATP</text>
+  <text x="420" y="250" font-family="sans-serif" font-size="9" fill="#64748b" text-anchor="middle">≈ -50 kJ/mol</text>
+</svg>

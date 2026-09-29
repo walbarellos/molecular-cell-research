@@ -1,0 +1,238 @@
+{
+  "falsification_phenomenon": "CELL-LAB-001",
+  "dataset_evaluated": "DTS-CELL-LAB-001-FALSIFICATION",
+  "model_id": "MOD-KIF5B-MINIMAL-MM",
+  "simulation_id": "e1e03cda-f5bc-4828-aeaa-a014f7463874",
+  "execution_hash": "b2bf34616621646cb05477a3a940f3aecc1ed65ed23f9e11118708ef939d64c7",
+  "comparison": {
+    "model_id": "MOD-KIF5B-MINIMAL-MM",
+    "simulation_id": "e1e03cda-f5bc-4828-aeaa-a014f7463874",
+    "target_property": "velocity",
+    "point_comparisons": [
+      {
+        "condition_atp_uM": 1000.0,
+        "condition_load_pN": 0.0,
+        "observed_value": 0.81,
+        "observed_uncertainty": 0.038,
+        "predicted_value": 0.77848,
+        "residual": 0.03152,
+        "z_score": 0.8295,
+        "consistent_at_2sigma": true
+      },
+      {
+        "condition_atp_uM": 1000.0,
+        "condition_load_pN": 1.05,
+        "observed_value": 0.752,
+        "observed_uncertainty": 0.035,
+        "predicted_value": 0.77848,
+        "residual": -0.02648,
+        "z_score": -0.7566,
+        "consistent_at_2sigma": true
+      },
+      {
+        "condition_atp_uM": 1000.0,
+        "condition_load_pN": 2.15,
+        "observed_value": 0.661,
+        "observed_uncertainty": 0.032,
+        "predicted_value": 0.77848,
+        "residual": -0.11748,
+        "z_score": -3.6712,
+        "consistent_at_2sigma": false
+      },
+      {
+        "condition_atp_uM": 1000.0,
+        "condition_load_pN": 3.25,
+        "observed_value": 0.54,
+        "observed_uncertainty": 0.03,
+        "predicted_value": 0.77848,
+        "residual": -0.23848,
+        "z_score": -7.9493,
+        "consistent_at_2sigma": false
+      },
+      {
+        "condition_atp_uM": 1000.0,
+        "condition_load_pN": 4.3,
+        "observed_value": 0.378,
+        "observed_uncertainty": 0.028,
+        "predicted_value": 0.77848,
+        "residual": -0.40048,
+        "z_score": -14.3029,
+        "consistent_at_2sigma": false
+      },
+      {
+        "condition_atp_uM": 1000.0,
+        "condition_load_pN": 5.2,
+        "observed_value": 0.192,
+        "observed_uncertainty": 0.022,
+        "predicted_value": 0.77848,
+        "residual": -0.58648,
+        "z_score": -26.6582,
+        "consistent_at_2sigma": false
+      },
+      {
+        "condition_atp_uM": 1000.0,
+        "condition_load_pN": 6.0,
+        "observed_value": 0.031,
+        "observed_uncertainty": 0.015,
+        "predicted_value": 0.77848,
+        "residual": -0.74748,
+        "z_score": -49.832,
+        "consistent_at_2sigma": false
+      },
+      {
+        "condition_atp_uM": 10.0,
+        "condition_load_pN": 0.0,
+        "observed_value": 0.075,
+        "observed_uncertainty": 0.007,
+        "predicted_value": 0.08144,
+        "residual": -0.00644,
+        "z_score": -0.92,
+        "consistent_at_2sigma": true
+      },
+      {
+        "condition_atp_uM": 10.0,
+        "condition_load_pN": 2.0,
+        "observed_value": 0.064,
+        "observed_uncertainty": 0.006,
+        "predicted_value": 0.08144,
+        "residual": -0.01744,
+        "z_score": -2.9067,
+        "consistent_at_2sigma": false
+      },
+      {
+        "condition_atp_uM": 10.0,
+        "condition_load_pN": 4.0,
+        "observed_value": 0.046,
+        "observed_uncertainty": 0.005,
+        "predicted_value": 0.08144,
+        "residual": -0.03544,
+        "z_score": -7.088,
+        "consistent_at_2sigma": false
+      },
+      {
+        "condition_atp_uM": 10.0,
+        "condition_load_pN": 5.5,
+        "observed_value": 0.014,
+        "observed_uncertainty": 0.004,
+        "predicted_value": 0.08144,
+        "residual": -0.06744,
+        "z_score": -16.86,
+        "consistent_at_2sigma": false
+      }
+    ],
+    "metrics": {
+      "sample_count": 11,
+      "rmse": 0.32215,
+      "mae": 0.206833,
+      "r_squared": -0.154543,
+      "chi2_reduced": 424.4648,
+      "residuals": [
+        0.03152,
+        -0.02648,
+        -0.11748,
+        -0.23848,
+        -0.40048,
+        -0.58648,
+        -0.74748,
+        -0.00644,
+        -0.01744,
+        -0.03544,
+        -0.06744
+      ],
+      "z_scores": [
+        0.8295,
+        -0.7566,
+        -3.6712,
+        -7.9493,
+        -14.3029,
+        -26.6582,
+        -49.832,
+        -0.92,
+        -2.9067,
+        -7.088,
+        -16.86
+      ],
+      "within_1_sigma_count": 3,
+      "within_1_sigma_ratio": 0.2727,
+      "within_2_sigma_count": 3,
+      "within_2_sigma_ratio": 0.2727,
+      "max_z_score": 49.832
+    },
+    "verdict": "DIVERGENT",
+    "verdict_rationale": "Divergencia sistematica detectada: R2 = -0.1545, max_z = 49.832."
+  },
+  "conflict_record": {
+    "id": "CONF-KIF5B-LOAD-001",
+    "created_at": "2026-09-29T16:04:27.277129Z",
+    "lifecycle_status": "active",
+    "version": "1.0.0",
+    "claim_a_id": "CLM-REPRO-KIF5B-UNLOADED-001",
+    "claim_b_id": null,
+    "evidence_a_id": "EVI-A-008",
+    "evidence_b_id": "EVI-B-006",
+    "divergence_metric": "Colapso de predicao sob forca contraria de 6.0 pN: modelo preve 0.77848 um/s, mas valor empirico e 0.031 um/s (escore z = -49.8 sigma).",
+    "conditions_comparison": {
+      "conflicting_parameter": "load_force_pN",
+      "model_assumption": "unloaded_motility_zero_force",
+      "empirical_condition": "opposing_load_force_up_to_6pN",
+      "atp_concentration_uM": 1000.0
+    },
+    "resolution_status": "explained_by_conditions",
+    "resolution_notes": "A discrepancia extrema decorre da premissa simplificadora 2 do modelo (F_load = 0.0 pN). Sob forca contraria, a barreira de energia de transicao conformacional aumenta exponencialmente (taxa de Bell/Kramers k(F) = k0 * exp(-F*delta_x / k_B*T)). O modelo de 2 estados Michaelis-Menten carece de acoplamento mecanoquimico dependente de carga."
+  },
+  "falsification_claim": {
+    "id": "CLM-FALSIF-KIF5B-LOAD-001",
+    "created_at": "2026-09-29T16:04:27.277168Z",
+    "lifecycle_status": "active",
+    "version": "1.0.0",
+    "statement": "O modelo cinetico MOD-KIF5B-MINIMAL-MM e empiricamente refutado para regimes sob forca de carga contraria (F_load > 0 pN), divergindo em ate 49.8 desvios-padrao na forca de parada (stall force ~6 pN).",
+    "subject_entity_id": "ENT-KIF5B-HUMAN",
+    "predicate": "fails_under_opposing_load",
+    "object_entity_id": "MOD-KIF5B-MINIMAL-MM",
+    "epistemic_record": {
+      "status": "CONTRADICTED",
+      "data_tier": "DERIVED",
+      "provenance": null,
+      "basis": [
+        "EVI-B-001",
+        "EVI-B-002",
+        "EVI-B-003",
+        "EVI-B-004",
+        "EVI-B-005",
+        "EVI-B-006",
+        "EVI-B-008",
+        "EVI-B-009",
+        "EVI-B-010"
+      ],
+      "conditions": {
+        "tested_loads_pN": [
+          1.05,
+          2.15,
+          3.25,
+          4.3,
+          5.2,
+          6.0
+        ],
+        "r_squared": -0.154543,
+        "max_z_score": 49.832
+      },
+      "limitations": [
+        "Refutacao valida especificamente para a aplicacao do modelo MOD-KIF5B-MINIMAL-MM sob carga contraria.",
+        "Nao invalida o sucesso da reproducao sob regime estritamente desimpedido (carga zero)."
+      ],
+      "confidence_evidence_count": 9
+    },
+    "supporting_evidence_ids": [],
+    "conflicting_evidence_ids": [
+      "EVI-B-001",
+      "EVI-B-002",
+      "EVI-B-003",
+      "EVI-B-004",
+      "EVI-B-005",
+      "EVI-B-006",
+      "EVI-B-008",
+      "EVI-B-009",
+      "EVI-B-010"
+    ]
+  }
+}

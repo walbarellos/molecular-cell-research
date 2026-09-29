@@ -1,0 +1,221 @@
+{
+  "$defs": {
+    "DataTier": {
+      "description": "Classificacao estrita da camada de dados.",
+      "enum": [
+        "RAW",
+        "DERIVED",
+        "GENERATED"
+      ],
+      "title": "DataTier",
+      "type": "string"
+    },
+    "EpistemicRecord": {
+      "additionalProperties": false,
+      "description": "Envelope transversal que carrega status epistemico, tier e condicoes.",
+      "properties": {
+        "status": {
+          "$ref": "#/$defs/EpistemicStatus"
+        },
+        "data_tier": {
+          "$ref": "#/$defs/DataTier"
+        },
+        "provenance": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ProvenanceRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "basis": {
+          "description": "IDs de observacoes ou evidencias que sustentam este registro",
+          "items": {
+            "type": "string"
+          },
+          "title": "Basis",
+          "type": "array"
+        },
+        "conditions": {
+          "additionalProperties": true,
+          "description": "Condicoes fisico-quimicas especificas sob as quais este status e valido",
+          "title": "Conditions",
+          "type": "object"
+        },
+        "limitations": {
+          "description": "Limites explicitos de validade ou advertencias metodologicas",
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "confidence_evidence_count": {
+          "default": 0,
+          "description": "Numero de evidencias independentes que suportam a proposicao",
+          "minimum": 0,
+          "title": "Confidence Evidence Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "status",
+        "data_tier"
+      ],
+      "title": "EpistemicRecord",
+      "type": "object"
+    },
+    "EpistemicStatus": {
+      "description": "Estados da maquina de estados de integridade epistemica.",
+      "enum": [
+        "UNKNOWN",
+        "OBSERVED",
+        "REPORTED",
+        "DERIVED",
+        "INFERRED",
+        "HYPOTHESIS",
+        "MODELED",
+        "PREDICTED",
+        "VALIDATED",
+        "CONTRADICTED"
+      ],
+      "title": "EpistemicStatus",
+      "type": "string"
+    },
+    "OperatorType": {
+      "enum": [
+        "HUMAN",
+        "SCRIPT",
+        "PIPELINE",
+        "MODEL"
+      ],
+      "title": "OperatorType",
+      "type": "string"
+    },
+    "ProvenanceRecord": {
+      "additionalProperties": false,
+      "description": "Rastreabilidade de origem de uma afirmacao ou medicao.",
+      "properties": {
+        "source_uri": {
+          "description": "URI, DOI ou identificador persistente da fonte",
+          "title": "Source Uri",
+          "type": "string"
+        },
+        "method": {
+          "description": "Tecnica experimental, algoritmo ou protocolo empregado",
+          "title": "Method",
+          "type": "string"
+        },
+        "operator": {
+          "$ref": "#/$defs/OperatorType",
+          "default": "HUMAN"
+        },
+        "conditions": {
+          "additionalProperties": true,
+          "description": "Parametros de contorno da medicao",
+          "title": "Conditions",
+          "type": "object"
+        }
+      },
+      "required": [
+        "source_uri",
+        "method"
+      ],
+      "title": "ProvenanceRecord",
+      "type": "object"
+    },
+    "SoftLifecycleStatus": {
+      "description": "Ciclo de vida do registro cientifico (sem delecao destrutiva).",
+      "enum": [
+        "active",
+        "superseded",
+        "deprecated",
+        "invalidated",
+        "retracted"
+      ],
+      "title": "SoftLifecycleStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Proposicao declarativa a respeito do comportamento, funcao ou estado de uma entidade.",
+  "properties": {
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "lifecycle_status": {
+      "$ref": "#/$defs/SoftLifecycleStatus",
+      "default": "active"
+    },
+    "version": {
+      "default": "1.0.0",
+      "title": "Version",
+      "type": "string"
+    },
+    "statement": {
+      "description": "Texto claro e auditavel da afirmacao cientifica",
+      "title": "Statement",
+      "type": "string"
+    },
+    "subject_entity_id": {
+      "description": "ID da entidade biológica/física que atua como sujeito",
+      "title": "Subject Entity Id",
+      "type": "string"
+    },
+    "predicate": {
+      "description": "Verbo ou relacao formalizada (ex: exhibits_unidirectional_motion_on)",
+      "title": "Predicate",
+      "type": "string"
+    },
+    "object_entity_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "ID da entidade alvo, se aplicavel",
+      "title": "Object Entity Id"
+    },
+    "epistemic_record": {
+      "$ref": "#/$defs/EpistemicRecord",
+      "description": "Envelope epistemico da afirmacao"
+    },
+    "supporting_evidence_ids": {
+      "description": "Lista de IDs de EvidenceRecords que sustentam a Claim",
+      "items": {
+        "type": "string"
+      },
+      "title": "Supporting Evidence Ids",
+      "type": "array"
+    },
+    "conflicting_evidence_ids": {
+      "description": "Lista de IDs de EvidenceRecords que divergem ou contradizem a Claim",
+      "items": {
+        "type": "string"
+      },
+      "title": "Conflicting Evidence Ids",
+      "type": "array"
+    }
+  },
+  "required": [
+    "statement",
+    "subject_entity_id",
+    "predicate",
+    "epistemic_record"
+  ],
+  "title": "Claim",
+  "type": "object"
+}

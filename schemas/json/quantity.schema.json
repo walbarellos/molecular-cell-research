@@ -1,0 +1,104 @@
+{
+  "$defs": {
+    "RepresentationType": {
+      "enum": [
+        "point_estimate",
+        "distribution",
+        "interval",
+        "bounds"
+      ],
+      "title": "RepresentationType",
+      "type": "string"
+    },
+    "StandardUnit": {
+      "enum": [
+        "nm",
+        "um",
+        "mm",
+        "m",
+        "nm/s",
+        "um/s",
+        "m/s",
+        "ms",
+        "s",
+        "min",
+        "h",
+        "pM",
+        "nM",
+        "uM",
+        "mM",
+        "M",
+        "pN",
+        "nN",
+        "N",
+        "degC",
+        "K",
+        "J",
+        "kJ/mol",
+        "kcal/mol",
+        "k_B*T",
+        "1/s",
+        "1/(uM*s)",
+        "1/(mM*s)",
+        "dimensionless",
+        "%",
+        "count"
+      ],
+      "title": "StandardUnit",
+      "type": "string"
+    },
+    "UncertaintyType": {
+      "enum": [
+        "none",
+        "standard_error",
+        "standard_deviation",
+        "confidence_interval_95",
+        "range",
+        "systematic_error"
+      ],
+      "title": "UncertaintyType",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Representacao de grandeza fisica quantitativa com unidade e incerteza obrigatorias.",
+  "properties": {
+    "value": {
+      "description": "Valor numerico central medido ou computado",
+      "title": "Value",
+      "type": "number"
+    },
+    "unit": {
+      "$ref": "#/$defs/StandardUnit",
+      "description": "Unidade fisica estrita"
+    },
+    "uncertainty": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Margem de incerteza associada",
+      "title": "Uncertainty"
+    },
+    "uncertainty_type": {
+      "$ref": "#/$defs/UncertaintyType",
+      "default": "none"
+    },
+    "representation": {
+      "$ref": "#/$defs/RepresentationType",
+      "default": "point_estimate"
+    }
+  },
+  "required": [
+    "value",
+    "unit"
+  ],
+  "title": "Quantity",
+  "type": "object"
+}

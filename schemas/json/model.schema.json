@@ -1,0 +1,250 @@
+{
+  "$defs": {
+    "ModelValidationStatus": {
+      "enum": [
+        "untested",
+        "provisionally_consistent",
+        "falsified",
+        "validated_within_bounds"
+      ],
+      "title": "ModelValidationStatus",
+      "type": "string"
+    },
+    "Parameter": {
+      "additionalProperties": false,
+      "description": "Variavel quantitativa ou constante requerida por um modelo.",
+      "properties": {
+        "name": {
+          "description": "Nome do parametro (ex: k_cat, K_m, step_size, stall_force)",
+          "title": "Name",
+          "type": "string"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "unit": {
+          "$ref": "#/$defs/StandardUnit"
+        },
+        "default_value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Default Value"
+        },
+        "origin": {
+          "$ref": "#/$defs/ParameterEpistemicOrigin"
+        },
+        "evidence_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "ID da evidencia de suporte quando origin == 'measured'",
+          "title": "Evidence Id"
+        },
+        "sensitivity_bounds": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "number"
+              },
+              "maxItems": 2,
+              "minItems": 2,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Sensitivity Bounds"
+        }
+      },
+      "required": [
+        "name",
+        "description",
+        "unit",
+        "origin"
+      ],
+      "title": "Parameter",
+      "type": "object"
+    },
+    "ParameterEpistemicOrigin": {
+      "enum": [
+        "measured",
+        "estimated",
+        "model_assumption",
+        "unknown"
+      ],
+      "title": "ParameterEpistemicOrigin",
+      "type": "string"
+    },
+    "SoftLifecycleStatus": {
+      "description": "Ciclo de vida do registro cientifico (sem delecao destrutiva).",
+      "enum": [
+        "active",
+        "superseded",
+        "deprecated",
+        "invalidated",
+        "retracted"
+      ],
+      "title": "SoftLifecycleStatus",
+      "type": "string"
+    },
+    "StandardUnit": {
+      "enum": [
+        "nm",
+        "um",
+        "mm",
+        "m",
+        "nm/s",
+        "um/s",
+        "m/s",
+        "ms",
+        "s",
+        "min",
+        "h",
+        "pM",
+        "nM",
+        "uM",
+        "mM",
+        "M",
+        "pN",
+        "nN",
+        "N",
+        "degC",
+        "K",
+        "J",
+        "kJ/mol",
+        "kcal/mol",
+        "k_B*T",
+        "1/s",
+        "1/(uM*s)",
+        "1/(mM*s)",
+        "dimensionless",
+        "%",
+        "count"
+      ],
+      "title": "StandardUnit",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Formalismo matematico ou estocastico para reproduzir um fenomeno biofisico.",
+  "properties": {
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "lifecycle_status": {
+      "$ref": "#/$defs/SoftLifecycleStatus",
+      "default": "active"
+    },
+    "version": {
+      "default": "1.0.0",
+      "title": "Version",
+      "type": "string"
+    },
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "description": {
+      "title": "Description",
+      "type": "string"
+    },
+    "target_phenomenon": {
+      "description": "Fenomeno alvo (ex: KIF5B_microtubule_stepping)",
+      "title": "Target Phenomenon",
+      "type": "string"
+    },
+    "assumptions": {
+      "description": "Premissas simplificadoras formalmente declaradas",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Assumptions",
+      "type": "array"
+    },
+    "parameters": {
+      "description": "Lista de parametros requeridos pelo modelo",
+      "items": {
+        "$ref": "#/$defs/Parameter"
+      },
+      "minItems": 1,
+      "title": "Parameters",
+      "type": "array"
+    },
+    "inputs": {
+      "description": "Variaveis de entrada livres (ex: ATP_concentration, load_force)",
+      "items": {
+        "type": "string"
+      },
+      "title": "Inputs",
+      "type": "array"
+    },
+    "outputs": {
+      "description": "Variaveis geradas pelo modelo (ex: velocity, run_length)",
+      "items": {
+        "type": "string"
+      },
+      "title": "Outputs",
+      "type": "array"
+    },
+    "equations_or_algorithm_description": {
+      "title": "Equations Or Algorithm Description",
+      "type": "string"
+    },
+    "implementation_reference": {
+      "description": "Caminho do script, funcao ou classe executora",
+      "title": "Implementation Reference",
+      "type": "string"
+    },
+    "source_reference": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Paper seminal ou base teorica do modelo",
+      "title": "Source Reference"
+    },
+    "validation_status": {
+      "$ref": "#/$defs/ModelValidationStatus",
+      "default": "untested"
+    }
+  },
+  "required": [
+    "name",
+    "description",
+    "target_phenomenon",
+    "assumptions",
+    "parameters",
+    "equations_or_algorithm_description",
+    "implementation_reference"
+  ],
+  "title": "Model",
+  "type": "object"
+}

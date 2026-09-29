@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" width="100%" height="100%">
+  <defs>
+    <linearGradient id="mtGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="tubulinAlpha" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+    <linearGradient id="tubulinBeta" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#4f46e5" />
+    </linearGradient>
+    <linearGradient id="kinesinHead" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7" />
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#ffffff" />
+
+  <!-- Microtubule Filament Base -->
+  <rect x="40" y="240" width="720" height="50" rx="6" fill="url(#mtGrad)" stroke="#334155" stroke-width="2"/>
+  
+  <!-- Tubulin Dimers Pattern -->
+  <!-- Repeat alpha/beta subunits along the protofilament -->
+  <g id="protofilament">
+    <!-- Subunits 8nm repeats -->
+    <ellipse cx="70" cy="265" rx="18" ry="16" fill="url(#tubulinAlpha)"/>
+    <text x="70" y="269" font-family="sans-serif" font-size="10" fill="#ffffff" font-weight="bold" text-anchor="middle">α</text>
+    <ellipse cx="106" cy="265" rx="18" ry="16" fill="url(#tubulinBeta)"/>
+    <text x="106" y="269" font-family="sans-serif" font-size="10" fill="#ffffff" font-weight="bold" text-anchor="middle">β</text>
+    
+    <ellipse cx="142" cy="265" rx="18" ry="16" fill="url(#tubulinAlpha)"/>
+    <text x="142" y="269" font-family="sans-serif" font-size="10" fill="#ffffff" font-weight="bold" text-anchor="middle">α</text>
+    <ellipse cx="178" cy="265" rx="18" ry="16" fill="url(#tubulinBeta)"/>
+    <text x="178" y="269" font-family="sans-serif" font-size="10" fill="#ffffff" font-weight="bold" text-anchor="middle">β</text>
+
+    <ellipse cx="214" cy="265" rx="18" ry="16" fill="url(#tubulinAlpha)"/>
+    <text x="214" y="269" font-family="sans-serif" font-size="10" fill="#ffffff" font-weight="bold" text-anchor="middle">α</text>
+    <ellipse cx="250" cy="265" rx="18" ry="16" fill="url(#tubulinBeta)"/>
+    <text x="250" y="269" font-family="sans-serif" font-size="10" fill="#ffffff" font-weight="bold" text-anchor="middle">β</text>
+
+    <ellipse cx="286" cy="265" rx="18" ry="16" fill="url(#tubulinAlpha)"/>
+    <text x="286" y="269" font-family="sans-serif" font-size="10" fill="#ffffff" font-weight="bold" text-anchor="middle">α</text>
+    <ellipse cx="322" cy="265" rx="18" ry="16" fill="url(#tubulinBeta)"/>
+    <text x="322" y="269" font-family="sans-serif" font-size="10" fill="#ffffff" font-weight="bold" text-anchor="middle">β</text>
+
+    <ellipse cx="358" cy="265" rx="18" ry="16" fill="url(#tubulinAlpha)"/>
+    <text x="358" y="269" font-family="sans-serif" font-size="10" fill="#ffffff" font-weight="bold" text-anchor="middle">α</text>
+    <ellipse cx="394" cy="265" rx="18" ry="16" fill="url(#tubulinBeta)"/>
+    <text x="394" y="269" font-family="sans-serif" font-size="10" fill="#ffffff" font-weight="bold" text-anchor="middle">β</text>
+
+    <ellipse cx="430" cy="265" rx="18" ry="16" fill="url(#tubulinAlpha)"/>
+    <text x="430" y="269" font-family="sans-serif" font-size="10" fill="#ffffff" font-weight="bold" text-anchor="middle">α</text>
+    <ellipse cx="466" cy="265" rx="18" ry="16" fill="url(#tubulinBeta)"/>
+    <text x="466" y="269" font-family="sans-serif" font-size="10" fill="#ffffff" font-weight="bold" text-anchor="middle">β</text>
+
+    <ellipse cx="502" cy="265" rx="18" ry="16" fill="url(#tubulinAlpha)"/>
+    <text x="502" y="269" font-family="sans-serif" font-size="10" fill="#ffffff" font-weight="bold" text-anchor="middle">α</text>
+    <ellipse cx="538" cy="265" rx="18" ry="16" fill="url(#tubulinBeta)"/>
+    <text x="538" y="269" font-family="sans-serif" font-size="10" fill="#ffffff" font-weight="bold" text-anchor="middle">β</text>
+
+    <ellipse cx="574" cy="265" rx="18" ry="16" fill="url(#tubulinAlpha)"/>
+    <text x="574" y="269" font-family="sans-serif" font-size="10" fill="#ffffff" font-weight="bold" text-anchor="middle">α</text>
+    <ellipse cx="610" cy="265" rx="18" ry="16" fill="url(#tubulinBeta)"/>
+    <text x="610" y="269" font-family="sans-serif" font-size="10" fill="#ffffff" font-weight="bold" text-anchor="middle">β</text>
+
+    <ellipse cx="646" cy="265" rx="18" ry="16" fill="url(#tubulinAlpha)"/>
+    <text x="646" y="269" font-family="sans-serif" font-size="10" fill="#ffffff" font-weight="bold" text-anchor="middle">α</text>
+    <ellipse cx="682" cy="265" rx="18" ry="16" fill="url(#tubulinBeta)"/>
+    <text x="682" y="269" font-family="sans-serif" font-size="10" fill="#ffffff" font-weight="bold" text-anchor="middle">β</text>
+
+    <ellipse cx="718" cy="265" rx="18" ry="16" fill="url(#tubulinAlpha)"/>
+    <text x="718" y="269" font-family="sans-serif" font-size="10" fill="#ffffff" font-weight="bold" text-anchor="middle">α</text>
+  </g>
+
+  <!-- Microtubule Polarity Labels -->
+  <text x="45" y="305" font-family="sans-serif" font-size="12" fill="#64748b" font-weight="bold">(-) Minus End</text>
+  <text x="680" y="305" font-family="sans-serif" font-size="12" fill="#0284c7" font-weight="bold">(+) Plus End</text>
+
+  <!-- Step size dimension marker (8.2 nm) -->
+  <line x1="394" y1="225" x2="466" y2="225" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="2,2"/>
+  <line x1="394" y1="220" x2="394" y2="230" stroke="#0284c7" stroke-width="1.5"/>
+  <line x1="466" y1="220" x2="466" y2="230" stroke="#0284c7" stroke-width="1.5"/>
+  <text x="430" y="218" font-family="sans-serif" font-size="10" fill="#0284c7" font-weight="bold" text-anchor="middle">d_step = 8.2 nm</text>
+
+  <!-- Kinesin-1 Stalk and Coiled-Coil -->
+  <!-- Cargo vesicle at the top -->
+  <circle cx="360" cy="50" r="34" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+  <text x="360" y="54" font-family="sans-serif" font-size="11" fill="#334155" font-weight="bold" text-anchor="middle">CARGO / BEAD</text>
+
+  <!-- Stalk -->
+  <path d="M 360 84 Q 370 120 380 150" fill="none" stroke="#475569" stroke-width="4" stroke-linecap="round"/>
+  
+  <!-- Neck Linkers -->
+  <!-- Trailing Head (bound to beta-tubulin at 394) -->
+  <path d="M 380 150 Q 385 180 394 235" fill="none" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+  <!-- Leading Head (stepping towards next beta-tubulin at 466) -->
+  <path d="M 380 150 Q 420 170 445 205" fill="none" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Trailing Motor Domain (Bound) -->
+  <ellipse cx="394" cy="238" rx="20" ry="14" fill="url(#kinesinHead)" stroke="#b45309" stroke-width="1.5"/>
+  <text x="394" y="242" font-family="sans-serif" font-size="9" fill="#ffffff" font-weight="bold" text-anchor="middle">ATP</text>
+
+  <!-- Leading Motor Domain (Advancing) -->
+  <ellipse cx="445" cy="205" rx="20" ry="14" fill="url(#kinesinHead)" stroke="#b45309" stroke-width="1.5"/>
+  <text x="445" y="209" font-family="sans-serif" font-size="9" fill="#ffffff" font-weight="bold" text-anchor="middle">ADP</text>
+
+  <!-- Stepping Vector Arrow -->
+  <path d="M 440 180 C 460 175, 480 190, 485 220" fill="none" stroke="#0284c7" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="495" y="175" font-family="sans-serif" font-size="11" fill="#0284c7" font-weight="bold">Deslocamento (+)</text>
+
+</svg>

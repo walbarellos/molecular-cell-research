@@ -1,0 +1,207 @@
+{
+  "reproduction_phenomenon": "CELL-LAB-001",
+  "dataset_evaluated": "DTS-CELL-LAB-001-CALIBRATION",
+  "model_id": "MOD-KIF5B-MINIMAL-MM",
+  "simulation_id": "50c8949e-9a8e-4b6b-97de-02355082983b",
+  "execution_hash": "466eacda6fd6a4202e1317c80739304a482d568d32db1f4572e133609f266d11",
+  "comparison": {
+    "model_id": "MOD-KIF5B-MINIMAL-MM",
+    "simulation_id": "50c8949e-9a8e-4b6b-97de-02355082983b",
+    "target_property": "velocity",
+    "point_comparisons": [
+      {
+        "condition_atp_uM": 2.0,
+        "condition_load_pN": 0.0,
+        "observed_value": 0.015,
+        "observed_uncertainty": 0.003,
+        "predicted_value": 0.01764,
+        "residual": -0.00264,
+        "z_score": -0.88,
+        "consistent_at_2sigma": true
+      },
+      {
+        "condition_atp_uM": 5.0,
+        "condition_load_pN": 0.0,
+        "observed_value": 0.038,
+        "observed_uncertainty": 0.005,
+        "predicted_value": 0.04277,
+        "residual": -0.00477,
+        "z_score": -0.954,
+        "consistent_at_2sigma": true
+      },
+      {
+        "condition_atp_uM": 10.0,
+        "condition_load_pN": 0.0,
+        "observed_value": 0.076,
+        "observed_uncertainty": 0.008,
+        "predicted_value": 0.08144,
+        "residual": -0.00544,
+        "z_score": -0.68,
+        "consistent_at_2sigma": true
+      },
+      {
+        "condition_atp_uM": 20.0,
+        "condition_load_pN": 0.0,
+        "observed_value": 0.144,
+        "observed_uncertainty": 0.012,
+        "predicted_value": 0.14868,
+        "residual": -0.00468,
+        "z_score": -0.39,
+        "consistent_at_2sigma": true
+      },
+      {
+        "condition_atp_uM": 50.0,
+        "condition_load_pN": 0.0,
+        "observed_value": 0.305,
+        "observed_uncertainty": 0.021,
+        "predicted_value": 0.29459,
+        "residual": 0.01041,
+        "z_score": 0.4957,
+        "consistent_at_2sigma": true
+      },
+      {
+        "condition_atp_uM": 100.0,
+        "condition_load_pN": 0.0,
+        "observed_value": 0.472,
+        "observed_uncertainty": 0.028,
+        "predicted_value": 0.43783,
+        "residual": 0.03417,
+        "z_score": 1.2204,
+        "consistent_at_2sigma": true
+      },
+      {
+        "condition_atp_uM": 200.0,
+        "condition_load_pN": 0.0,
+        "observed_value": 0.612,
+        "observed_uncertainty": 0.034,
+        "predicted_value": 0.57845,
+        "residual": 0.03355,
+        "z_score": 0.9868,
+        "consistent_at_2sigma": true
+      },
+      {
+        "condition_atp_uM": 500.0,
+        "condition_load_pN": 0.0,
+        "observed_value": 0.735,
+        "observed_uncertainty": 0.038,
+        "predicted_value": 0.71653,
+        "residual": 0.01847,
+        "z_score": 0.4861,
+        "consistent_at_2sigma": true
+      },
+      {
+        "condition_atp_uM": 1000.0,
+        "condition_load_pN": 0.0,
+        "observed_value": 0.814,
+        "observed_uncertainty": 0.04,
+        "predicted_value": 0.77848,
+        "residual": 0.03552,
+        "z_score": 0.888,
+        "consistent_at_2sigma": true
+      },
+      {
+        "condition_atp_uM": 2000.0,
+        "condition_load_pN": 0.0,
+        "observed_value": 0.832,
+        "observed_uncertainty": 0.042,
+        "predicted_value": 0.81365,
+        "residual": 0.01835,
+        "z_score": 0.4369,
+        "consistent_at_2sigma": true
+      }
+    ],
+    "metrics": {
+      "sample_count": 10,
+      "rmse": 0.021029,
+      "mae": 0.0168,
+      "r_squared": 0.995483,
+      "chi2_reduced": 0.7779,
+      "residuals": [
+        -0.00264,
+        -0.00477,
+        -0.00544,
+        -0.00468,
+        0.01041,
+        0.03417,
+        0.03355,
+        0.01847,
+        0.03552,
+        0.01835
+      ],
+      "z_scores": [
+        -0.88,
+        -0.954,
+        -0.68,
+        -0.39,
+        0.4957,
+        1.2204,
+        0.9868,
+        0.4861,
+        0.888,
+        0.4369
+      ],
+      "within_1_sigma_count": 9,
+      "within_1_sigma_ratio": 0.9,
+      "within_2_sigma_count": 10,
+      "within_2_sigma_ratio": 1.0,
+      "max_z_score": 1.2204
+    },
+    "verdict": "REPRODUCED_CONSISTENT",
+    "verdict_rationale": "O modelo reproduz os dados experimentais com sucesso: 10/10 pontos (100.0%) estao dentro do intervalo de 2 sigma experimental, com R2 = 0.9955 e chi2_red = 0.778."
+  },
+  "validation_claim": {
+    "id": "CLM-REPRO-KIF5B-UNLOADED-001",
+    "created_at": "2026-09-29T16:04:27.279789Z",
+    "lifecycle_status": "active",
+    "version": "1.0.0",
+    "statement": "O modelo MOD-KIF5B-MINIMAL-MM reproduz com fidelidade estatistica a velocidade de translocacao desimpedida (carga nula) de KIF5B sob concentracoes de ATP de 2 a 2000 uM a 24 degC em acordo com as medicoes de Schnitzer & Block 1997.",
+    "subject_entity_id": "ENT-KIF5B-HUMAN",
+    "predicate": "velocity_reproduced_by",
+    "object_entity_id": "MOD-KIF5B-MINIMAL-MM",
+    "epistemic_record": {
+      "status": "VALIDATED",
+      "data_tier": "DERIVED",
+      "provenance": null,
+      "basis": [
+        "EVI-A-000",
+        "EVI-A-001",
+        "EVI-A-002",
+        "EVI-A-003",
+        "EVI-A-004",
+        "EVI-A-005",
+        "EVI-A-006",
+        "EVI-A-007",
+        "EVI-A-008",
+        "EVI-A-009"
+      ],
+      "conditions": {
+        "atp_range_uM": [
+          2.0,
+          2000.0
+        ],
+        "load_force_pN": 0.0,
+        "temperature_degC": 24.0,
+        "r_squared": 0.995483,
+        "chi2_reduced": 0.7779
+      },
+      "limitations": [
+        "Validacao restrita estritamente a condicoes de carga nula (F_load = 0.0 pN).",
+        "Nao extrapola para ensaios sob forcas contrarias ou temperaturas divergentes de 24 degC."
+      ],
+      "confidence_evidence_count": 10
+    },
+    "supporting_evidence_ids": [
+      "EVI-A-000",
+      "EVI-A-001",
+      "EVI-A-002",
+      "EVI-A-003",
+      "EVI-A-004",
+      "EVI-A-005",
+      "EVI-A-006",
+      "EVI-A-007",
+      "EVI-A-008",
+      "EVI-A-009"
+    ],
+    "conflicting_evidence_ids": []
+  }
+}

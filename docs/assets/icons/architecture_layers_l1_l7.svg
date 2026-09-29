@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 520" width="100%" height="100%">
+  <defs>
+    <linearGradient id="firewallGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#dc2626" />
+      <stop offset="100%" stop-color="#991b1b" />
+    </linearGradient>
+    <linearGradient id="layerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f8fafc" />
+      <stop offset="100%" stop-color="#f1f5f9" />
+    </linearGradient>
+    <marker id="arrowDown" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#475569" />
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#ffffff" />
+
+  <!-- Title -->
+  <text x="460" y="32" font-family="sans-serif" font-size="16" fill="#0f172a" font-weight="bold" text-anchor="middle">
+    SCIENTIFIC SYSTEMS EXPLORATION PLATFORM (SSEP) - ARQUITETURA L1 A L7
+  </text>
+  <text x="460" y="52" font-family="sans-serif" font-size="12" fill="#64748b" text-anchor="middle">
+    Estrutura de 7 Camadas com Pilar Transversal de Integridade Epistêmica e Rastreabilidade Criptográfica
+  </text>
+
+  <!-- Left: 7 Layers Stack (x: 40, width: 620) -->
+  <!-- Layer 7 -->
+  <rect x="40" y="70" width="620" height="50" rx="6" fill="#f8fafc" stroke="#3b82f6" stroke-width="2"/>
+  <rect x="40" y="70" width="110" height="50" rx="6" fill="#3b82f6"/>
+  <text x="95" y="93" font-family="sans-serif" font-size="11" fill="#ffffff" font-weight="bold" text-anchor="middle">L7</text>
+  <text x="95" y="108" font-family="sans-serif" font-size="9" fill="#ffffff" text-anchor="middle">UI / CLI</text>
+  <text x="165" y="92" font-family="sans-serif" font-size="11" fill="#1e293b" font-weight="bold">Interface &amp; Apresentação Científica Multimodal</text>
+  <text x="165" y="108" font-family="sans-serif" font-size="9" fill="#64748b">Modos: Usuário (Operacional) | Engenheiro (Componentes) | Cientista (Proveniência &amp; Conflitos)</text>
+
+  <!-- Layer 6 -->
+  <rect x="40" y="130" width="620" height="50" rx="6" fill="#f8fafc" stroke="#6366f1" stroke-width="2"/>
+  <rect x="40" y="130" width="110" height="50" rx="6" fill="#6366f1"/>
+  <text x="95" y="153" font-family="sans-serif" font-size="11" fill="#ffffff" font-weight="bold" text-anchor="middle">L6</text>
+  <text x="95" y="168" font-family="sans-serif" font-size="9" fill="#ffffff" text-anchor="middle">APPLICATION</text>
+  <text x="165" y="152" font-family="sans-serif" font-size="11" fill="#1e293b" font-weight="bold">Orquestração Científica &amp; Exploração Epistêmica</text>
+  <text x="165" y="168" font-family="sans-serif" font-size="9" fill="#64748b">ExplorationService | ReproductionPipeline | FalsificationPipeline | DiscriminatoryDesign</text>
+
+  <!-- Layer 5 -->
+  <rect x="40" y="190" width="620" height="50" rx="6" fill="#f8fafc" stroke="#8b5cf6" stroke-width="2"/>
+  <rect x="40" y="190" width="110" height="50" rx="6" fill="#8b5cf6"/>
+  <text x="95" y="213" font-family="sans-serif" font-size="11" fill="#ffffff" font-weight="bold" text-anchor="middle">L5</text>
+  <text x="95" y="228" font-family="sans-serif" font-size="9" fill="#ffffff" text-anchor="middle">COMPUTATION</text>
+  <text x="165" y="212" font-family="sans-serif" font-size="11" fill="#1e293b" font-weight="bold">Motores Numéricos &amp; Modelos Biofísicos</text>
+  <text x="165" y="228" font-family="sans-serif" font-size="9" fill="#64748b">Kinetics (MM / Gillespie) | Minimal M1 | Force-Dependent M2 (Bell) | Simulator &amp; Calibration</text>
+
+  <!-- Layer 4 -->
+  <rect x="40" y="250" width="620" height="50" rx="6" fill="#f8fafc" stroke="#a855f7" stroke-width="2"/>
+  <rect x="40" y="250" width="110" height="50" rx="6" fill="#a855f7"/>
+  <text x="95" y="273" font-family="sans-serif" font-size="11" fill="#ffffff" font-weight="bold" text-anchor="middle">L4</text>
+  <text x="95" y="288" font-family="sans-serif" font-size="9" fill="#ffffff" text-anchor="middle">KNOWLEDGE</text>
+  <text x="165" y="272" font-family="sans-serif" font-size="11" fill="#1e293b" font-weight="bold">Ontologia &amp; Grafo Epistêmico</text>
+  <text x="165" y="288" font-family="sans-serif" font-size="9" fill="#64748b">Entities (Proteínas, Ligantes) | Relations | Claims (Validated/Contradicted) | ConflictRecord</text>
+
+  <!-- Layer 3 -->
+  <rect x="40" y="310" width="620" height="50" rx="6" fill="#f8fafc" stroke="#059669" stroke-width="2"/>
+  <rect x="40" y="310" width="110" height="50" rx="6" fill="#059669"/>
+  <text x="95" y="333" font-family="sans-serif" font-size="11" fill="#ffffff" font-weight="bold" text-anchor="middle">L3</text>
+  <text x="95" y="348" font-family="sans-serif" font-size="9" fill="#ffffff" text-anchor="middle">EVIDENCE</text>
+  <text x="165" y="332" font-family="sans-serif" font-size="11" fill="#1e293b" font-weight="bold">Registros de Evidência &amp; Condições de Ensaio</text>
+  <text x="165" y="348" font-family="sans-serif" font-size="9" fill="#64748b">EvidenceRecord | ExperimentalConditions (pH, T, ATP, F) | SourceMetadata (DOI, Nature 1997/99)</text>
+
+  <!-- Layer 2 -->
+  <rect x="40" y="370" width="620" height="50" rx="6" fill="#f8fafc" stroke="#0284c7" stroke-width="2"/>
+  <rect x="40" y="370" width="110" height="50" rx="6" fill="#0284c7"/>
+  <text x="95" y="393" font-family="sans-serif" font-size="11" fill="#ffffff" font-weight="bold" text-anchor="middle">L2</text>
+  <text x="95" y="408" font-family="sans-serif" font-size="9" fill="#ffffff" text-anchor="middle">DATA TIERS</text>
+  <text x="165" y="392" font-family="sans-serif" font-size="11" fill="#1e293b" font-weight="bold">Segregação Estrita de Dados</text>
+  <text x="165" y="408" font-family="sans-serif" font-size="9" fill="#64748b">RAW (CSV Imutável) | DERIVED (JSON Schemas Pydantic) | GENERATED (Simulações)</text>
+
+  <!-- Layer 1 -->
+  <rect x="40" y="430" width="620" height="50" rx="6" fill="#f8fafc" stroke="#334155" stroke-width="2"/>
+  <rect x="40" y="430" width="110" height="50" rx="6" fill="#334155"/>
+  <text x="95" y="453" font-family="sans-serif" font-size="11" fill="#ffffff" font-weight="bold" text-anchor="middle">L1</text>
+  <text x="95" y="468" font-family="sans-serif" font-size="9" fill="#ffffff" text-anchor="middle">INFRASTRUCTURE</text>
+  <text x="165" y="452" font-family="sans-serif" font-size="11" fill="#1e293b" font-weight="bold">Infraestrutura, Armazenamento &amp; Determinismo</text>
+  <text x="165" y="468" font-family="sans-serif" font-size="9" fill="#64748b">POSIX File System | Hashes Criptográficos SHA-256 | PRNG Seed (INV-REPRO-001)</text>
+
+  <!-- Right: Transversal Pillar of Scientific Integrity (x: 680, width: 200) -->
+  <rect x="680" y="70" width="200" height="410" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="2.5"/>
+  <rect x="680" y="70" width="200" height="35" rx="8" fill="url(#firewallGrad)"/>
+  <text x="780" y="92" font-family="sans-serif" font-size="11" fill="#ffffff" font-weight="bold" text-anchor="middle">PILAR TRANSVERSAL</text>
+  <text x="780" y="120" font-family="sans-serif" font-size="11" fill="#991b1b" font-weight="bold" text-anchor="middle">INTEGRIDADE CIENTÍFICA</text>
+
+  <!-- Pillar Contents -->
+  <rect x="695" y="140" width="170" height="70" rx="5" fill="#ffffff" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="780" y="158" font-family="sans-serif" font-size="10" fill="#b91c1c" font-weight="bold" text-anchor="middle">EPISTEMIC FIREWALL</text>
+  <text x="780" y="174" font-family="sans-serif" font-size="8" fill="#475569" text-anchor="middle">Proíbe contaminação de</text>
+  <text x="780" y="186" font-family="sans-serif" font-size="8" fill="#475569" text-anchor="middle">EVIDENCE com GENERATED</text>
+  <text x="780" y="198" font-family="sans-serif" font-size="8" fill="#047857" font-weight="bold" text-anchor="middle">(INV-DATA-001)</text>
+
+  <rect x="695" y="225" width="170" height="70" rx="5" fill="#ffffff" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="780" y="243" font-family="sans-serif" font-size="10" fill="#b91c1c" font-weight="bold" text-anchor="middle">PROVENIÊNCIA ESTREITA</text>
+  <text x="780" y="259" font-family="sans-serif" font-size="8" fill="#475569" text-anchor="middle">Toda Claim exige evidências</text>
+  <text x="780" y="271" font-family="sans-serif" font-size="8" fill="#475569" text-anchor="middle">e condições auditadas</text>
+  <text x="780" y="283" font-family="sans-serif" font-size="8" fill="#047857" font-weight="bold" text-anchor="middle">(INV-CLAIM-001)</text>
+
+  <rect x="695" y="310" width="170" height="70" rx="5" fill="#ffffff" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="780" y="328" font-family="sans-serif" font-size="10" fill="#b91c1c" font-weight="bold" text-anchor="middle">DETERMINISMO REPRO</text>
+  <text x="780" y="344" font-family="sans-serif" font-size="8" fill="#475569" text-anchor="middle">Execuções estocásticas</text>
+  <text x="780" y="356" font-family="sans-serif" font-size="8" fill="#475569" text-anchor="middle">exigem semente e hash</text>
+  <text x="780" y="368" font-family="sans-serif" font-size="8" fill="#047857" font-weight="bold" text-anchor="middle">(INV-REPRO-001)</text>
+
+  <rect x="695" y="395" width="170" height="70" rx="5" fill="#ffffff" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="780" y="413" font-family="sans-serif" font-size="10" fill="#b91c1c" font-weight="bold" text-anchor="middle">CONHECIMENTO NEGATIVO</text>
+  <text x="780" y="429" font-family="sans-serif" font-size="8" fill="#475569" text-anchor="middle">Falhas geram ConflictRecord</text>
+  <text x="780" y="441" font-family="sans-serif" font-size="8" fill="#475569" text-anchor="middle">e orientam novo design</text>
+  <text x="780" y="453" font-family="sans-serif" font-size="8" fill="#047857" font-weight="bold" text-anchor="middle">(INV-CONFLICT-001)</text>
+
+  <!-- Horizontal inspection lines from firewall to all layers -->
+  <line x1="660" y1="95" x2="680" y2="95" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <line x1="660" y1="155" x2="680" y2="155" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <line x1="660" y1="215" x2="680" y2="215" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <line x1="660" y1="275" x2="680" y2="275" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <line x1="660" y1="335" x2="680" y2="335" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <line x1="660" y1="395" x2="680" y2="395" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <line x1="660" y1="455" x2="680" y2="455" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="3,3"/>
+</svg>

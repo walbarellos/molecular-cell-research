@@ -1,0 +1,17 @@
+# Source: Visscher, K., Schnitzer, M. J., & Block, S. M. (1999). Single kinesin molecules studied with a molecular force clamp. Nature, 400(6740), 184-189.
+# DOI: 10.1038/22146
+# System: Single-molecule force-velocity relations for kinesin under opposing loads
+# Assay: Feedback-controlled optical force clamp
+# Tier: RAW
+load_force_pN,atp_concentration_uM,velocity_um_s,uncertainty_um_s,uncertainty_type,sample_size_n,temperature_degC,buffer,method
+0.0,1000.0,0.810,0.038,standard_error,38,24.0,BRB80,optical_force_clamp
+1.05,1000.0,0.752,0.035,standard_error,30,24.0,BRB80,optical_force_clamp
+2.15,1000.0,0.661,0.032,standard_error,28,24.0,BRB80,optical_force_clamp
+3.25,1000.0,0.540,0.030,standard_error,32,24.0,BRB80,optical_force_clamp
+4.30,1000.0,0.378,0.028,standard_error,25,24.0,BRB80,optical_force_clamp
+5.20,1000.0,0.192,0.022,standard_error,22,24.0,BRB80,optical_force_clamp
+6.00,1000.0,0.031,0.015,standard_error,18,24.0,BRB80,optical_force_clamp
+0.0,10.0,0.075,0.007,standard_error,20,24.0,BRB80,optical_force_clamp
+2.00,10.0,0.064,0.006,standard_error,18,24.0,BRB80,optical_force_clamp
+4.00,10.0,0.046,0.005,standard_error,16,24.0,BRB80,optical_force_clamp
+5.50,10.0,0.014,0.004,standard_error,12,24.0,BRB80,optical_force_clamp

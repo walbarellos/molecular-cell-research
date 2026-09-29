@@ -1,0 +1,120 @@
+{
+  "$defs": {
+    "ParameterEpistemicOrigin": {
+      "enum": [
+        "measured",
+        "estimated",
+        "model_assumption",
+        "unknown"
+      ],
+      "title": "ParameterEpistemicOrigin",
+      "type": "string"
+    },
+    "StandardUnit": {
+      "enum": [
+        "nm",
+        "um",
+        "mm",
+        "m",
+        "nm/s",
+        "um/s",
+        "m/s",
+        "ms",
+        "s",
+        "min",
+        "h",
+        "pM",
+        "nM",
+        "uM",
+        "mM",
+        "M",
+        "pN",
+        "nN",
+        "N",
+        "degC",
+        "K",
+        "J",
+        "kJ/mol",
+        "kcal/mol",
+        "k_B*T",
+        "1/s",
+        "1/(uM*s)",
+        "1/(mM*s)",
+        "dimensionless",
+        "%",
+        "count"
+      ],
+      "title": "StandardUnit",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Variavel quantitativa ou constante requerida por um modelo.",
+  "properties": {
+    "name": {
+      "description": "Nome do parametro (ex: k_cat, K_m, step_size, stall_force)",
+      "title": "Name",
+      "type": "string"
+    },
+    "description": {
+      "title": "Description",
+      "type": "string"
+    },
+    "unit": {
+      "$ref": "#/$defs/StandardUnit"
+    },
+    "default_value": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Default Value"
+    },
+    "origin": {
+      "$ref": "#/$defs/ParameterEpistemicOrigin"
+    },
+    "evidence_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "ID da evidencia de suporte quando origin == 'measured'",
+      "title": "Evidence Id"
+    },
+    "sensitivity_bounds": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Sensitivity Bounds"
+    }
+  },
+  "required": [
+    "name",
+    "description",
+    "unit",
+    "origin"
+  ],
+  "title": "Parameter",
+  "type": "object"
+}

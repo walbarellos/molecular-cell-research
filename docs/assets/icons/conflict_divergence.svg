@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" width="100%" height="100%">
+  <rect width="100%" height="100%" fill="#ffffff" />
+
+  <!-- Title -->
+  <text x="380" y="30" font-family="sans-serif" font-size="15" fill="#0f172a" font-weight="bold" text-anchor="middle">
+    CONFRONTO EPISTEMICO: CURVAS FORCA-VELOCIDADE ([ATP] = 1000 µM)
+  </text>
+  <text x="380" y="48" font-family="sans-serif" font-size="11" fill="#64748b" text-anchor="middle">
+    Divergencia entre Modelo Quimioestatico (M1) e Dados Experimentais de Pinca de Forca (Dataset B)
+  </text>
+
+  <!-- Plot Area: x: 100 to 700, y: 70 to 320 -->
+  <!-- Axis -->
+  <line x1="100" y1="320" x2="700" y2="320" stroke="#334155" stroke-width="2"/>
+  <line x1="100" y1="320" x2="100" y2="70" stroke="#334155" stroke-width="2"/>
+
+  <!-- Grid lines -->
+  <line x1="100" y1="260" x2="700" y2="260" stroke="#f1f5f9" stroke-width="1"/>
+  <line x1="100" y1="200" x2="700" y2="200" stroke="#f1f5f9" stroke-width="1"/>
+  <line x1="100" y1="140" x2="700" y2="140" stroke="#f1f5f9" stroke-width="1"/>
+  <line x1="100" y1="80" x2="700" y2="80" stroke="#f1f5f9" stroke-width="1"/>
+
+  <!-- Y ticks: 0.0, 0.2, 0.4, 0.6, 0.8, 1.0 um/s -->
+  <!-- 0.0 um/s at y=320, 1.0 um/s at y=80 -> dy = 240 px per 1.0 um/s (24 px per 0.1) -->
+  <text x="85" y="324" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="end">0.0</text>
+  <text x="85" y="272" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="end">0.2</text>
+  <text x="85" y="224" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="end">0.4</text>
+  <text x="85" y="176" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="end">0.6</text>
+  <text x="85" y="128" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="end">0.8</text>
+  <text x="35" y="195" font-family="sans-serif" font-size="12" fill="#0f172a" font-weight="bold" transform="rotate(-90 35 195)" text-anchor="middle">Velocidade (µm/s)</text>
+
+  <!-- X ticks: 0, 1, 2, 3, 4, 5, 6, 7 pN -->
+  <!-- 0 pN at x=100, 7 pN at x=660 -> dx = 80 px per 1 pN -->
+  <text x="100" y="340" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">0.0</text>
+  <text x="180" y="340" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">1.0</text>
+  <text x="260" y="340" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">2.0</text>
+  <text x="340" y="340" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">3.0</text>
+  <text x="420" y="340" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">4.0</text>
+  <text x="500" y="340" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">5.0</text>
+  <text x="580" y="340" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">6.0</text>
+  <text x="660" y="340" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">7.0</text>
+  <text x="380" y="365" font-family="sans-serif" font-size="12" fill="#0f172a" font-weight="bold" text-anchor="middle">Força de Carga Contrária (pN)</text>
+
+  <!-- Model M1 Line: Flatline at v = 0.7785 um/s -> y = 320 - (0.7785 * 240) = 133.16 -->
+  <line x1="100" y1="133" x2="660" y2="133" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="6,4"/>
+  <text x="665" y="130" font-family="sans-serif" font-size="11" fill="#ef4444" font-weight="bold">M1: Quimioestático (v ≈ 0.78)</text>
+
+  <!-- Model M2 Curve (Kramers/Bell smooth curve) -->
+  <!-- 0: 0.81, 1: 0.75, 2: 0.65, 3: 0.52, 4: 0.38, 5: 0.20, 6: 0.0 -->
+  <path d="M 100 126 Q 260 145 380 200 T 580 320" fill="none" stroke="#2563eb" stroke-width="3"/>
+  <text x="540" y="270" font-family="sans-serif" font-size="11" fill="#2563eb" font-weight="bold">M2: Mecanoquímico (Bell)</text>
+
+  <!-- Empirical Data Points with Error Bars (Dataset B - Visscher et al. 1999) -->
+  <!-- Point 1: F=0.0, v=0.810 (y=125.6), err=0.038 (dy=9.1) -->
+  <line x1="100" y1="116.5" x2="100" y2="134.7" stroke="#0f172a" stroke-width="1.5"/>
+  <circle cx="100" cy="125.6" r="4.5" fill="#059669" stroke="#0f172a" stroke-width="1.5"/>
+
+  <!-- Point 2: F=1.05 (x=184), v=0.752 (y=139.5), err=0.035 (dy=8.4) -->
+  <line x1="184" y1="131.1" x2="184" y2="147.9" stroke="#0f172a" stroke-width="1.5"/>
+  <circle cx="184" cy="139.5" r="4.5" fill="#059669" stroke="#0f172a" stroke-width="1.5"/>
+
+  <!-- Point 3: F=2.15 (x=272), v=0.661 (y=161.4), err=0.032 (dy=7.7) -->
+  <line x1="272" y1="153.7" x2="272" y2="169.1" stroke="#0f172a" stroke-width="1.5"/>
+  <circle cx="272" cy="161.4" r="4.5" fill="#059669" stroke="#0f172a" stroke-width="1.5"/>
+
+  <!-- Point 4: F=3.25 (x=360), v=0.540 (y=190.4), err=0.030 (dy=7.2) -->
+  <line x1="360" y1="183.2" x2="360" y2="197.6" stroke="#0f172a" stroke-width="1.5"/>
+  <circle cx="360" cy="190.4" r="4.5" fill="#059669" stroke="#0f172a" stroke-width="1.5"/>
+
+  <!-- Point 5: F=4.30 (x=444), v=0.378 (y=229.3), err=0.028 (dy=6.7) -->
+  <line x1="444" y1="222.6" x2="444" y2="236.0" stroke="#0f172a" stroke-width="1.5"/>
+  <circle cx="444" cy="229.3" r="4.5" fill="#059669" stroke="#0f172a" stroke-width="1.5"/>
+
+  <!-- Point 6: F=5.20 (x=516), v=0.192 (y=273.9), err=0.022 (dy=5.3) -->
+  <line x1="516" y1="268.6" x2="516" y2="279.2" stroke="#0f172a" stroke-width="1.5"/>
+  <circle cx="516" cy="273.9" r="4.5" fill="#059669" stroke="#0f172a" stroke-width="1.5"/>
+
+  <!-- Point 7: F=6.00 (x=580), v=0.031 (y=312.6), err=0.015 (dy=3.6) -->
+  <line x1="580" y1="309.0" x2="580" y2="316.2" stroke="#0f172a" stroke-width="1.5"/>
+  <circle cx="580" cy="312.6" r="4.5" fill="#059669" stroke="#0f172a" stroke-width="1.5"/>
+
+  <!-- Divergence highlight at 6.0 pN -->
+  <line x1="580" y1="133" x2="580" y2="312" stroke="#dc2626" stroke-width="2"/>
+  <rect x="585" y="210" width="150" height="40" rx="4" fill="#fef2f2" stroke="#dc2626" stroke-width="1"/>
+  <text x="590" y="225" font-family="sans-serif" font-size="10" fill="#991b1b" font-weight="bold">DIVERGENCIA CRITICA</text>
+  <text x="590" y="240" font-family="sans-serif" font-size="10" fill="#991b1b">Δv = 0.747 µm/s (|z| = 49.8σ)</text>
+
+  <!-- Legend -->
+  <rect x="110" y="80" width="220" height="55" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="125" cy="95" r="4" fill="#059669" stroke="#0f172a"/>
+  <text x="138" y="98" font-family="sans-serif" font-size="10" fill="#1e293b">Dados Empíricos (Dataset B)</text>
+  <line x1="120" y1="110" x2="132" y2="110" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,2"/>
+  <text x="138" y="113" font-family="sans-serif" font-size="10" fill="#1e293b">Modelo M1 (Refutado sob carga)</text>
+  <line x1="120" y1="125" x2="132" y2="125" stroke="#2563eb" stroke-width="2"/>
+  <text x="138" y="128" font-family="sans-serif" font-size="10" fill="#1e293b">Modelo M2 (Bell/Kramers)</text>
+</svg>

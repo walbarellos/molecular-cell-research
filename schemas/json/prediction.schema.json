@@ -1,0 +1,304 @@
+{
+  "$defs": {
+    "DataTier": {
+      "description": "Classificacao estrita da camada de dados.",
+      "enum": [
+        "RAW",
+        "DERIVED",
+        "GENERATED"
+      ],
+      "title": "DataTier",
+      "type": "string"
+    },
+    "EpistemicRecord": {
+      "additionalProperties": false,
+      "description": "Envelope transversal que carrega status epistemico, tier e condicoes.",
+      "properties": {
+        "status": {
+          "$ref": "#/$defs/EpistemicStatus"
+        },
+        "data_tier": {
+          "$ref": "#/$defs/DataTier"
+        },
+        "provenance": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ProvenanceRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "basis": {
+          "description": "IDs de observacoes ou evidencias que sustentam este registro",
+          "items": {
+            "type": "string"
+          },
+          "title": "Basis",
+          "type": "array"
+        },
+        "conditions": {
+          "additionalProperties": true,
+          "description": "Condicoes fisico-quimicas especificas sob as quais este status e valido",
+          "title": "Conditions",
+          "type": "object"
+        },
+        "limitations": {
+          "description": "Limites explicitos de validade ou advertencias metodologicas",
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "confidence_evidence_count": {
+          "default": 0,
+          "description": "Numero de evidencias independentes que suportam a proposicao",
+          "minimum": 0,
+          "title": "Confidence Evidence Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "status",
+        "data_tier"
+      ],
+      "title": "EpistemicRecord",
+      "type": "object"
+    },
+    "EpistemicStatus": {
+      "description": "Estados da maquina de estados de integridade epistemica.",
+      "enum": [
+        "UNKNOWN",
+        "OBSERVED",
+        "REPORTED",
+        "DERIVED",
+        "INFERRED",
+        "HYPOTHESIS",
+        "MODELED",
+        "PREDICTED",
+        "VALIDATED",
+        "CONTRADICTED"
+      ],
+      "title": "EpistemicStatus",
+      "type": "string"
+    },
+    "OperatorType": {
+      "enum": [
+        "HUMAN",
+        "SCRIPT",
+        "PIPELINE",
+        "MODEL"
+      ],
+      "title": "OperatorType",
+      "type": "string"
+    },
+    "ProvenanceRecord": {
+      "additionalProperties": false,
+      "description": "Rastreabilidade de origem de uma afirmacao ou medicao.",
+      "properties": {
+        "source_uri": {
+          "description": "URI, DOI ou identificador persistente da fonte",
+          "title": "Source Uri",
+          "type": "string"
+        },
+        "method": {
+          "description": "Tecnica experimental, algoritmo ou protocolo empregado",
+          "title": "Method",
+          "type": "string"
+        },
+        "operator": {
+          "$ref": "#/$defs/OperatorType",
+          "default": "HUMAN"
+        },
+        "conditions": {
+          "additionalProperties": true,
+          "description": "Parametros de contorno da medicao",
+          "title": "Conditions",
+          "type": "object"
+        }
+      },
+      "required": [
+        "source_uri",
+        "method"
+      ],
+      "title": "ProvenanceRecord",
+      "type": "object"
+    },
+    "Quantity": {
+      "additionalProperties": false,
+      "description": "Representacao de grandeza fisica quantitativa com unidade e incerteza obrigatorias.",
+      "properties": {
+        "value": {
+          "description": "Valor numerico central medido ou computado",
+          "title": "Value",
+          "type": "number"
+        },
+        "unit": {
+          "$ref": "#/$defs/StandardUnit",
+          "description": "Unidade fisica estrita"
+        },
+        "uncertainty": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Margem de incerteza associada",
+          "title": "Uncertainty"
+        },
+        "uncertainty_type": {
+          "$ref": "#/$defs/UncertaintyType",
+          "default": "none"
+        },
+        "representation": {
+          "$ref": "#/$defs/RepresentationType",
+          "default": "point_estimate"
+        }
+      },
+      "required": [
+        "value",
+        "unit"
+      ],
+      "title": "Quantity",
+      "type": "object"
+    },
+    "RepresentationType": {
+      "enum": [
+        "point_estimate",
+        "distribution",
+        "interval",
+        "bounds"
+      ],
+      "title": "RepresentationType",
+      "type": "string"
+    },
+    "SoftLifecycleStatus": {
+      "description": "Ciclo de vida do registro cientifico (sem delecao destrutiva).",
+      "enum": [
+        "active",
+        "superseded",
+        "deprecated",
+        "invalidated",
+        "retracted"
+      ],
+      "title": "SoftLifecycleStatus",
+      "type": "string"
+    },
+    "StandardUnit": {
+      "enum": [
+        "nm",
+        "um",
+        "mm",
+        "m",
+        "nm/s",
+        "um/s",
+        "m/s",
+        "ms",
+        "s",
+        "min",
+        "h",
+        "pM",
+        "nM",
+        "uM",
+        "mM",
+        "M",
+        "pN",
+        "nN",
+        "N",
+        "degC",
+        "K",
+        "J",
+        "kJ/mol",
+        "kcal/mol",
+        "k_B*T",
+        "1/s",
+        "1/(uM*s)",
+        "1/(mM*s)",
+        "dimensionless",
+        "%",
+        "count"
+      ],
+      "title": "StandardUnit",
+      "type": "string"
+    },
+    "UncertaintyType": {
+      "enum": [
+        "none",
+        "standard_error",
+        "standard_deviation",
+        "confidence_interval_95",
+        "range",
+        "systematic_error"
+      ],
+      "title": "UncertaintyType",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Declaracao antecipada de medicao gerada por um modelo antes de confronto empirico.",
+  "properties": {
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "lifecycle_status": {
+      "$ref": "#/$defs/SoftLifecycleStatus",
+      "default": "active"
+    },
+    "version": {
+      "default": "1.0.0",
+      "title": "Version",
+      "type": "string"
+    },
+    "model_id": {
+      "description": "ID do Model que gerou esta predicao",
+      "title": "Model Id",
+      "type": "string"
+    },
+    "simulation_id": {
+      "description": "ID da Simulation executada",
+      "title": "Simulation Id",
+      "type": "string"
+    },
+    "predicted_property": {
+      "description": "Nome da grandeza predita (ex: velocity)",
+      "title": "Predicted Property",
+      "type": "string"
+    },
+    "quantity": {
+      "$ref": "#/$defs/Quantity",
+      "description": "Valor quantitativo, unidade e incerteza computada"
+    },
+    "conditions": {
+      "additionalProperties": true,
+      "description": "Condicoes simuladas (ex: ATP=1.0 mM, load=0.0 pN)",
+      "title": "Conditions",
+      "type": "object"
+    },
+    "epistemic_record": {
+      "$ref": "#/$defs/EpistemicRecord"
+    }
+  },
+  "required": [
+    "model_id",
+    "simulation_id",
+    "predicted_property",
+    "quantity",
+    "epistemic_record"
+  ],
+  "title": "Prediction",
+  "type": "object"
+}

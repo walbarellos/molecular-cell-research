@@ -1,0 +1,846 @@
+{
+  "dataset": {
+    "id": "DTS-CELL-LAB-001-FALSIFICATION",
+    "created_at": "2026-09-29T15:05:20.900327Z",
+    "lifecycle_status": "active",
+    "version": "1.0.0",
+    "name": "CELL-LAB-001-Dataset-B-Falsification",
+    "data_tier": "RAW",
+    "description": "Dataset B: Teste/Falsificacao de relacoes forca-velocidade sob forca contraria (Visscher et al. 1999).",
+    "source_ids": [
+      "SRC-VISSCHER-1999"
+    ],
+    "storage_uri": "/home/walbarellos/Projects/microbiology-cell/data/raw/cell_lab_001/visscher_block_1999_force_velocity.csv",
+    "checksum_sha256": "9f60500401861df878b7ee192066b5be86584e1fc5f13fe114817f83ee2c1553",
+    "parameters_schema": {
+      "independent_variables": [
+        "load_force_pN",
+        "atp_concentration_uM"
+      ],
+      "dependent_variables": [
+        "velocity_um_s"
+      ],
+      "constants": {
+        "temperature_degC": 24.0
+      }
+    },
+    "record_count": 11
+  },
+  "source": {
+    "id": "SRC-VISSCHER-1999",
+    "created_at": "2026-09-29T15:05:20.900033Z",
+    "lifecycle_status": "active",
+    "version": "1.0.0",
+    "source_type": "journal_article",
+    "identifier": "10.1038/22146",
+    "title": "Single kinesin molecules studied with a molecular force clamp",
+    "authors": [
+      "Visscher, K.",
+      "Schnitzer, M. J.",
+      "Block, S. M."
+    ],
+    "year": 1999,
+    "publication_venue": "Nature",
+    "uri": "https://doi.org/10.1038/22146",
+    "content_hash_sha256": "9f60500401861df878b7ee192066b5be86584e1fc5f13fe114817f83ee2c1553"
+  },
+  "experiment": {
+    "id": "EXP-VISSCHER-1999-FORCE-CLAMP",
+    "created_at": "2026-09-29T15:05:20.900041Z",
+    "lifecycle_status": "active",
+    "version": "1.0.0",
+    "source_id": "SRC-VISSCHER-1999",
+    "name": "Force-dependent single-molecule kinesin motility under optical force clamp",
+    "method": "optical_force_clamp",
+    "protocol_description": "Single kinesin bead translocation under feedback-controlled constant opposing loads (0 to 6 pN) at saturating and limiting ATP.",
+    "environmental_conditions": {
+      "temperature_degC": 24.0,
+      "buffer": "BRB80"
+    }
+  },
+  "observations": [
+    {
+      "id": "OBS-B-000",
+      "created_at": "2026-09-29T15:05:20.900090Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "experiment_id": "EXP-VISSCHER-1999-FORCE-CLAMP",
+      "description": "KIF5B velocity under 0.0 pN opposing load at 1000.0 uM ATP: 0.81 um/s",
+      "measurements": [
+        {
+          "id": "MEA-B-000",
+          "created_at": "2026-09-29T15:05:20.900082Z",
+          "lifecycle_status": "active",
+          "version": "1.0.0",
+          "quantity": {
+            "value": 0.81,
+            "unit": "um/s",
+            "uncertainty": 0.038,
+            "uncertainty_type": "standard_error",
+            "representation": "point_estimate"
+          },
+          "measured_property": "velocity",
+          "entity_id": "ENT-KIF5B-HUMAN",
+          "conditions": {
+            "load_force_pN": 0.0,
+            "atp_concentration_uM": 1000.0,
+            "temperature_degC": 24.0,
+            "sample_size_n": 38
+          },
+          "method": "optical_force_clamp",
+          "observation_id": "OBS-B-000"
+        }
+      ],
+      "raw_data_ref": "visscher_block_1999_force_velocity.csv:row_1"
+    },
+    {
+      "id": "OBS-B-001",
+      "created_at": "2026-09-29T15:05:20.900134Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "experiment_id": "EXP-VISSCHER-1999-FORCE-CLAMP",
+      "description": "KIF5B velocity under 1.05 pN opposing load at 1000.0 uM ATP: 0.752 um/s",
+      "measurements": [
+        {
+          "id": "MEA-B-001",
+          "created_at": "2026-09-29T15:05:20.900129Z",
+          "lifecycle_status": "active",
+          "version": "1.0.0",
+          "quantity": {
+            "value": 0.752,
+            "unit": "um/s",
+            "uncertainty": 0.035,
+            "uncertainty_type": "standard_error",
+            "representation": "point_estimate"
+          },
+          "measured_property": "velocity",
+          "entity_id": "ENT-KIF5B-HUMAN",
+          "conditions": {
+            "load_force_pN": 1.05,
+            "atp_concentration_uM": 1000.0,
+            "temperature_degC": 24.0,
+            "sample_size_n": 30
+          },
+          "method": "optical_force_clamp",
+          "observation_id": "OBS-B-001"
+        }
+      ],
+      "raw_data_ref": "visscher_block_1999_force_velocity.csv:row_2"
+    },
+    {
+      "id": "OBS-B-002",
+      "created_at": "2026-09-29T15:05:20.900159Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "experiment_id": "EXP-VISSCHER-1999-FORCE-CLAMP",
+      "description": "KIF5B velocity under 2.15 pN opposing load at 1000.0 uM ATP: 0.661 um/s",
+      "measurements": [
+        {
+          "id": "MEA-B-002",
+          "created_at": "2026-09-29T15:05:20.900155Z",
+          "lifecycle_status": "active",
+          "version": "1.0.0",
+          "quantity": {
+            "value": 0.661,
+            "unit": "um/s",
+            "uncertainty": 0.032,
+            "uncertainty_type": "standard_error",
+            "representation": "point_estimate"
+          },
+          "measured_property": "velocity",
+          "entity_id": "ENT-KIF5B-HUMAN",
+          "conditions": {
+            "load_force_pN": 2.15,
+            "atp_concentration_uM": 1000.0,
+            "temperature_degC": 24.0,
+            "sample_size_n": 28
+          },
+          "method": "optical_force_clamp",
+          "observation_id": "OBS-B-002"
+        }
+      ],
+      "raw_data_ref": "visscher_block_1999_force_velocity.csv:row_3"
+    },
+    {
+      "id": "OBS-B-003",
+      "created_at": "2026-09-29T15:05:20.900180Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "experiment_id": "EXP-VISSCHER-1999-FORCE-CLAMP",
+      "description": "KIF5B velocity under 3.25 pN opposing load at 1000.0 uM ATP: 0.54 um/s",
+      "measurements": [
+        {
+          "id": "MEA-B-003",
+          "created_at": "2026-09-29T15:05:20.900176Z",
+          "lifecycle_status": "active",
+          "version": "1.0.0",
+          "quantity": {
+            "value": 0.54,
+            "unit": "um/s",
+            "uncertainty": 0.03,
+            "uncertainty_type": "standard_error",
+            "representation": "point_estimate"
+          },
+          "measured_property": "velocity",
+          "entity_id": "ENT-KIF5B-HUMAN",
+          "conditions": {
+            "load_force_pN": 3.25,
+            "atp_concentration_uM": 1000.0,
+            "temperature_degC": 24.0,
+            "sample_size_n": 32
+          },
+          "method": "optical_force_clamp",
+          "observation_id": "OBS-B-003"
+        }
+      ],
+      "raw_data_ref": "visscher_block_1999_force_velocity.csv:row_4"
+    },
+    {
+      "id": "OBS-B-004",
+      "created_at": "2026-09-29T15:05:20.900198Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "experiment_id": "EXP-VISSCHER-1999-FORCE-CLAMP",
+      "description": "KIF5B velocity under 4.3 pN opposing load at 1000.0 uM ATP: 0.378 um/s",
+      "measurements": [
+        {
+          "id": "MEA-B-004",
+          "created_at": "2026-09-29T15:05:20.900195Z",
+          "lifecycle_status": "active",
+          "version": "1.0.0",
+          "quantity": {
+            "value": 0.378,
+            "unit": "um/s",
+            "uncertainty": 0.028,
+            "uncertainty_type": "standard_error",
+            "representation": "point_estimate"
+          },
+          "measured_property": "velocity",
+          "entity_id": "ENT-KIF5B-HUMAN",
+          "conditions": {
+            "load_force_pN": 4.3,
+            "atp_concentration_uM": 1000.0,
+            "temperature_degC": 24.0,
+            "sample_size_n": 25
+          },
+          "method": "optical_force_clamp",
+          "observation_id": "OBS-B-004"
+        }
+      ],
+      "raw_data_ref": "visscher_block_1999_force_velocity.csv:row_5"
+    },
+    {
+      "id": "OBS-B-005",
+      "created_at": "2026-09-29T15:05:20.900215Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "experiment_id": "EXP-VISSCHER-1999-FORCE-CLAMP",
+      "description": "KIF5B velocity under 5.2 pN opposing load at 1000.0 uM ATP: 0.192 um/s",
+      "measurements": [
+        {
+          "id": "MEA-B-005",
+          "created_at": "2026-09-29T15:05:20.900212Z",
+          "lifecycle_status": "active",
+          "version": "1.0.0",
+          "quantity": {
+            "value": 0.192,
+            "unit": "um/s",
+            "uncertainty": 0.022,
+            "uncertainty_type": "standard_error",
+            "representation": "point_estimate"
+          },
+          "measured_property": "velocity",
+          "entity_id": "ENT-KIF5B-HUMAN",
+          "conditions": {
+            "load_force_pN": 5.2,
+            "atp_concentration_uM": 1000.0,
+            "temperature_degC": 24.0,
+            "sample_size_n": 22
+          },
+          "method": "optical_force_clamp",
+          "observation_id": "OBS-B-005"
+        }
+      ],
+      "raw_data_ref": "visscher_block_1999_force_velocity.csv:row_6"
+    },
+    {
+      "id": "OBS-B-006",
+      "created_at": "2026-09-29T15:05:20.900231Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "experiment_id": "EXP-VISSCHER-1999-FORCE-CLAMP",
+      "description": "KIF5B velocity under 6.0 pN opposing load at 1000.0 uM ATP: 0.031 um/s",
+      "measurements": [
+        {
+          "id": "MEA-B-006",
+          "created_at": "2026-09-29T15:05:20.900228Z",
+          "lifecycle_status": "active",
+          "version": "1.0.0",
+          "quantity": {
+            "value": 0.031,
+            "unit": "um/s",
+            "uncertainty": 0.015,
+            "uncertainty_type": "standard_error",
+            "representation": "point_estimate"
+          },
+          "measured_property": "velocity",
+          "entity_id": "ENT-KIF5B-HUMAN",
+          "conditions": {
+            "load_force_pN": 6.0,
+            "atp_concentration_uM": 1000.0,
+            "temperature_degC": 24.0,
+            "sample_size_n": 18
+          },
+          "method": "optical_force_clamp",
+          "observation_id": "OBS-B-006"
+        }
+      ],
+      "raw_data_ref": "visscher_block_1999_force_velocity.csv:row_7"
+    },
+    {
+      "id": "OBS-B-007",
+      "created_at": "2026-09-29T15:05:20.900252Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "experiment_id": "EXP-VISSCHER-1999-FORCE-CLAMP",
+      "description": "KIF5B velocity under 0.0 pN opposing load at 10.0 uM ATP: 0.075 um/s",
+      "measurements": [
+        {
+          "id": "MEA-B-007",
+          "created_at": "2026-09-29T15:05:20.900249Z",
+          "lifecycle_status": "active",
+          "version": "1.0.0",
+          "quantity": {
+            "value": 0.075,
+            "unit": "um/s",
+            "uncertainty": 0.007,
+            "uncertainty_type": "standard_error",
+            "representation": "point_estimate"
+          },
+          "measured_property": "velocity",
+          "entity_id": "ENT-KIF5B-HUMAN",
+          "conditions": {
+            "load_force_pN": 0.0,
+            "atp_concentration_uM": 10.0,
+            "temperature_degC": 24.0,
+            "sample_size_n": 20
+          },
+          "method": "optical_force_clamp",
+          "observation_id": "OBS-B-007"
+        }
+      ],
+      "raw_data_ref": "visscher_block_1999_force_velocity.csv:row_8"
+    },
+    {
+      "id": "OBS-B-008",
+      "created_at": "2026-09-29T15:05:20.900270Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "experiment_id": "EXP-VISSCHER-1999-FORCE-CLAMP",
+      "description": "KIF5B velocity under 2.0 pN opposing load at 10.0 uM ATP: 0.064 um/s",
+      "measurements": [
+        {
+          "id": "MEA-B-008",
+          "created_at": "2026-09-29T15:05:20.900267Z",
+          "lifecycle_status": "active",
+          "version": "1.0.0",
+          "quantity": {
+            "value": 0.064,
+            "unit": "um/s",
+            "uncertainty": 0.006,
+            "uncertainty_type": "standard_error",
+            "representation": "point_estimate"
+          },
+          "measured_property": "velocity",
+          "entity_id": "ENT-KIF5B-HUMAN",
+          "conditions": {
+            "load_force_pN": 2.0,
+            "atp_concentration_uM": 10.0,
+            "temperature_degC": 24.0,
+            "sample_size_n": 18
+          },
+          "method": "optical_force_clamp",
+          "observation_id": "OBS-B-008"
+        }
+      ],
+      "raw_data_ref": "visscher_block_1999_force_velocity.csv:row_9"
+    },
+    {
+      "id": "OBS-B-009",
+      "created_at": "2026-09-29T15:05:20.900287Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "experiment_id": "EXP-VISSCHER-1999-FORCE-CLAMP",
+      "description": "KIF5B velocity under 4.0 pN opposing load at 10.0 uM ATP: 0.046 um/s",
+      "measurements": [
+        {
+          "id": "MEA-B-009",
+          "created_at": "2026-09-29T15:05:20.900285Z",
+          "lifecycle_status": "active",
+          "version": "1.0.0",
+          "quantity": {
+            "value": 0.046,
+            "unit": "um/s",
+            "uncertainty": 0.005,
+            "uncertainty_type": "standard_error",
+            "representation": "point_estimate"
+          },
+          "measured_property": "velocity",
+          "entity_id": "ENT-KIF5B-HUMAN",
+          "conditions": {
+            "load_force_pN": 4.0,
+            "atp_concentration_uM": 10.0,
+            "temperature_degC": 24.0,
+            "sample_size_n": 16
+          },
+          "method": "optical_force_clamp",
+          "observation_id": "OBS-B-009"
+        }
+      ],
+      "raw_data_ref": "visscher_block_1999_force_velocity.csv:row_10"
+    },
+    {
+      "id": "OBS-B-010",
+      "created_at": "2026-09-29T15:05:20.900308Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "experiment_id": "EXP-VISSCHER-1999-FORCE-CLAMP",
+      "description": "KIF5B velocity under 5.5 pN opposing load at 10.0 uM ATP: 0.014 um/s",
+      "measurements": [
+        {
+          "id": "MEA-B-010",
+          "created_at": "2026-09-29T15:05:20.900305Z",
+          "lifecycle_status": "active",
+          "version": "1.0.0",
+          "quantity": {
+            "value": 0.014,
+            "unit": "um/s",
+            "uncertainty": 0.004,
+            "uncertainty_type": "standard_error",
+            "representation": "point_estimate"
+          },
+          "measured_property": "velocity",
+          "entity_id": "ENT-KIF5B-HUMAN",
+          "conditions": {
+            "load_force_pN": 5.5,
+            "atp_concentration_uM": 10.0,
+            "temperature_degC": 24.0,
+            "sample_size_n": 12
+          },
+          "method": "optical_force_clamp",
+          "observation_id": "OBS-B-010"
+        }
+      ],
+      "raw_data_ref": "visscher_block_1999_force_velocity.csv:row_11"
+    }
+  ],
+  "evidences": [
+    {
+      "id": "EVI-B-000",
+      "created_at": "2026-09-29T15:05:20.900111Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "source_id": "SRC-VISSCHER-1999",
+      "experiment_id": "EXP-VISSCHER-1999-FORCE-CLAMP",
+      "observation_ids": [
+        "OBS-B-000"
+      ],
+      "supports_claims": [],
+      "contradicts_claims": [],
+      "conditions": {
+        "load_force_pN": 0.0,
+        "atp_concentration_uM": 1000.0,
+        "temperature_degC": 24.0
+      },
+      "epistemic_record": {
+        "status": "OBSERVED",
+        "data_tier": "RAW",
+        "provenance": {
+          "source_uri": "doi:10.1038/22146",
+          "method": "optical_force_clamp",
+          "operator": "HUMAN",
+          "conditions": {
+            "load_pN": 0.0,
+            "atp_uM": 1000.0
+          }
+        },
+        "basis": [],
+        "conditions": {},
+        "limitations": [
+          "In vitro optical force-clamp; forces applied parallel to microtubule axis."
+        ],
+        "confidence_evidence_count": 1
+      }
+    },
+    {
+      "id": "EVI-B-001",
+      "created_at": "2026-09-29T15:05:20.900143Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "source_id": "SRC-VISSCHER-1999",
+      "experiment_id": "EXP-VISSCHER-1999-FORCE-CLAMP",
+      "observation_ids": [
+        "OBS-B-001"
+      ],
+      "supports_claims": [],
+      "contradicts_claims": [],
+      "conditions": {
+        "load_force_pN": 1.05,
+        "atp_concentration_uM": 1000.0,
+        "temperature_degC": 24.0
+      },
+      "epistemic_record": {
+        "status": "OBSERVED",
+        "data_tier": "RAW",
+        "provenance": {
+          "source_uri": "doi:10.1038/22146",
+          "method": "optical_force_clamp",
+          "operator": "HUMAN",
+          "conditions": {
+            "load_pN": 1.05,
+            "atp_uM": 1000.0
+          }
+        },
+        "basis": [],
+        "conditions": {},
+        "limitations": [
+          "In vitro optical force-clamp; forces applied parallel to microtubule axis."
+        ],
+        "confidence_evidence_count": 1
+      }
+    },
+    {
+      "id": "EVI-B-002",
+      "created_at": "2026-09-29T15:05:20.900168Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "source_id": "SRC-VISSCHER-1999",
+      "experiment_id": "EXP-VISSCHER-1999-FORCE-CLAMP",
+      "observation_ids": [
+        "OBS-B-002"
+      ],
+      "supports_claims": [],
+      "contradicts_claims": [],
+      "conditions": {
+        "load_force_pN": 2.15,
+        "atp_concentration_uM": 1000.0,
+        "temperature_degC": 24.0
+      },
+      "epistemic_record": {
+        "status": "OBSERVED",
+        "data_tier": "RAW",
+        "provenance": {
+          "source_uri": "doi:10.1038/22146",
+          "method": "optical_force_clamp",
+          "operator": "HUMAN",
+          "conditions": {
+            "load_pN": 2.15,
+            "atp_uM": 1000.0
+          }
+        },
+        "basis": [],
+        "conditions": {},
+        "limitations": [
+          "In vitro optical force-clamp; forces applied parallel to microtubule axis."
+        ],
+        "confidence_evidence_count": 1
+      }
+    },
+    {
+      "id": "EVI-B-003",
+      "created_at": "2026-09-29T15:05:20.900187Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "source_id": "SRC-VISSCHER-1999",
+      "experiment_id": "EXP-VISSCHER-1999-FORCE-CLAMP",
+      "observation_ids": [
+        "OBS-B-003"
+      ],
+      "supports_claims": [],
+      "contradicts_claims": [],
+      "conditions": {
+        "load_force_pN": 3.25,
+        "atp_concentration_uM": 1000.0,
+        "temperature_degC": 24.0
+      },
+      "epistemic_record": {
+        "status": "OBSERVED",
+        "data_tier": "RAW",
+        "provenance": {
+          "source_uri": "doi:10.1038/22146",
+          "method": "optical_force_clamp",
+          "operator": "HUMAN",
+          "conditions": {
+            "load_pN": 3.25,
+            "atp_uM": 1000.0
+          }
+        },
+        "basis": [],
+        "conditions": {},
+        "limitations": [
+          "In vitro optical force-clamp; forces applied parallel to microtubule axis."
+        ],
+        "confidence_evidence_count": 1
+      }
+    },
+    {
+      "id": "EVI-B-004",
+      "created_at": "2026-09-29T15:05:20.900205Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "source_id": "SRC-VISSCHER-1999",
+      "experiment_id": "EXP-VISSCHER-1999-FORCE-CLAMP",
+      "observation_ids": [
+        "OBS-B-004"
+      ],
+      "supports_claims": [],
+      "contradicts_claims": [],
+      "conditions": {
+        "load_force_pN": 4.3,
+        "atp_concentration_uM": 1000.0,
+        "temperature_degC": 24.0
+      },
+      "epistemic_record": {
+        "status": "OBSERVED",
+        "data_tier": "RAW",
+        "provenance": {
+          "source_uri": "doi:10.1038/22146",
+          "method": "optical_force_clamp",
+          "operator": "HUMAN",
+          "conditions": {
+            "load_pN": 4.3,
+            "atp_uM": 1000.0
+          }
+        },
+        "basis": [],
+        "conditions": {},
+        "limitations": [
+          "In vitro optical force-clamp; forces applied parallel to microtubule axis."
+        ],
+        "confidence_evidence_count": 1
+      }
+    },
+    {
+      "id": "EVI-B-005",
+      "created_at": "2026-09-29T15:05:20.900221Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "source_id": "SRC-VISSCHER-1999",
+      "experiment_id": "EXP-VISSCHER-1999-FORCE-CLAMP",
+      "observation_ids": [
+        "OBS-B-005"
+      ],
+      "supports_claims": [],
+      "contradicts_claims": [],
+      "conditions": {
+        "load_force_pN": 5.2,
+        "atp_concentration_uM": 1000.0,
+        "temperature_degC": 24.0
+      },
+      "epistemic_record": {
+        "status": "OBSERVED",
+        "data_tier": "RAW",
+        "provenance": {
+          "source_uri": "doi:10.1038/22146",
+          "method": "optical_force_clamp",
+          "operator": "HUMAN",
+          "conditions": {
+            "load_pN": 5.2,
+            "atp_uM": 1000.0
+          }
+        },
+        "basis": [],
+        "conditions": {},
+        "limitations": [
+          "In vitro optical force-clamp; forces applied parallel to microtubule axis."
+        ],
+        "confidence_evidence_count": 1
+      }
+    },
+    {
+      "id": "EVI-B-006",
+      "created_at": "2026-09-29T15:05:20.900239Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "source_id": "SRC-VISSCHER-1999",
+      "experiment_id": "EXP-VISSCHER-1999-FORCE-CLAMP",
+      "observation_ids": [
+        "OBS-B-006"
+      ],
+      "supports_claims": [],
+      "contradicts_claims": [],
+      "conditions": {
+        "load_force_pN": 6.0,
+        "atp_concentration_uM": 1000.0,
+        "temperature_degC": 24.0
+      },
+      "epistemic_record": {
+        "status": "OBSERVED",
+        "data_tier": "RAW",
+        "provenance": {
+          "source_uri": "doi:10.1038/22146",
+          "method": "optical_force_clamp",
+          "operator": "HUMAN",
+          "conditions": {
+            "load_pN": 6.0,
+            "atp_uM": 1000.0
+          }
+        },
+        "basis": [],
+        "conditions": {},
+        "limitations": [
+          "In vitro optical force-clamp; forces applied parallel to microtubule axis."
+        ],
+        "confidence_evidence_count": 1
+      }
+    },
+    {
+      "id": "EVI-B-007",
+      "created_at": "2026-09-29T15:05:20.900258Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "source_id": "SRC-VISSCHER-1999",
+      "experiment_id": "EXP-VISSCHER-1999-FORCE-CLAMP",
+      "observation_ids": [
+        "OBS-B-007"
+      ],
+      "supports_claims": [],
+      "contradicts_claims": [],
+      "conditions": {
+        "load_force_pN": 0.0,
+        "atp_concentration_uM": 10.0,
+        "temperature_degC": 24.0
+      },
+      "epistemic_record": {
+        "status": "OBSERVED",
+        "data_tier": "RAW",
+        "provenance": {
+          "source_uri": "doi:10.1038/22146",
+          "method": "optical_force_clamp",
+          "operator": "HUMAN",
+          "conditions": {
+            "load_pN": 0.0,
+            "atp_uM": 10.0
+          }
+        },
+        "basis": [],
+        "conditions": {},
+        "limitations": [
+          "In vitro optical force-clamp; forces applied parallel to microtubule axis."
+        ],
+        "confidence_evidence_count": 1
+      }
+    },
+    {
+      "id": "EVI-B-008",
+      "created_at": "2026-09-29T15:05:20.900277Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "source_id": "SRC-VISSCHER-1999",
+      "experiment_id": "EXP-VISSCHER-1999-FORCE-CLAMP",
+      "observation_ids": [
+        "OBS-B-008"
+      ],
+      "supports_claims": [],
+      "contradicts_claims": [],
+      "conditions": {
+        "load_force_pN": 2.0,
+        "atp_concentration_uM": 10.0,
+        "temperature_degC": 24.0
+      },
+      "epistemic_record": {
+        "status": "OBSERVED",
+        "data_tier": "RAW",
+        "provenance": {
+          "source_uri": "doi:10.1038/22146",
+          "method": "optical_force_clamp",
+          "operator": "HUMAN",
+          "conditions": {
+            "load_pN": 2.0,
+            "atp_uM": 10.0
+          }
+        },
+        "basis": [],
+        "conditions": {},
+        "limitations": [
+          "In vitro optical force-clamp; forces applied parallel to microtubule axis."
+        ],
+        "confidence_evidence_count": 1
+      }
+    },
+    {
+      "id": "EVI-B-009",
+      "created_at": "2026-09-29T15:05:20.900296Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "source_id": "SRC-VISSCHER-1999",
+      "experiment_id": "EXP-VISSCHER-1999-FORCE-CLAMP",
+      "observation_ids": [
+        "OBS-B-009"
+      ],
+      "supports_claims": [],
+      "contradicts_claims": [],
+      "conditions": {
+        "load_force_pN": 4.0,
+        "atp_concentration_uM": 10.0,
+        "temperature_degC": 24.0
+      },
+      "epistemic_record": {
+        "status": "OBSERVED",
+        "data_tier": "RAW",
+        "provenance": {
+          "source_uri": "doi:10.1038/22146",
+          "method": "optical_force_clamp",
+          "operator": "HUMAN",
+          "conditions": {
+            "load_pN": 4.0,
+            "atp_uM": 10.0
+          }
+        },
+        "basis": [],
+        "conditions": {},
+        "limitations": [
+          "In vitro optical force-clamp; forces applied parallel to microtubule axis."
+        ],
+        "confidence_evidence_count": 1
+      }
+    },
+    {
+      "id": "EVI-B-010",
+      "created_at": "2026-09-29T15:05:20.900314Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "source_id": "SRC-VISSCHER-1999",
+      "experiment_id": "EXP-VISSCHER-1999-FORCE-CLAMP",
+      "observation_ids": [
+        "OBS-B-010"
+      ],
+      "supports_claims": [],
+      "contradicts_claims": [],
+      "conditions": {
+        "load_force_pN": 5.5,
+        "atp_concentration_uM": 10.0,
+        "temperature_degC": 24.0
+      },
+      "epistemic_record": {
+        "status": "OBSERVED",
+        "data_tier": "RAW",
+        "provenance": {
+          "source_uri": "doi:10.1038/22146",
+          "method": "optical_force_clamp",
+          "operator": "HUMAN",
+          "conditions": {
+            "load_pN": 5.5,
+            "atp_uM": 10.0
+          }
+        },
+        "basis": [],
+        "conditions": {},
+        "limitations": [
+          "In vitro optical force-clamp; forces applied parallel to microtubule axis."
+        ],
+        "confidence_evidence_count": 1
+      }
+    }
+  ]
+}

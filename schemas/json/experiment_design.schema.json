@@ -1,0 +1,100 @@
+{
+  "$defs": {
+    "SoftLifecycleStatus": {
+      "description": "Ciclo de vida do registro cientifico (sem delecao destrutiva).",
+      "enum": [
+        "active",
+        "superseded",
+        "deprecated",
+        "invalidated",
+        "retracted"
+      ],
+      "title": "SoftLifecycleStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Proposta de ensaio empirico ou virtual projetada especificamente para diferenciar modelos ou reduzir incerteza.",
+  "properties": {
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "lifecycle_status": {
+      "$ref": "#/$defs/SoftLifecycleStatus",
+      "default": "active"
+    },
+    "version": {
+      "default": "1.0.0",
+      "title": "Version",
+      "type": "string"
+    },
+    "title": {
+      "title": "Title",
+      "type": "string"
+    },
+    "objective": {
+      "description": "Pergunta cientifica ou diferenciacao pretendida",
+      "title": "Objective",
+      "type": "string"
+    },
+    "competing_model_ids": {
+      "description": "Modelos que preveem comportamentos distintos neste ensaio",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Competing Model Ids",
+      "type": "array"
+    },
+    "target_conditions": {
+      "additionalProperties": true,
+      "description": "Variaveis sob teste (ex: ATP < 5 uM sob forca contraria de 4 pN)",
+      "title": "Target Conditions",
+      "type": "object"
+    },
+    "proposed_technique": {
+      "description": "Metodo experimental sugerido (ex: high-speed optical tweezers)",
+      "title": "Proposed Technique",
+      "type": "string"
+    },
+    "predicted_outcomes": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Mapeamento de model_id -> comportamento esperado segundo o modelo",
+      "title": "Predicted Outcomes",
+      "type": "object"
+    },
+    "discriminatory_power_score": {
+      "anyOf": [
+        {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Indice quantitativo do poder de resolucao entre as hipoteses",
+      "title": "Discriminatory Power Score"
+    }
+  },
+  "required": [
+    "title",
+    "objective",
+    "competing_model_ids",
+    "target_conditions",
+    "proposed_technique",
+    "predicted_outcomes"
+  ],
+  "title": "ExperimentDesign",
+  "type": "object"
+}

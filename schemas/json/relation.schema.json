@@ -1,0 +1,91 @@
+{
+  "$defs": {
+    "RelationType": {
+      "enum": [
+        "binds_to",
+        "translocates_along",
+        "hydrolyzes",
+        "inhibits",
+        "stabilizes",
+        "carries",
+        "transitions_to",
+        "part_of"
+      ],
+      "title": "RelationType",
+      "type": "string"
+    },
+    "SoftLifecycleStatus": {
+      "description": "Ciclo de vida do registro cientifico (sem delecao destrutiva).",
+      "enum": [
+        "active",
+        "superseded",
+        "deprecated",
+        "invalidated",
+        "retracted"
+      ],
+      "title": "SoftLifecycleStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Vinculo formal orientado entre duas entidades no grafo de conhecimento.",
+  "properties": {
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "lifecycle_status": {
+      "$ref": "#/$defs/SoftLifecycleStatus",
+      "default": "active"
+    },
+    "version": {
+      "default": "1.0.0",
+      "title": "Version",
+      "type": "string"
+    },
+    "source_entity_id": {
+      "description": "ID da entidade de origem (sujeito)",
+      "title": "Source Entity Id",
+      "type": "string"
+    },
+    "target_entity_id": {
+      "description": "ID da entidade de destino (objeto)",
+      "title": "Target Entity Id",
+      "type": "string"
+    },
+    "relation_type": {
+      "$ref": "#/$defs/RelationType"
+    },
+    "bidirectional": {
+      "default": false,
+      "title": "Bidirectional",
+      "type": "boolean"
+    },
+    "supporting_evidence_ids": {
+      "description": "IDs de EvidenceRecords que sustentam esta relacao",
+      "items": {
+        "type": "string"
+      },
+      "title": "Supporting Evidence Ids",
+      "type": "array"
+    },
+    "metadata": {
+      "additionalProperties": true,
+      "description": "Constantes cineticas ou propriedades especificas do vinculo",
+      "title": "Metadata",
+      "type": "object"
+    }
+  },
+  "required": [
+    "source_entity_id",
+    "target_entity_id",
+    "relation_type"
+  ],
+  "title": "Relation",
+  "type": "object"
+}

@@ -1,0 +1,78 @@
+{
+  "$defs": {
+    "SoftLifecycleStatus": {
+      "description": "Ciclo de vida do registro cientifico (sem delecao destrutiva).",
+      "enum": [
+        "active",
+        "superseded",
+        "deprecated",
+        "invalidated",
+        "retracted"
+      ],
+      "title": "SoftLifecycleStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Ensaio fisico ou protocolo analitico documentado em uma Source.",
+  "properties": {
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "lifecycle_status": {
+      "$ref": "#/$defs/SoftLifecycleStatus",
+      "default": "active"
+    },
+    "version": {
+      "default": "1.0.0",
+      "title": "Version",
+      "type": "string"
+    },
+    "source_id": {
+      "description": "ID da Source documentada que descreve o ensaio",
+      "title": "Source Id",
+      "type": "string"
+    },
+    "name": {
+      "description": "Denominacao do ensaio ou ensaio comparativo",
+      "title": "Name",
+      "type": "string"
+    },
+    "method": {
+      "description": "Metodologia ou tecnica (ex: optical_tweezers, TIRF_microscopy)",
+      "title": "Method",
+      "type": "string"
+    },
+    "protocol_description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Protocol Description"
+    },
+    "environmental_conditions": {
+      "additionalProperties": true,
+      "description": "Temperatura, tampao, pH, ATP inicial, forca ionica, etc.",
+      "title": "Environmental Conditions",
+      "type": "object"
+    }
+  },
+  "required": [
+    "source_id",
+    "name",
+    "method"
+  ],
+  "title": "Experiment",
+  "type": "object"
+}

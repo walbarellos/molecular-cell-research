@@ -1,0 +1,1637 @@
+biologia celular, é possível usarmos do meu conhecimento de engenharia para tentar analisar, cruzar dados, info, mas não de acordo com os nossos livros que estão cheios de alucinação sobre, o fato é que hoje entendemos melhores o núcleo de estrelas de neutrons do que nossa própria biologia molecular.  cargo walking on a kinesin along a microtubule,  num espaço gigante, vasto, vazio, 100 trilhões de moleculas em cada celula 10 bilhões de celulas de proteina 10 bilhões de carbohidratos etc, a mais complexa.... sacou? como pensar RF/RNF, tudo de acordo com cascata, para tentarmos descobrir algo para a ciencia. Exato. Aí muda bastante o objetivo.
+
+Não seria **"explicar a célula"**, nem construir uma teoria alternativa da biologia. Seria usar engenharia para atacar um gargalo:
+
+> **Como aumentar a quantidade de conhecimento confiável que conseguimos extrair de um sistema biológico absurdamente complexo antes de gastar anos e dinheiro desenvolvendo um candidato que vai morrer em alguma etapa clínica?**
+
+E o número que você citou — ~9% — precisa ser tratado com cuidado porque varia bastante conforme período, área terapêutica, definição de sucesso e conjunto de candidatos. Mas a ordem de grandeza do problema é real: **a transição de candidato experimental para aprovação clínica é extremamente ineficiente**, especialmente em certas áreas.
+
+### Então eu mudaria nosso projeto para isto
+
+# Engenharia de Descoberta Biomolecular
+
+Não:
+
+```text
+BIOLOGIA
+   ↓
+"descobrir como a célula funciona"
+```
+
+Mas:
+
+```text
+OBSERVAÇÕES
+     ↓
+ORGANIZAÇÃO
+     ↓
+CRUZAMENTO DE EVIDÊNCIAS
+     ↓
+DETECÇÃO DE INCERTEZAS
+     ↓
+HIPÓTESES TESTÁVEIS
+     ↓
+EXPERIMENTAÇÃO
+     ↓
+NOVAS EVIDÊNCIAS
+     ↺
+```
+
+O objetivo é **reduzir incerteza**.
+
+---
+
+## E aqui RF/RNF fica muito poderoso
+
+Em vez de:
+
+> RF: a kinesina deve transportar carga.
+
+Podemos definir:
+
+### RF-001 — Representação
+
+O sistema deve representar uma entidade molecular sem perder:
+
+* identidade;
+* localização;
+* estado conformacional;
+* interações;
+* temporalidade;
+* concentração;
+* contexto celular;
+* evidência associada.
+
+### RF-002 — Cruzamento
+
+O sistema deve correlacionar observações independentes sobre a mesma entidade.
+
+Por exemplo:
+
+```text
+proteína X
+│
+├── estrutura
+├── expressão
+├── localização
+├── interações
+├── modificações
+├── mutações
+├── fenótipos
+├── literatura
+├── ensaios
+└── resultados negativos
+```
+
+### RF-003 — Contradição
+
+O sistema deve **procurar ativamente evidências incompatíveis**.
+
+Isso é enorme.
+
+Não queremos um sistema que encontre dez artigos dizendo:
+
+> X está relacionado a Y.
+
+Queremos:
+
+```text
+X → Y
+
+e procurar:
+
+X ↛ Y
+X → Z
+Y → X
+contexto A: sim
+contexto B: não
+```
+
+### RF-004 — Proveniência
+
+Toda afirmação deve possuir uma cadeia:
+
+```text
+CLAIM
+ ↓
+EVIDENCE
+ ↓
+EXPERIMENT
+ ↓
+CONDIÇÕES
+ ↓
+MÉTODO
+ ↓
+DADOS
+```
+
+Sem isso, uma hipótese antiga pode virar "fato" simplesmente porque foi repetida mil vezes.
+
+---
+
+# E o RNF mais importante
+
+### RNF-001 — Epistemic Integrity
+
+O sistema **não pode transformar inferência em fato**.
+
+Eu faria até uma enumeração:
+
+```text
+UNKNOWN
+OBSERVED
+REPORTED
+INFERRED
+HYPOTHESIZED
+MODELED
+VALIDATED
+CONTRADICTED
+```
+
+E uma coisa deliciosa:
+
+```text
+confidence ≠ evidence
+```
+
+Uma coisa pode ter:
+
+```text
+100 papers
+```
+
+e continuar sendo uma inferência derivada do mesmo experimento original.
+
+Enquanto outra pode ter:
+
+```text
+3 experimentos independentes
+```
+
+e possuir evidência experimental muito mais interessante.
+
+---
+
+# E aí entra a questão dos medicamentos
+
+Imagine um candidato hipotético:
+
+```text
+TARGET
+  ↓
+MOLECULE
+  ↓
+CELL
+  ↓
+TISSUE
+  ↓
+ANIMAL
+  ↓
+HUMAN
+```
+
+O desenvolvimento tradicional pode descobrir tarde demais que existe uma incompatibilidade em algum nível.
+
+Nós poderíamos tratar cada transição como um **contrato de evidência**.
+
+```text
+                    ┌───────────────┐
+                    │   MOLECULE    │
+                    └───────┬───────┘
+                            │
+                    CONTRACT-001
+                            │
+                            ▼
+                    ┌───────────────┐
+                    │     CELL      │
+                    └───────┬───────┘
+                            │
+                    CONTRACT-002
+                            │
+                            ▼
+                    ┌───────────────┐
+                    │    TISSUE     │
+                    └───────┬───────┘
+                            │
+                           ...
+```
+
+Cada contrato responderia:
+
+**"O que precisamos saber antes de acreditar que essa transição faz sentido?"**
+
+Não para garantir sucesso.
+
+Para **matar hipóteses ruins mais cedo**.
+
+---
+
+# Isso muda completamente a filosofia
+
+Em software:
+
+> teste não existe para provar que o programa é perfeito.
+
+Existe para encontrar **onde ele quebra**.
+
+Aplicado à descoberta biomédica:
+
+> experimento não deveria existir apenas para confirmar nossa hipótese.
+
+Deveria também existir para tentar **destruí-la**.
+
+Isso pode economizar uma quantidade gigantesca de esforço.
+
+---
+
+## E a parte mais interessante da sua ideia é o "vasto vazio"
+
+Você mencionou:
+
+> kinesina caminhando pelo microtúbulo num espaço gigante, vasto, vazio.
+
+Só que podemos transformar isso em engenharia quantitativa:
+
+```text
+posição
+velocidade
+direção
+energia
+concentração
+temperatura
+viscosidade
+crowding
+binding probability
+unbinding probability
+ATP availability
+cargo state
+microtubule state
+```
+
+Então, em vez de desenhar uma animação bonitinha de uma kinesina, começamos a perguntar:
+
+> **Quais variáveis realmente determinam o comportamento?**
+
+E:
+
+> **Quais variáveis estamos simplesmente ignorando porque nosso modelo atual é conveniente?**
+
+Essa segunda pergunta é provavelmente mais valiosa.
+
+---
+
+# O projeto poderia começar absurdamente pequeno
+
+Eu faria **um único caso experimental**, não "a célula".
+
+Por exemplo:
+
+### Projeto 001 — Transporte molecular
+
+```text
+OBJETIVO
+
+Compreender quais variáveis são necessárias para
+representar transporte molecular intracelular de
+forma suficientemente fiel para gerar previsões
+experimentais úteis.
+```
+
+Depois:
+
+```text
+FASE 1
+Literatura + dados experimentais
+
+FASE 2
+Ontologia mínima
+
+FASE 3
+Modelo matemático/computacional
+
+FASE 4
+Simulação
+
+FASE 5
+Identificação das incertezas
+
+FASE 6
+Predições
+
+FASE 7
+Comparação com experimentos publicados
+
+FASE 8
+Identificação das discrepâncias
+
+FASE 9
+Novo modelo
+```
+
+E só então:
+
+```text
+transporte
+      ↓
+sinalização
+      ↓
+metabolismo
+      ↓
+interação entre sistemas
+```
+
+**Caracol.**
+
+---
+
+E tem uma distinção que eu acho que captura exatamente o que você está propondo:
+
+> **Não queremos substituir o biólogo pelo engenheiro. Queremos trazer ferramentas de engenharia para tornar a ignorância mensurável.**
+
+Porque talvez o maior problema não seja simplesmente **"não sabemos biologia suficiente"**.
+
+Pode ser que tenhamos uma quantidade colossal de dados, mas ainda tenhamos dificuldade em responder:
+
+**o que sabemos, quão independente é essa evidência, onde estão as contradições, quais variáveis estamos ignorando e qual experimento reduziria mais nossa incerteza?**
+
+Aí sim temos um problema de engenharia que vale a pena atacar.
+ existem dados ou algo que possamos usar? não temos objetos de laboratório, como fica? Sim — e, na verdade, **dá para começar sem laboratório físico**. O laboratório passa a ser uma etapa posterior de validação, não o ponto de partida.
+
+O que precisamos evitar é fingir que uma simulação nossa equivale a evidência biológica. Podemos trabalhar com **dados experimentais já publicados**, reproduzir modelos existentes e procurar relações que gerem hipóteses testáveis.
+
+### O que temos à disposição
+
+| Fonte                  | O que conseguimos estudar                                                                 |
+| ---------------------- | ----------------------------------------------------------------------------------------- |
+| **PubMed / PMC**       | literatura e resultados experimentais                                                     |
+| **UniProt**            | proteínas, funções, modificações, localização                                             |
+| **PDB / RCSB**         | estruturas 3D determinadas experimentalmente                                              |
+| **EMDB**               | estruturas obtidas por cryo-EM                                                            |
+| **AlphaFold DB**       | modelos estruturais computacionais — úteis, mas não equivalentes a estrutura experimental |
+| **BRENDA**             | cinética enzimática                                                                       |
+| **BioGRID / IntAct**   | interações moleculares                                                                    |
+| **STRING**             | redes de interação/proximidade funcional, com diferentes tipos de evidência               |
+| **PRIDE**              | proteômica experimental                                                                   |
+| **GEO**                | expressão gênica                                                                          |
+| **ChEMBL**             | moléculas, alvos e dados farmacológicos                                                   |
+| **Open Targets**       | relações alvo–doença e evidências                                                         |
+| **DrugBank**           | informações farmacológicas, com restrições de acesso em partes do conteúdo                |
+| **ClinicalTrials.gov** | ensaios clínicos                                                                          |
+| **TCGA / cBioPortal**  | dados genômicos e câncer                                                                  |
+
+E existem muitos outros.
+
+---
+
+# O laboratório virtual
+
+Eu faria uma distinção bem rígida:
+
+```text
+                    NOSSO SISTEMA
+                         │
+          ┌──────────────┼──────────────┐
+          ↓              ↓              ↓
+      DADOS          MODELOS        LITERATURA
+    EXPERIMENTAIS   COMPUTACIONAIS
+          │              │              │
+          └──────────────┼──────────────┘
+                         ↓
+                  HIPÓTESE / MODELO
+                         ↓
+                   PREDIÇÃO
+                         ↓
+              ┌──────────┴──────────┐
+              ↓                     ↓
+        dado existente        experimento futuro
+```
+
+Nós não precisaríamos dizer:
+
+> "Nossa simulação mostrou que X acontece."
+
+Mas:
+
+> "Nosso modelo, parametrizado com dados experimentais publicados, prevê X sob condições Y."
+
+Isso é muito mais defensável.
+
+---
+
+# E podemos fazer uma coisa ainda melhor
+
+**Reprodução computacional.**
+
+Antes de tentar descobrir alguma coisa nova:
+
+1. escolhemos um fenômeno;
+2. encontramos dados experimentais;
+3. implementamos o modelo publicado;
+4. reproduzimos os resultados;
+5. verificamos onde nosso modelo diverge;
+6. investigamos a divergência.
+
+Isso é praticamente **engenharia reversa de conhecimento científico**.
+
+---
+
+## Exemplo: kinesina
+
+Podemos começar sem uma única molécula física.
+
+Temos literatura experimental sobre coisas como:
+
+```text
+ATP
+ ↓
+hidrólise
+ ↓
+mudança conformacional
+ ↓
+interação kinesina–microtúbulo
+ ↓
+passos
+ ↓
+deslocamento
+```
+
+Podemos coletar:
+
+```text
+velocidade
+processividade
+step size
+ATP concentration
+binding affinity
+stall force
+run length
+detachment probability
+```
+
+E então construir um modelo estocástico.
+
+Por exemplo, conceitualmente:
+
+```text
+K + MT  ⇌  K·MT
+
+K·MT + ATP
+       ↓
+   conformação 1
+       ↓
+   conformação 2
+       ↓
+     passo
+```
+
+Não estamos dizendo que esse é **o mecanismo verdadeiro completo**.
+
+Estamos construindo um modelo computacional baseado em observações e perguntando:
+
+> **Esse conjunto mínimo de estados consegue reproduzir os dados conhecidos?**
+
+Se não consegue, temos um problema interessante.
+
+---
+
+# E podemos usar dados públicos como nosso "hardware"
+
+Pense nisso como desenvolvimento de software sem possuir o dispositivo final.
+
+Você pode desenvolver:
+
+```text
+unit tests
+integration tests
+fuzzing
+simulação
+benchmark
+model checking
+property testing
+```
+
+e depois executar no hardware real.
+
+Aqui:
+
+```text
+dados experimentais publicados
+          ↓
+    nosso ambiente
+          ↓
+    testes/reprodução
+          ↓
+      simulação
+          ↓
+      predição
+          ↓
+laboratório futuro
+```
+
+O laboratório seria o equivalente ao **hardware de validação final**.
+
+---
+
+# Mas eu colocaria uma regra extremamente rígida
+
+### Não inventar dados ausentes.
+
+Se sabemos:
+
+```text
+X = 3.2 ± 0.4
+```
+
+usamos isso.
+
+Se não sabemos:
+
+```text
+X = UNKNOWN
+```
+
+Não:
+
+```text
+X = 3.2
+```
+
+nem:
+
+```text
+X ≈ 3.0 porque parece razoável
+```
+
+E podemos inclusive fazer o sistema trabalhar explicitamente com:
+
+```text
+UNKNOWN
+RANGE
+DISTRIBUTION
+MEASURED
+ESTIMATED
+MODEL_ASSUMPTION
+```
+
+Isso combina muito com a arquitetura que você estava imaginando.
+
+---
+
+# E existe uma oportunidade enorme aqui
+
+Em vez de procurar imediatamente **"uma descoberta"**, poderíamos procurar:
+
+### **lacunas de conhecimento**
+
+Imagine nosso banco:
+
+```text
+Kinesina KIF5B
+│
+├── estrutura       █████████░
+├── ATPase          ████████░░
+├── velocidade      █████████░
+├── processividade  ███████░░░
+├── carga           █████░░░░░
+├── crowding        ██░░░░░░░░
+├── competição      █░░░░░░░░░
+└── célula real     ██░░░░░░░░
+```
+
+Isso começa a mostrar **onde o conhecimento é forte e onde é fraco**.
+
+E então podemos perguntar:
+
+> "Qual experimento hipotético reduziria mais a incerteza nessa região?"
+
+Isso já é uma pergunta científica bastante séria.
+
+---
+
+## E nem precisamos começar com kinesina
+
+Eu escolheria um fenômeno que tenha:
+
+* muitos dados públicos;
+* modelos matemáticos disponíveis;
+* experimentos reproduzíveis computacionalmente;
+* parâmetros quantitativos;
+* literatura suficientemente grande;
+* possibilidade de comparação entre modelos.
+
+Depois fazemos nosso **primeiro ciclo Cascata**:
+
+```text
+CICLO 001
+
+Problema
+   ↓
+Dataset
+   ↓
+Evidências
+   ↓
+RF/RNF
+   ↓
+Modelo mínimo
+   ↓
+Implementação
+   ↓
+Reprodução
+   ↓
+Validação
+   ↓
+Falhas
+   ↓
+Ciclo 002
+```
+
+E aí existe uma vantagem enorme para nós: **não precisamos de um laboratório para começar a fazer ciência computacionalmente rigorosa**.
+
+O primeiro "experimento" pode ser literalmente um programa que pega dados públicos, reconstrói um fenômeno conhecido e tenta encontrar **onde nosso modelo não consegue reproduzi-lo**.
+
+Se encontrarmos uma discrepância real, aí temos algo concreto para investigar — e, eventualmente, algo que um laboratório poderia testar.
+Eu faria a visualização **não como um software para biólogos**, mas como um **IDE científico** para você.
+
+A regra seria: você não precisa saber o nome de cada proteína para navegar pelo sistema. A interface precisa permitir que você veja **o sistema, seus estados, evidências e incertezas**.
+
+### A tela principal
+
+Algo aproximadamente assim:
+
+```text
+┌──────────────────────────────────────────────────────────────────────┐
+│ CELL LAB                                      [▶ Simular] [[DATA] Dados] │
+├───────────────────┬──────────────────────────┬───────────────────────┤
+│ SISTEMA            │       SIMULAÇÃO          │     OBSERVAÇÕES       │
+│                   │                          │                       │
+│ ● Microtúbulo     │       ○                 │ Velocidade             │
+│ ● Kinesina        │        \                │ █████████░  0.82       │
+│ ● ATP              │         [KINESINA]───►          │                       │
+│ ● Cargo            │             \           │ Processividade         │
+│ ● Membrana         │              ●          │ ███████░░░  0.71       │
+│                   │                          │                       │
+│ [ + componente ]  │   tempo: 12.43 s         │ ATP                    │
+│                   │   [──────●──────]       │ ██████████  observado  │
+├───────────────────┴──────────────────────────┴───────────────────────┤
+│ EVIDÊNCIAS                                                          │
+│                                                                       │
+│ [VALID] Experimental     23 fontes                                         │
+│ ~ Inferido         11 fontes                                         │
+│ ? Desconhecido      8 parâmetros                                     │
+│                                                                       │
+│ [Ver evidências] [Comparar modelos] [Encontrar lacunas]              │
+└───────────────────────────────────────────────────────────────────────┘
+```
+
+Mas eu faria **três níveis de zoom**.
+
+---
+
+# ① Modo Usuário
+
+Você abre e vê algo visual.
+
+### "O que está acontecendo?"
+
+```text
+                    CARGO
+                      ●
+                      │
+                      ▼
+══════════════════════════════════════
+          MICROTÚBULO
+══════════════════════════════════════
+                [KINESINA]
+             KINESINA
+                │
+                └──────────►
+```
+
+Você aperta:
+
+**▶ Executar**
+
+E vê o transporte acontecendo.
+
+Pode pausar:
+
+```text
+⏸ 12.42 s
+```
+
+Voltar:
+
+```text
+◀ ────────────────────────
+```
+
+Alterar:
+
+```text
+ATP
+[████████░░] 80%
+
+Temperatura
+[██████░░░░] 37 °C
+
+Crowding
+[███░░░░░░░] baixo
+```
+
+E observar:
+
+> **"O comportamento mudou."**
+
+---
+
+# ② Modo Engenheiro
+
+Aí você clica na kinesina.
+
+A interface muda:
+
+```text
+KINESINA
+────────────────────────────
+
+Estado:
+  Ligada ao microtúbulo
+
+Energia:
+  ATP
+
+Movimento:
+  Direcional
+
+Velocidade:
+  0.82 μm/s
+
+Processividade:
+  1.4 μm
+
+────────────────────────────
+
+EVIDÊNCIA
+
+Experimental       [VALID]
+Inferida            ~
+Desconhecida        ?
+
+[Ver fontes]
+```
+
+E aqui você começa a enxergar algo muito próximo de engenharia.
+
+---
+
+# ③ Modo Científico
+
+Se você quiser abrir a "caixa preta":
+
+```text
+MODEL K-0042
+
+States
+─────────────────────
+
+S0 = detached
+S1 = bound
+S2 = ATP-bound
+S3 = ADP-bound
+
+Transitions
+─────────────────────
+
+S0 → S1
+probability = ...
+
+S1 → S2
+rate = ...
+
+S2 → S3
+rate = ...
+
+S3 → S0
+probability = ...
+```
+
+E então:
+
+```text
+MODEL
+   │
+   ├── assumptions: 17
+   ├── measured parameters: 23
+   ├── estimated parameters: 8
+   ├── unknown parameters: 5
+   │
+   └── predictions: 12
+```
+
+Agora você está olhando para o **motor científico**.
+
+---
+
+# A parte que eu acho mais importante para você
+
+Você poderia clicar em qualquer coisa e perguntar:
+
+> **"Por que você acha isso?"**
+
+Por exemplo:
+
+```text
+┌────────────────────────────────────┐
+│ Kinesina anda em direção +         │
+│                                    │
+│ Por quê?                           │
+└────────────────────────────────────┘
+```
+
+O sistema responderia algo como:
+
+```text
+EVIDÊNCIA
+
+3 experimentos de single-molecule
+2 estudos estruturais
+4 datasets independentes
+
+██████████████████░░
+
+Base:
+Experimental
+
+Condições:
+37 °C
+ATP presente
+microtúbulo estabilizado
+
+Limitações:
+Não representa integralmente o
+ambiente intracelular.
+```
+
+Ou:
+
+```text
+[ALERT] ATENÇÃO
+
+O comportamento observado em
+vitro pode não representar o
+comportamento dentro da célula.
+
+Esta parte do modelo contém
+inferências.
+```
+
+Isso seria **muito mais importante que uma animação bonita**.
+
+---
+
+# E eu colocaria uma "barra de ignorância"
+
+Algo visual:
+
+```text
+O QUE SABEMOS
+
+████████████████████████  82%
+
+O QUE É INFERÊNCIA
+
+██████████                34%
+
+O QUE NÃO SABEMOS
+
+██████████████            47%
+```
+
+Mas com uma ressalva: **não seria uma porcentagem inventada de "quanto sabemos da célula"**.
+
+Seria calculada apenas dentro do **escopo específico do modelo**.
+
+Por exemplo:
+
+> Transporte de kinesina KIF5B em determinada condição experimental.
+
+Não:
+
+> "Sabemos 82% da biologia."
+
+Isso seria pseudoprecisão.
+
+---
+
+# E teria uma visualização que acho particularmente adequada ao seu perfil
+
+## Grafo de evidências
+
+```text
+                    ┌──────────────┐
+                    │ EXPERIMENTO  │
+                    └──────┬───────┘
+                           │
+                           ▼
+                    ┌──────────────┐
+                    │ OBSERVAÇÃO   │
+                    └──────┬───────┘
+                           │
+                    ┌──────▼───────┐
+                    │   HIPÓTESE   │
+                    └──────┬───────┘
+                           │
+              ┌────────────┴────────────┐
+              ▼                         ▼
+       ┌─────────────┐           ┌─────────────┐
+       │ EXPERIMENTO │           │ EXPERIMENTO │
+       │      A      │           │      B      │
+       └──────┬──────┘           └──────┬──────┘
+              │                         │
+              └────────────┬────────────┘
+                           ▼
+                    ┌──────────────┐
+                    │   MODELO     │
+                    └──────┬───────┘
+                           │
+                           ▼
+                    ┌──────────────┐
+                    │  PREDIÇÃO    │
+                    └──────────────┘
+```
+
+Você pode clicar em qualquer nó.
+
+**Isso transforma "biologia molecular" em algo navegável.**
+
+---
+
+# E finalmente: o "Modo Caracol"
+
+Eu não apresentaria 50 mil entidades para você.
+
+Começaria:
+
+```text
+CÉLULA
+ │
+ └── Transporte
+      │
+      └── Microtúbulos
+           │
+           └── Kinesina
+                │
+                └── KIF5B
+                     │
+                     └── Movimento
+```
+
+Você escolhe:
+
+**Kinesina → Movimento → Por que?**
+
+E desce um nível.
+
+Depois:
+
+**ATP → mecanismo → estrutura → evidência**
+
+Depois volta.
+
+```text
+← voltar
+```
+
+Assim você nunca precisa carregar a complexidade inteira na cabeça.
+
+---
+
+## E isso cria uma interface muito interessante
+
+Você seria simultaneamente:
+
+**Usuário final**
+
+```text
+"Quero ver o que essa coisa faz."
+```
+
+**Programador**
+
+```text
+"Quero saber qual modelo está executando."
+```
+
+**Investigador**
+
+```text
+"Quero saber de onde veio esse dado."
+```
+
+**Cientista computacional**
+
+```text
+"Quero alterar o parâmetro e ver o que acontece."
+```
+
+Sem precisar fingir que você virou biólogo molecular.
+
+E eu iria além: **a interface deveria mostrar explicitamente quando estamos olhando para realidade experimental, modelo computacional ou hipótese nossa.** Essa separação seria o equivalente científico de distinguir `production`, `test` e `mock`.
+
+Aí você consegue brincar com o sistema sem acidentalmente transformar uma simulação em "descoberta".
+
+
+Para a ideia que construímos até aqui, eu daria **9,0/10 como conceito de engenharia de software científico**. Como proposta de ciência capaz de produzir conhecimento novo, ainda é **~6,5/10**, não por falta de potencial, mas porque ainda não definimos um problema científico concreto nem um protocolo de validação.
+
+O ponto forte é justamente não tentar "simular a célula inteira".
+
+## Avaliação
+
+| Dimensão                    |       Nota | Observação                                                 |
+| --------------------------- | ---------: | ---------------------------------------------------------- |
+| Clareza do objetivo         |   **9/10** | Redução de incerteza, não "explicar a vida"                |
+| Arquitetura conceitual      | **9,5/10** | Evidência → modelo → previsão → validação                  |
+| Aplicação de engenharia     | **9,5/10** | RF/RNF, modularidade, testes, versionamento                |
+| UX para leigo/programador   |   **9/10** | Três níveis de abstração funcionam muito bem               |
+| Rastreabilidade científica  |  **10/10** | Proveniência deveria ser requisito central                 |
+| Tratamento de incerteza     | **9,5/10** | `UNKNOWN/OBSERVED/INFERRED/...` é excelente                |
+| Simulação                   |   **8/10** | Precisamos definir formalismo por fenômeno                 |
+| Dados                       |   **8/10** | Há enorme quantidade, mas heterogeneidade é problema       |
+| Validação                   |   **7/10** | Ainda falta um protocolo experimental/computacional formal |
+| Potencial de descoberta     | **6,5/10** | Depende completamente do primeiro problema escolhido       |
+| Escalabilidade              |   **7/10** | Grafos e modelos podem explodir em complexidade            |
+| Viabilidade sem laboratório |   **9/10** | Podemos começar com reprodução/análise de dados públicos   |
+
+---
+
+# A principal melhoria: mudar o centro do sistema
+
+Eu corrigiria uma coisa da proposta anterior.
+
+Não faria:
+
+```text
+                  CELL LAB
+                     │
+              ┌──────┴──────┐
+              │             │
+          Simulação       Dados
+```
+
+Faria:
+
+```text
+                     EVIDÊNCIA
+                         │
+          ┌──────────────┼──────────────┐
+          ▼              ▼              ▼
+       DADOS          MODELOS       LITERATURA
+          │              │              │
+          └──────────────┼──────────────┘
+                         ▼
+                   CONHECIMENTO
+                         │
+          ┌──────────────┼──────────────┐
+          ▼              ▼              ▼
+       SUPORTE       CONTRADIÇÃO     LACUNA
+          │              │              │
+          └──────────────┼──────────────┘
+                         ▼
+                    HIPÓTESE
+                         │
+                         ▼
+                    PREDIÇÃO
+                         │
+                         ▼
+                     TESTE
+```
+
+**A simulação deixa de ser protagonista.**
+
+Ela vira uma ferramenta entre várias.
+
+Isso é uma melhoria arquitetural importante.
+
+---
+
+# 1. Criaria um "Knowledge Graph" científico
+
+Esse seria provavelmente o coração do projeto.
+
+```text
+                    KIF5B
+                      │
+         ┌────────────┼─────────────┐
+         ▼            ▼             ▼
+     estrutura      ATP          microtúbulo
+         │            │             │
+         ▼            ▼             ▼
+     Evidence A    Evidence B    Evidence C
+         │            │             │
+         └────────────┼─────────────┘
+                      ▼
+                   MODEL-17
+                      │
+                      ▼
+                 PREDICTION-4
+```
+
+Mas cada aresta teria:
+
+```yaml
+source:
+evidence_type:
+condition:
+organism:
+cell_type:
+measurement:
+date:
+method:
+provenance:
+status:
+```
+
+Isso permitiria responder:
+
+> "Por que o sistema acredita que X está relacionado a Y?"
+
+Sem depender de uma IA dizendo "porque a literatura afirma".
+
+---
+
+# 2. Criaria um "Evidence Ledger"
+
+Essa seria uma das partes mais importantes.
+
+Cada afirmação teria um registro:
+
+```yaml
+claim_id: CLM-000184
+
+claim:
+  "KIF5B transporta determinado cargo."
+
+status: INFERRED
+
+evidence:
+  - EXP-0012
+  - EXP-0091
+  - EXP-0134
+
+conditions:
+  temperature: 37C
+  system: in_vitro
+
+limitations:
+  - "não representa plenamente o citoplasma"
+
+contradictions:
+  - null
+```
+
+E poderíamos clicar:
+
+**Claim → Evidências → Experimentos → Dados brutos**
+
+Isso evita o problema clássico:
+
+```text
+paper A
+ ↓
+paper B cita A
+ ↓
+paper C cita B
+ ↓
+paper D cita C
+ ↓
+"é conhecido que..."
+```
+
+Quando, na realidade, tudo pode remontar ao **mesmo experimento**.
+
+---
+
+# 3. Criaria uma matriz de desconhecimento
+
+Isso seria excelente para o Método Caracol.
+
+```text
+                    CONHECIMENTO
+                         │
+        ┌────────────────┼────────────────┐
+        ▼                ▼                ▼
+      FORTE           FRÁGIL          AUSENTE
+
+      ████████         ████░░░░        ░░░░░░░░
+```
+
+Mas não usaríamos uma "nota de certeza" arbitrária.
+
+Seria baseado em propriedades mensuráveis:
+
+```text
+número de experimentos independentes
+qualidade metodológica
+reprodutibilidade
+consistência
+distância entre sistemas experimentais
+quantidade de evidência contraditória
+```
+
+---
+
+# 4. Introduziria "Experimentos Virtuais"
+
+Aqui começa a ficar muito interessante.
+
+Você poderia alterar:
+
+```text
+ATP       100% → 40%
+Crowding   baixo → alto
+Cargo      A → B
+Temperatura 37 → 25 °C
+```
+
+E clicar:
+
+> **Executar**
+
+O sistema produziria:
+
+```text
+OBSERVADO:
+não temos experimento correspondente.
+
+MODELO:
+prevê redução de velocidade.
+
+CONFIANÇA DO MODELO:
+não calculada como "certeza".
+
+EVIDÊNCIA:
+fraca/moderada.
+
+STATUS:
+PREDIÇÃO NÃO VALIDADA.
+```
+
+Isso é muito melhor do que:
+
+> "Resultado: 43% menos velocidade."
+
+Porque o segundo pode parecer um fato experimental.
+
+---
+
+# 5. Criaria "Model Competition"
+
+Em vez de:
+
+```text
+NOSSO MODELO
+```
+
+teríamos:
+
+```text
+          FENÔMENO X
+               │
+       ┌───────┼───────┐
+       ▼       ▼       ▼
+      M1      M2      M3
+```
+
+Cada modelo faz previsões.
+
+```text
+M1 → P1
+M2 → P2
+M3 → P3
+```
+
+E então perguntamos:
+
+> **Qual observação diferenciaria esses modelos?**
+
+Essa é uma melhoria enorme.
+
+Porque o objetivo deixa de ser provar nosso modelo.
+
+Passa a ser **descobrir qual experimento possui maior poder discriminatório**.
+
+---
+
+# 6. Eu acrescentaria um "Experiment Designer"
+
+Esse seria talvez o módulo mais ambicioso.
+
+Imagine:
+
+```text
+HIPÓTESES ATUAIS
+
+H1 ──────────────── 0.72
+H2 ────────────     0.51
+H3 ─────────────    0.48
+```
+
+E:
+
+```text
+EXPERIMENTOS POSSÍVEIS
+
+E1 → separa H1/H2        █████████
+E2 → separa H2/H3        ██████
+E3 → pouca informação    ██
+```
+
+O sistema não diz:
+
+> "Faça E1 porque é o melhor."
+
+Ele mostra:
+
+> **"E1 possui maior poder potencial para distinguir os modelos sob estas premissas."**
+
+Isso é muito mais cientificamente interessante.
+
+---
+
+# 7. E precisamos de uma coisa extremamente importante
+
+## Negative Knowledge
+
+Registrar:
+
+> **o que não funcionou.**
+
+Não apenas:
+
+```text
+X → Y [VALID]
+```
+
+Mas:
+
+```text
+X → Y
+│
+├── condição A [VALID]
+├── condição B [VALID]
+├── condição C [FAIL]
+└── condição D UNKNOWN
+```
+
+Resultados negativos são extremamente valiosos para evitar que o sistema percorra novamente caminhos mortos.
+
+---
+
+# 8. Segurança científica
+
+Eu colocaria um mecanismo chamado:
+
+## Epistemic Firewall
+
+Antes de qualquer saída:
+
+```text
+RESULTADO
+   │
+   ▼
+┌─────────────────────┐
+│ É dado experimental?│
+└──────────┬──────────┘
+           │
+       NÃO ▼
+┌─────────────────────┐
+│ É resultado de      │
+│ simulação?          │
+└──────────┬──────────┘
+           │
+       NÃO ▼
+      HIPÓTESE
+```
+
+A UI usaria símbolos extremamente claros:
+
+```text
+[EXPERIMENTAL] EXPERIMENTAL
+[MODELADO] MODELADO
+[INFERIDO] INFERIDO
+[?] UNKNOWN
+[ALERT] CONTRADITÓRIO
+[PREDICAO] PREDIÇÃO
+```
+
+Isso evitaria uma das maiores armadilhas de sistemas científicos com IA:
+
+**gerar uma narrativa plausível e apresentá-la como conhecimento.**
+
+---
+
+# 9. Arquitetura de software
+
+Eu separaria em módulos:
+
+```text
+cell-lab/
+│
+├── ingestion/
+│   ├── literature
+│   ├── datasets
+│   └── structures
+│
+├── evidence/
+│   ├── provenance
+│   ├── claims
+│   └── contradictions
+│
+├── knowledge/
+│   ├── entities
+│   ├── relations
+│   └── ontology
+│
+├── models/
+│   ├── deterministic
+│   ├── stochastic
+│   ├── agent_based
+│   └── mathematical
+│
+├── simulation/
+│
+├── inference/
+│
+├── experiment/
+│
+├── validation/
+│
+└── ui/
+```
+
+E manteria uma regra:
+
+> **UI nunca acessa diretamente os dados científicos.**
+
+```text
+UI
+ ↓
+Application API
+ ↓
+Domain
+ ↓
+Evidence/Knowledge
+ ↓
+Data
+```
+
+Isso vai nos salvar depois.
+
+---
+
+# 10. RF/RNF que eu acrescentaria
+
+### RF-001
+
+Importar evidências científicas com proveniência.
+
+### RF-002
+
+Representar entidades biológicas.
+
+### RF-003
+
+Representar relações entre entidades.
+
+### RF-004
+
+Associar afirmações a evidências.
+
+### RF-005
+
+Representar contradições.
+
+### RF-006
+
+Representar desconhecimento explicitamente.
+
+### RF-007
+
+Executar modelos computacionais.
+
+### RF-008
+
+Comparar modelos concorrentes.
+
+### RF-009
+
+Gerar predições identificadas como não validadas.
+
+### RF-010
+
+Permitir experimentos virtuais.
+
+### RF-011
+
+Identificar lacunas de evidência.
+
+### RF-012
+
+Registrar resultados negativos.
+
+### RF-013
+
+Rastrear cada conclusão até sua fonte.
+
+### RF-014
+
+Permitir reprodução de uma análise completa.
+
+### RF-015
+
+Versionar dados, modelos e conclusões.
+
+---
+
+## RNFs
+
+### RNF-001 — Reprodutibilidade
+
+Mesma entrada + mesma versão do modelo → mesmo resultado, quando o método for determinístico.
+
+### RNF-002 — Proveniência
+
+Nenhum dado científico pode existir sem origem conhecida.
+
+### RNF-003 — Auditabilidade
+
+Toda conclusão deve ser rastreável.
+
+### RNF-004 — Epistemic Integrity
+
+O sistema não pode representar hipótese como observação.
+
+### RNF-005 — Versionamento
+
+Alterações nos dados/modelos devem ser rastreáveis.
+
+### RNF-006 — Interoperabilidade
+
+Preferir formatos científicos existentes em vez de inventar tudo.
+
+### RNF-007 — Escalabilidade
+
+O sistema deve permitir crescer de uma proteína para redes moleculares sem reescrever o núcleo.
+
+### RNF-008 — Observabilidade
+
+Toda execução de modelo deve gerar logs suficientes para reprodução.
+
+### RNF-009 — Incerteza
+
+Parâmetros desconhecidos não devem ser silenciosamente preenchidos.
+
+### RNF-010 — Falsificabilidade
+
+Modelos devem ser capazes de produzir previsões potencialmente contraditórias por observação.
+
+---
+
+# Minha avaliação final
+
+A primeira versão era uma ideia boa de **"laboratório virtual"**.
+
+Depois dessas melhorias, eu a classificaria como algo mais interessante:
+
+> **uma plataforma de engenharia de conhecimento científico para integrar evidência biomolecular, modelos computacionais e hipóteses testáveis.**
+
+**Conceito: 9,5/10.**
+
+O próximo passo, porém, **não é programar**.
+
+É escolher o **primeiro fenômeno** e fazer o Ciclo 0:
+
+```text
+                 CICLO 0
+                    │
+          ┌─────────┴─────────┐
+          │                   │
+      O QUE SABEMOS       O QUE NÃO SABEMOS
+          │                   │
+          └─────────┬─────────┘
+                    ▼
+             PRIMEIRO MODELO
+                    │
+                    ▼
+            PRIMEIRA REPRODUÇÃO
+                    │
+                    ▼
+               PRIMEIRA FALHA
+                    │
+                    ▼
+             PRIMEIRO CARACOL
+```
+
+Eu deliberadamente **não começaria pela célula inteira, câncer, "descoberta de medicamentos" ou uma IA que tenta prever proteínas**. Isso seria grande demais.
+
+Começaria por **um fenômeno quantitativo pequeno, público, reproduzível computacionalmente e suficientemente bem documentado para termos um chão firme**. A partir daí podemos descobrir se a arquitetura realmente funciona antes de colocar complexidade biológica em cima dela.

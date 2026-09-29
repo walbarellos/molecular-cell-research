@@ -1,0 +1,1 @@
+"""Formalismos cineticos e mecanomoleculares."""

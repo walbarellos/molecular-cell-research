@@ -1,0 +1,78 @@
+{
+  "phenomenon": "CELL-LAB-001",
+  "description": "Curated empirical datasets for kinesin-1 motility calibration and falsification",
+  "entities": {
+    "kinesin": {
+      "id": "ENT-KIF5B-HUMAN",
+      "created_at": "2026-09-29T15:05:20.898902Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "category": "biological",
+      "entity_type": "protein",
+      "canonical_name": "KIF5B",
+      "systematic_name": "Kinesin-1 heavy chain (homodimer)",
+      "external_identifiers": [
+        {
+          "id": "62ec95f9-e5c5-4694-9b24-5cee3055d18d",
+          "created_at": "2026-09-29T15:05:20.898877Z",
+          "lifecycle_status": "active",
+          "version": "1.0.0",
+          "database_name": "UniProt",
+          "accession_code": "P33176"
+        },
+        {
+          "id": "07777339-7222-4542-b865-1a43a7128509",
+          "created_at": "2026-09-29T15:05:20.898895Z",
+          "lifecycle_status": "active",
+          "version": "1.0.0",
+          "database_name": "PDB",
+          "accession_code": "1BG2"
+        }
+      ],
+      "metadata": {
+        "organism": "Homo sapiens / Bos taurus / Loligo pealeii homolog"
+      }
+    },
+    "microtubule": {
+      "id": "ENT-MICROTUBULE-TAXOL",
+      "created_at": "2026-09-29T15:05:20.898916Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "category": "physical",
+      "entity_type": "filament",
+      "canonical_name": "Microtubule",
+      "systematic_name": "Taxol-stabilized porcine/bovine tubulin polymer",
+      "external_identifiers": [
+        {
+          "id": "6cbc36c0-2167-441e-a1e5-2303cd9c22ce",
+          "created_at": "2026-09-29T15:05:20.898914Z",
+          "lifecycle_status": "active",
+          "version": "1.0.0",
+          "database_name": "PDB",
+          "accession_code": "1JFF"
+        }
+      ],
+      "metadata": {
+        "lattice": "13-protofilament B-lattice"
+      }
+    }
+  },
+  "datasets": {
+    "calibration_dataset_a": {
+      "id": "DTS-CELL-LAB-001-CALIBRATION",
+      "name": "CELL-LAB-001-Dataset-A-Calibration",
+      "sha256": "9e052d79c339e3fa3c82d59231c38fe253bd141b3f925656d42751ff4fe5799b",
+      "source_doi": "10.1038/41111",
+      "record_count": 10,
+      "role": "Model calibration (unloaded velocity vs [ATP])"
+    },
+    "falsification_dataset_b": {
+      "id": "DTS-CELL-LAB-001-FALSIFICATION",
+      "name": "CELL-LAB-001-Dataset-B-Falsification",
+      "sha256": "9f60500401861df878b7ee192066b5be86584e1fc5f13fe114817f83ee2c1553",
+      "source_doi": "10.1038/22146",
+      "record_count": 11,
+      "role": "Model falsification (load force vs velocity)"
+    }
+  }
+}

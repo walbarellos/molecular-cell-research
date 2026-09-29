@@ -1,0 +1,361 @@
+{
+  "source": {
+    "id": "0da16062-a499-48cb-884a-cf00083d3df2",
+    "created_at": "2026-09-29T16:04:27.299467Z",
+    "lifecycle_status": "active",
+    "version": "1.0.0",
+    "source_type": "journal_article",
+    "identifier": "10.1038/352261a0",
+    "title": "Direct observation of single kinesin molecules moving along microtubules",
+    "authors": [
+      "Svoboda, K.",
+      "Schmidt, C. F.",
+      "Schnapp, B. J.",
+      "Block, S. M."
+    ],
+    "year": 1993,
+    "publication_venue": "Nature",
+    "uri": "https://doi.org/10.1038/352261a0",
+    "content_hash_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "experiment": {
+    "id": "9ba6fd33-00b3-4b5f-99ca-e4dc3b2b097a",
+    "created_at": "2026-09-29T16:04:27.299482Z",
+    "lifecycle_status": "active",
+    "version": "1.0.0",
+    "source_id": "0da16062-a499-48cb-884a-cf00083d3df2",
+    "name": "Optical tweezers single-molecule kinesin motility assay",
+    "method": "optical_trap_nanometry",
+    "protocol_description": "In vitro motility of native KIF5B homodimer on taxol-stabilized microtubules",
+    "environmental_conditions": {
+      "temperature_degC": 25.0,
+      "atp_concentration_mM": 1.0,
+      "buffer": "BRB80",
+      "ph": 6.9,
+      "load_force_pN": 0.0
+    }
+  },
+  "kinesin": {
+    "id": "d38c4e83-f1fb-4a0d-99b8-30f0e686290c",
+    "created_at": "2026-09-29T16:04:27.299496Z",
+    "lifecycle_status": "active",
+    "version": "1.0.0",
+    "category": "biological",
+    "entity_type": "protein",
+    "canonical_name": "KIF5B",
+    "systematic_name": "Kinesin-1 heavy chain",
+    "external_identifiers": [
+      {
+        "id": "b937f858-9cb9-4f00-89a3-56ec1afb5dca",
+        "created_at": "2026-09-29T16:04:27.299490Z",
+        "lifecycle_status": "active",
+        "version": "1.0.0",
+        "database_name": "UniProt",
+        "accession_code": "P33176"
+      }
+    ],
+    "metadata": {
+      "organism": "Homo sapiens",
+      "molecular_weight_kDa": 110.0
+    }
+  },
+  "microtubule": {
+    "id": "f2f5a700-88fd-4fb8-b03a-293da05662f0",
+    "created_at": "2026-09-29T16:04:27.299504Z",
+    "lifecycle_status": "active",
+    "version": "1.0.0",
+    "category": "physical",
+    "entity_type": "filament",
+    "canonical_name": "Microtubule",
+    "systematic_name": "Taxol-stabilized tubulin polymer",
+    "external_identifiers": [],
+    "metadata": {
+      "subunits": "alpha-beta tubulin heterodimer"
+    }
+  },
+  "observation": {
+    "id": "bb57220d-76ad-4049-98dd-a3ffa72f737f",
+    "created_at": "2026-09-29T16:04:27.299524Z",
+    "lifecycle_status": "active",
+    "version": "1.0.0",
+    "experiment_id": "9ba6fd33-00b3-4b5f-99ca-e4dc3b2b097a",
+    "description": "Processive stepping velocity of KIF5B along microtubule under saturating ATP",
+    "measurements": [
+      {
+        "id": "56dab8e9-aca3-45ab-9e3d-e9a5f2fa1192",
+        "created_at": "2026-09-29T16:04:27.299518Z",
+        "lifecycle_status": "active",
+        "version": "1.0.0",
+        "quantity": {
+          "value": 0.82,
+          "unit": "um/s",
+          "uncertainty": 0.04,
+          "uncertainty_type": "standard_error",
+          "representation": "point_estimate"
+        },
+        "measured_property": "velocity",
+        "entity_id": "d38c4e83-f1fb-4a0d-99b8-30f0e686290c",
+        "conditions": {
+          "atp_mM": 1.0,
+          "load_pN": 0.0,
+          "temp_degC": 25.0
+        },
+        "method": "optical_trap_tracking",
+        "observation_id": "bb57220d-76ad-4049-98dd-a3ffa72f737f"
+      }
+    ],
+    "raw_data_ref": "L2/raw/svoboda1993/velocity_traces_run01.csv"
+  },
+  "evidence": {
+    "id": "0322bbab-f61f-4816-b9bf-c5f821b6e6d4",
+    "created_at": "2026-09-29T16:04:27.299545Z",
+    "lifecycle_status": "active",
+    "version": "1.0.0",
+    "source_id": "0da16062-a499-48cb-884a-cf00083d3df2",
+    "experiment_id": "9ba6fd33-00b3-4b5f-99ca-e4dc3b2b097a",
+    "observation_ids": [
+      "bb57220d-76ad-4049-98dd-a3ffa72f737f"
+    ],
+    "supports_claims": [
+      "1566fc48-bc24-4d2e-b7b0-ace156884180"
+    ],
+    "contradicts_claims": [],
+    "conditions": {
+      "atp_mM": 1.0,
+      "temperature_degC": 25.0
+    },
+    "epistemic_record": {
+      "status": "OBSERVED",
+      "data_tier": "RAW",
+      "provenance": {
+        "source_uri": "doi:10.1038/352261a0",
+        "method": "optical_trap_nanometry",
+        "operator": "HUMAN",
+        "conditions": {
+          "atp_mM": 1.0
+        }
+      },
+      "basis": [],
+      "conditions": {},
+      "limitations": [
+        "In vitro assay; absent cytosolic crowding components."
+      ],
+      "confidence_evidence_count": 1
+    }
+  },
+  "claim": {
+    "id": "1566fc48-bc24-4d2e-b7b0-ace156884180",
+    "created_at": "2026-09-29T16:04:27.299557Z",
+    "lifecycle_status": "active",
+    "version": "1.0.0",
+    "statement": "KIF5B translocates processively toward the microtubule plus-end with velocity ~0.82 um/s at 1.0 mM ATP (25 degC)",
+    "subject_entity_id": "d38c4e83-f1fb-4a0d-99b8-30f0e686290c",
+    "predicate": "translocates_along",
+    "object_entity_id": "f2f5a700-88fd-4fb8-b03a-293da05662f0",
+    "epistemic_record": {
+      "status": "OBSERVED",
+      "data_tier": "DERIVED",
+      "provenance": null,
+      "basis": [
+        "0322bbab-f61f-4816-b9bf-c5f821b6e6d4"
+      ],
+      "conditions": {},
+      "limitations": [],
+      "confidence_evidence_count": 1
+    },
+    "supporting_evidence_ids": [
+      "0322bbab-f61f-4816-b9bf-c5f821b6e6d4"
+    ],
+    "conflicting_evidence_ids": []
+  },
+  "relation": {
+    "id": "0d4ef248-bb19-4806-a7fc-d879de3182de",
+    "created_at": "2026-09-29T16:04:27.299569Z",
+    "lifecycle_status": "active",
+    "version": "1.0.0",
+    "source_entity_id": "d38c4e83-f1fb-4a0d-99b8-30f0e686290c",
+    "target_entity_id": "f2f5a700-88fd-4fb8-b03a-293da05662f0",
+    "relation_type": "translocates_along",
+    "bidirectional": false,
+    "supporting_evidence_ids": [
+      "0322bbab-f61f-4816-b9bf-c5f821b6e6d4"
+    ],
+    "metadata": {}
+  },
+  "model": {
+    "id": "5512fc84-6f01-4d8a-b512-60d8467c1501",
+    "created_at": "2026-09-29T16:04:27.299588Z",
+    "lifecycle_status": "active",
+    "version": "1.0.0",
+    "name": "KIF5B_Minimal_2State_MichaelisMenten",
+    "description": "Minimal mechanochemical model linking ATP binding turnover to discrete 8.2 nm steps",
+    "target_phenomenon": "KIF5B_unloaded_velocity",
+    "assumptions": [
+      "Tight coupling: 1 ATP consumed per 8.2 nm physical step",
+      "Hydrolysis and phosphate release are irreversible at initial velocity conditions",
+      "Zero opposing load force (unloaded motility)"
+    ],
+    "parameters": [
+      {
+        "name": "k_cat",
+        "description": "Maximum catalytic turnover rate per head",
+        "unit": "1/s",
+        "default_value": 105.0,
+        "origin": "measured",
+        "evidence_id": "0322bbab-f61f-4816-b9bf-c5f821b6e6d4",
+        "sensitivity_bounds": [
+          95.0,
+          115.0
+        ]
+      },
+      {
+        "name": "K_m",
+        "description": "Michaelis constant for ATP binding",
+        "unit": "uM",
+        "default_value": 90.0,
+        "origin": "measured",
+        "evidence_id": "0322bbab-f61f-4816-b9bf-c5f821b6e6d4",
+        "sensitivity_bounds": [
+          70.0,
+          110.0
+        ]
+      },
+      {
+        "name": "step_size",
+        "description": "Mechanical step distance per ATP hydrolyzed",
+        "unit": "nm",
+        "default_value": 8.2,
+        "origin": "measured",
+        "evidence_id": "0322bbab-f61f-4816-b9bf-c5f821b6e6d4",
+        "sensitivity_bounds": [
+          8.0,
+          8.4
+        ]
+      }
+    ],
+    "inputs": [
+      "atp_concentration_uM"
+    ],
+    "outputs": [
+      "velocity_um_s"
+    ],
+    "equations_or_algorithm_description": "v([ATP]) = (k_cat * [ATP] / (K_m + [ATP])) * d_step",
+    "implementation_reference": "computation.models.kinesin_minimal:evaluate_velocity",
+    "source_reference": "Schnitzer and Block 1997 / Svoboda et al. 1993",
+    "validation_status": "provisionally_consistent"
+  },
+  "simulation": {
+    "id": "ebaf6461-a5b3-46a5-8793-1eed9f7ec549",
+    "created_at": "2026-09-29T16:04:27.299598Z",
+    "lifecycle_status": "active",
+    "version": "1.0.0",
+    "model_id": "5512fc84-6f01-4d8a-b512-60d8467c1501",
+    "model_version": "1.0.0",
+    "dataset_version": "1.0.0",
+    "parameter_overrides": {
+      "atp_concentration_uM": 1000.0
+    },
+    "environment_info": {
+      "python": "3.14.7",
+      "platform": "linux",
+      "numpy": "none_pure_math"
+    },
+    "random_seed": 42,
+    "execution_hash": "a1b2c3d4e5f60718293a4b5c6d7e8f90123456789abcdef0123456789abcdef0",
+    "outputs": {
+      "computed_velocity_um_s": 0.818
+    },
+    "predictions": [
+      {
+        "id": "15ab4103-560e-4a30-9f8b-3a0d8fe42548",
+        "created_at": "2026-09-29T16:04:27.299612Z",
+        "lifecycle_status": "active",
+        "version": "1.0.0",
+        "model_id": "5512fc84-6f01-4d8a-b512-60d8467c1501",
+        "simulation_id": "ebaf6461-a5b3-46a5-8793-1eed9f7ec549",
+        "predicted_property": "velocity",
+        "quantity": {
+          "value": 0.818,
+          "unit": "um/s",
+          "uncertainty": 0.035,
+          "uncertainty_type": "standard_deviation",
+          "representation": "point_estimate"
+        },
+        "conditions": {
+          "atp_concentration_uM": 1000.0,
+          "load_force_pN": 0.0
+        },
+        "epistemic_record": {
+          "status": "PREDICTED",
+          "data_tier": "GENERATED",
+          "provenance": {
+            "source_uri": "model:5512fc84-6f01-4d8a-b512-60d8467c1501",
+            "method": "analytical_evaluation",
+            "operator": "MODEL",
+            "conditions": {
+              "atp_uM": 1000.0
+            }
+          },
+          "basis": [],
+          "conditions": {},
+          "limitations": [],
+          "confidence_evidence_count": 1
+        }
+      }
+    ]
+  },
+  "prediction": {
+    "id": "15ab4103-560e-4a30-9f8b-3a0d8fe42548",
+    "created_at": "2026-09-29T16:04:27.299612Z",
+    "lifecycle_status": "active",
+    "version": "1.0.0",
+    "model_id": "5512fc84-6f01-4d8a-b512-60d8467c1501",
+    "simulation_id": "ebaf6461-a5b3-46a5-8793-1eed9f7ec549",
+    "predicted_property": "velocity",
+    "quantity": {
+      "value": 0.818,
+      "unit": "um/s",
+      "uncertainty": 0.035,
+      "uncertainty_type": "standard_deviation",
+      "representation": "point_estimate"
+    },
+    "conditions": {
+      "atp_concentration_uM": 1000.0,
+      "load_force_pN": 0.0
+    },
+    "epistemic_record": {
+      "status": "PREDICTED",
+      "data_tier": "GENERATED",
+      "provenance": {
+        "source_uri": "model:5512fc84-6f01-4d8a-b512-60d8467c1501",
+        "method": "analytical_evaluation",
+        "operator": "MODEL",
+        "conditions": {
+          "atp_uM": 1000.0
+        }
+      },
+      "basis": [],
+      "conditions": {},
+      "limitations": [],
+      "confidence_evidence_count": 1
+    }
+  },
+  "conflict": {
+    "id": "2ab8d985-c9a8-4e27-bb80-b142dea11451",
+    "created_at": "2026-09-29T16:04:27.299623Z",
+    "lifecycle_status": "active",
+    "version": "1.0.0",
+    "claim_a_id": null,
+    "claim_b_id": null,
+    "evidence_a_id": "0322bbab-f61f-4816-b9bf-c5f821b6e6d4",
+    "evidence_b_id": "EVID-SAMPLE-COLD-TEMP",
+    "divergence_metric": "Velocidade em 20 degC (0.45 um/s) vs 25 degC (0.82 um/s)",
+    "conditions_comparison": {
+      "temperature_a_degC": 25.0,
+      "temperature_b_degC": 20.0,
+      "arrhenius_expected": true
+    },
+    "resolution_status": "explained_by_conditions",
+    "resolution_notes": "A divergencia decorre da sensibilidade termica da taxa catalitica k_cat (Q10 ~ 2.0)."
+  }
+}

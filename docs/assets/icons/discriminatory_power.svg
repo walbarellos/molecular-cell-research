@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 400" width="100%" height="100%">
+  <rect width="100%" height="100%" fill="#ffffff" />
+
+  <!-- Title -->
+  <text x="390" y="30" font-family="sans-serif" font-size="15" fill="#0f172a" font-weight="bold" text-anchor="middle">
+    ESPAÇO DE DESENHO EXPERIMENTAL DISCRIMINATÓRIO ([ATP] = 1000 µM)
+  </text>
+  <text x="390" y="48" font-family="sans-serif" font-size="11" fill="#64748b" text-anchor="middle">
+    Maximização da Divergência Δv = |v_M1 - v_M2| e Poder de Falsificação entre Modelos Concorrentes
+  </text>
+
+  <!-- Plot Area: x: 90 to 690 (w=600), y: 70 to 330 (h=260) -->
+  <!-- Axis -->
+  <line x1="90" y1="330" x2="690" y2="330" stroke="#334155" stroke-width="2"/>
+  <line x1="90" y1="330" x2="90" y2="70" stroke="#334155" stroke-width="2"/>
+
+  <!-- Horizontal Grid lines (Velocity: 0.0 to 1.0 um/s -> 260 px total, 26 px per 0.1) -->
+  <line x1="90" y1="278" x2="690" y2="278" stroke="#f1f5f9" stroke-width="1"/>
+  <line x1="90" y1="226" x2="690" y2="226" stroke="#f1f5f9" stroke-width="1"/>
+  <line x1="90" y1="174" x2="690" y2="174" stroke="#f1f5f9" stroke-width="1"/>
+  <line x1="90" y1="122" x2="690" y2="122" stroke="#f1f5f9" stroke-width="1"/>
+  <line x1="90" y1="70" x2="690" y2="70" stroke="#f1f5f9" stroke-width="1"/>
+
+  <!-- Y axis ticks & labels -->
+  <text x="80" y="334" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="end">0.0</text>
+  <text x="80" y="282" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="end">0.2</text>
+  <text x="80" y="230" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="end">0.4</text>
+  <text x="80" y="178" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="end">0.6</text>
+  <text x="80" y="126" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="end">0.8</text>
+  <text x="80" y="74" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="end">1.0</text>
+  <text x="32" y="200" font-family="sans-serif" font-size="12" fill="#0f172a" font-weight="bold" transform="rotate(-90 32 200)" text-anchor="middle">Velocidade Predita (µm/s)</text>
+
+  <!-- X axis ticks: F_load = 0 to 6 pN (dx = 100 px per 1 pN) -->
+  <text x="90" y="348" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">0.0</text>
+  <text x="190" y="348" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">1.0</text>
+  <text x="290" y="348" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">2.0</text>
+  <text x="390" y="348" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">3.0</text>
+  <text x="490" y="348" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">4.0</text>
+  <text x="590" y="348" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">5.0</text>
+  <text x="690" y="348" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">6.0</text>
+  <text x="390" y="375" font-family="sans-serif" font-size="12" fill="#0f172a" font-weight="bold" text-anchor="middle">Força de Carga Contrária Externa F_load (pN)</text>
+
+  <!-- Non-discriminatory region (0 to 1 pN) shading -->
+  <rect x="90" y="70" width="80" height="260" fill="#f1f5f9" opacity="0.6"/>
+  <text x="130" y="86" font-family="sans-serif" font-size="9" fill="#64748b" font-weight="bold" text-anchor="middle">BAIXO PODER</text>
+  <text x="130" y="98" font-family="sans-serif" font-size="8" fill="#64748b" text-anchor="middle">(Δv &lt; 0.05)</text>
+
+  <!-- Optimal discriminatory band (2.0 to 4.0 pN) shading -->
+  <rect x="290" y="70" width="200" height="260" fill="#ecfdf5" opacity="0.6" stroke="#10b981" stroke-dasharray="4,4"/>
+  <text x="390" y="86" font-family="sans-serif" font-size="10" fill="#047857" font-weight="bold" text-anchor="middle">ZONA ÓTIMA DISCRIMINATÓRIA</text>
+  <text x="390" y="99" font-family="sans-serif" font-size="9" fill="#047857" text-anchor="middle">Poder de Resolução = 100.0% (&gt; 20σ)</text>
+
+  <!-- Model M1 Line (Quimiostatic MM): constant v = 0.7784 um/s -> y = 330 - 0.7784 * 260 = 127.6 -->
+  <line x1="90" y1="127.6" x2="690" y2="127.6" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="6,4"/>
+  <text x="695" y="125" font-family="sans-serif" font-size="10" fill="#ef4444" font-weight="bold">M1 (Quimioestático)</text>
+
+  <!-- Model M2 Curve (Mechanochemical Bell/Kramers): v drops smoothly -->
+  <!-- (0, 0.78), (1, 0.73), (2, 0.40), (2.5, 0.157), (3, 0.10), (4, 0.038), (5, 0.01), (6, 0.0) -->
+  <!-- Coordinates:
+       F=0 -> x=90, y=330 - 0.78*260 = 127.2
+       F=1 -> x=190, y=330 - 0.73*260 = 140.2
+       F=2 -> x=290, y=330 - 0.35*260 = 239.0
+       F=2.5 -> x=340, y=330 - 0.157*260 = 289.2
+       F=3 -> x=390, y=330 - 0.08*260 = 309.2
+       F=4 -> x=490, y=330 - 0.038*260 = 320.1
+       F=5 -> x=590, y=330 - 0.01*260 = 327.4
+       F=6 -> x=690, y=330 - 0.0*260 = 330.0
+  -->
+  <path d="M 90 127.2 C 160 130, 240 180, 290 239 C 320 275, 340 289.2, 390 309.2 C 450 322, 550 328, 690 330" fill="none" stroke="#2563eb" stroke-width="3"/>
+  <text x="695" y="325" font-family="sans-serif" font-size="10" fill="#2563eb" font-weight="bold">M2 (Mecanoquímico)</text>
+
+  <!-- Prescribed Optimal Experiment Point at F = 2.5 pN (x = 340) -->
+  <line x1="340" y1="127.6" x2="340" y2="289.2" stroke="#059669" stroke-width="2.5"/>
+  <circle cx="340" cy="127.6" r="5" fill="#ef4444" stroke="#ffffff" stroke-width="1.5"/>
+  <circle cx="340" cy="289.2" r="5" fill="#2563eb" stroke="#ffffff" stroke-width="1.5"/>
+
+  <!-- Divergence marker box -->
+  <rect x="350" y="180" width="180" height="52" rx="5" fill="#ffffff" stroke="#059669" stroke-width="1.5"/>
+  <text x="358" y="196" font-family="sans-serif" font-size="10" fill="#065f46" font-weight="bold">EXP-DESIGN RECOMENDADO</text>
+  <text x="358" y="210" font-family="sans-serif" font-size="9" fill="#047857">F_load = 2.50 pN | [ATP] = 1000 µM</text>
+  <text x="358" y="224" font-family="sans-serif" font-size="9" fill="#047857">Δv = 0.622 µm/s (Separação &gt; 20σ)</text>
+
+  <!-- Legend -->
+  <rect x="100" y="240" width="170" height="75" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <line x1="110" y1="255" x2="130" y2="255" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,2"/>
+  <text x="135" y="258" font-family="sans-serif" font-size="9" fill="#1e293b">Modelo M1: Quimioestático</text>
+  <line x1="110" y1="272" x2="130" y2="272" stroke="#2563eb" stroke-width="2.5"/>
+  <text x="135" y="275" font-family="sans-serif" font-size="9" fill="#1e293b">Modelo M2: Bell/Kramers</text>
+  <line x1="110" y1="289" x2="130" y2="289" stroke="#059669" stroke-width="2"/>
+  <text x="135" y="292" font-family="sans-serif" font-size="9" fill="#065f46">Divergência Δv = |v1 - v2|</text>
+  <rect x="110" y="301" width="15" height="8" fill="#ecfdf5" stroke="#10b981"/>
+  <text x="135" y="308" font-family="sans-serif" font-size="9" fill="#065f46">Região de Alta Resolução</text>
+</svg>

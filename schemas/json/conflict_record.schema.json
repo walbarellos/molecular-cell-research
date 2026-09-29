@@ -1,0 +1,117 @@
+{
+  "$defs": {
+    "ConflictResolutionStatus": {
+      "enum": [
+        "unresolved",
+        "explained_by_conditions",
+        "one_superseded",
+        "methodological_artifact",
+        "true_contradiction"
+      ],
+      "title": "ConflictResolutionStatus",
+      "type": "string"
+    },
+    "SoftLifecycleStatus": {
+      "description": "Ciclo de vida do registro cientifico (sem delecao destrutiva).",
+      "enum": [
+        "active",
+        "superseded",
+        "deprecated",
+        "invalidated",
+        "retracted"
+      ],
+      "title": "SoftLifecycleStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Registro de divergencia ou incompatibilidade entre afirmacoes, evidencias ou modelos.",
+  "properties": {
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "lifecycle_status": {
+      "$ref": "#/$defs/SoftLifecycleStatus",
+      "default": "active"
+    },
+    "version": {
+      "default": "1.0.0",
+      "title": "Version",
+      "type": "string"
+    },
+    "claim_a_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Claim A Id"
+    },
+    "claim_b_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Claim B Id"
+    },
+    "evidence_a_id": {
+      "description": "ID da primeira evidencia divergente",
+      "title": "Evidence A Id",
+      "type": "string"
+    },
+    "evidence_b_id": {
+      "description": "ID da segunda evidencia divergente",
+      "title": "Evidence B Id",
+      "type": "string"
+    },
+    "divergence_metric": {
+      "description": "Descricao ou metrica quantitativa da divergencia (ex: velocidade 2x maior)",
+      "title": "Divergence Metric",
+      "type": "string"
+    },
+    "conditions_comparison": {
+      "additionalProperties": true,
+      "description": "Comparativo de condicoes fisico-quimicas (temperatura, pH, mutacao) que podem explicar a discrepancia",
+      "title": "Conditions Comparison",
+      "type": "object"
+    },
+    "resolution_status": {
+      "$ref": "#/$defs/ConflictResolutionStatus",
+      "default": "unresolved"
+    },
+    "resolution_notes": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Resolution Notes"
+    }
+  },
+  "required": [
+    "evidence_a_id",
+    "evidence_b_id",
+    "divergence_metric"
+  ],
+  "title": "ConflictRecord",
+  "type": "object"
+}

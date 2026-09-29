@@ -1,0 +1,775 @@
+{
+  "dataset": {
+    "id": "DTS-CELL-LAB-001-CALIBRATION",
+    "created_at": "2026-09-29T15:05:20.899308Z",
+    "lifecycle_status": "active",
+    "version": "1.0.0",
+    "name": "CELL-LAB-001-Dataset-A-Calibration",
+    "data_tier": "RAW",
+    "description": "Dataset A: Calibracao cinetica de velocidade em funcao de [ATP] em carga nula (Schnitzer & Block 1997).",
+    "source_ids": [
+      "SRC-SCHNITZER-1997"
+    ],
+    "storage_uri": "/home/walbarellos/Projects/microbiology-cell/data/raw/cell_lab_001/schnitzer_block_1997_unloaded_velocity.csv",
+    "checksum_sha256": "9e052d79c339e3fa3c82d59231c38fe253bd141b3f925656d42751ff4fe5799b",
+    "parameters_schema": {
+      "independent_variables": [
+        "atp_concentration_uM"
+      ],
+      "dependent_variables": [
+        "velocity_um_s"
+      ],
+      "constants": {
+        "load_force_pN": 0.0,
+        "temperature_degC": 24.0
+      }
+    },
+    "record_count": 10
+  },
+  "source": {
+    "id": "SRC-SCHNITZER-1997",
+    "created_at": "2026-09-29T15:05:20.898976Z",
+    "lifecycle_status": "active",
+    "version": "1.0.0",
+    "source_type": "journal_article",
+    "identifier": "10.1038/41111",
+    "title": "Kinesin hydrolyses one ATP per 8-nm step",
+    "authors": [
+      "Schnitzer, M. J.",
+      "Block, S. M."
+    ],
+    "year": 1997,
+    "publication_venue": "Nature",
+    "uri": "https://doi.org/10.1038/41111",
+    "content_hash_sha256": "9e052d79c339e3fa3c82d59231c38fe253bd141b3f925656d42751ff4fe5799b"
+  },
+  "experiment": {
+    "id": "EXP-SCHNITZER-1997-MOTILITY",
+    "created_at": "2026-09-29T15:05:20.898985Z",
+    "lifecycle_status": "active",
+    "version": "1.0.0",
+    "source_id": "SRC-SCHNITZER-1997",
+    "name": "Unloaded single-molecule kinesin motility across ATP gradient",
+    "method": "optical_trap_tracking",
+    "protocol_description": "Measurement of bead translocation velocity over taxol-stabilized microtubules in BRB80 buffer at 24 degC with load force = 0 pN.",
+    "environmental_conditions": {
+      "temperature_degC": 24.0,
+      "buffer": "BRB80",
+      "load_force_pN": 0.0
+    }
+  },
+  "observations": [
+    {
+      "id": "OBS-A-000",
+      "created_at": "2026-09-29T15:05:20.899058Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "experiment_id": "EXP-SCHNITZER-1997-MOTILITY",
+      "description": "KIF5B unloaded velocity at 2.0 uM ATP: 0.015 um/s",
+      "measurements": [
+        {
+          "id": "MEA-A-000",
+          "created_at": "2026-09-29T15:05:20.899046Z",
+          "lifecycle_status": "active",
+          "version": "1.0.0",
+          "quantity": {
+            "value": 0.015,
+            "unit": "um/s",
+            "uncertainty": 0.003,
+            "uncertainty_type": "standard_error",
+            "representation": "point_estimate"
+          },
+          "measured_property": "velocity",
+          "entity_id": "ENT-KIF5B-HUMAN",
+          "conditions": {
+            "atp_concentration_uM": 2.0,
+            "load_force_pN": 0.0,
+            "temperature_degC": 24.0,
+            "sample_size_n": 14
+          },
+          "method": "optical_trap_tracking",
+          "observation_id": "OBS-A-000"
+        }
+      ],
+      "raw_data_ref": "schnitzer_block_1997_unloaded_velocity.csv:row_1"
+    },
+    {
+      "id": "OBS-A-001",
+      "created_at": "2026-09-29T15:05:20.899127Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "experiment_id": "EXP-SCHNITZER-1997-MOTILITY",
+      "description": "KIF5B unloaded velocity at 5.0 uM ATP: 0.038 um/s",
+      "measurements": [
+        {
+          "id": "MEA-A-001",
+          "created_at": "2026-09-29T15:05:20.899122Z",
+          "lifecycle_status": "active",
+          "version": "1.0.0",
+          "quantity": {
+            "value": 0.038,
+            "unit": "um/s",
+            "uncertainty": 0.005,
+            "uncertainty_type": "standard_error",
+            "representation": "point_estimate"
+          },
+          "measured_property": "velocity",
+          "entity_id": "ENT-KIF5B-HUMAN",
+          "conditions": {
+            "atp_concentration_uM": 5.0,
+            "load_force_pN": 0.0,
+            "temperature_degC": 24.0,
+            "sample_size_n": 18
+          },
+          "method": "optical_trap_tracking",
+          "observation_id": "OBS-A-001"
+        }
+      ],
+      "raw_data_ref": "schnitzer_block_1997_unloaded_velocity.csv:row_2"
+    },
+    {
+      "id": "OBS-A-002",
+      "created_at": "2026-09-29T15:05:20.899154Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "experiment_id": "EXP-SCHNITZER-1997-MOTILITY",
+      "description": "KIF5B unloaded velocity at 10.0 uM ATP: 0.076 um/s",
+      "measurements": [
+        {
+          "id": "MEA-A-002",
+          "created_at": "2026-09-29T15:05:20.899150Z",
+          "lifecycle_status": "active",
+          "version": "1.0.0",
+          "quantity": {
+            "value": 0.076,
+            "unit": "um/s",
+            "uncertainty": 0.008,
+            "uncertainty_type": "standard_error",
+            "representation": "point_estimate"
+          },
+          "measured_property": "velocity",
+          "entity_id": "ENT-KIF5B-HUMAN",
+          "conditions": {
+            "atp_concentration_uM": 10.0,
+            "load_force_pN": 0.0,
+            "temperature_degC": 24.0,
+            "sample_size_n": 22
+          },
+          "method": "optical_trap_tracking",
+          "observation_id": "OBS-A-002"
+        }
+      ],
+      "raw_data_ref": "schnitzer_block_1997_unloaded_velocity.csv:row_3"
+    },
+    {
+      "id": "OBS-A-003",
+      "created_at": "2026-09-29T15:05:20.899173Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "experiment_id": "EXP-SCHNITZER-1997-MOTILITY",
+      "description": "KIF5B unloaded velocity at 20.0 uM ATP: 0.144 um/s",
+      "measurements": [
+        {
+          "id": "MEA-A-003",
+          "created_at": "2026-09-29T15:05:20.899170Z",
+          "lifecycle_status": "active",
+          "version": "1.0.0",
+          "quantity": {
+            "value": 0.144,
+            "unit": "um/s",
+            "uncertainty": 0.012,
+            "uncertainty_type": "standard_error",
+            "representation": "point_estimate"
+          },
+          "measured_property": "velocity",
+          "entity_id": "ENT-KIF5B-HUMAN",
+          "conditions": {
+            "atp_concentration_uM": 20.0,
+            "load_force_pN": 0.0,
+            "temperature_degC": 24.0,
+            "sample_size_n": 25
+          },
+          "method": "optical_trap_tracking",
+          "observation_id": "OBS-A-003"
+        }
+      ],
+      "raw_data_ref": "schnitzer_block_1997_unloaded_velocity.csv:row_4"
+    },
+    {
+      "id": "OBS-A-004",
+      "created_at": "2026-09-29T15:05:20.899197Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "experiment_id": "EXP-SCHNITZER-1997-MOTILITY",
+      "description": "KIF5B unloaded velocity at 50.0 uM ATP: 0.305 um/s",
+      "measurements": [
+        {
+          "id": "MEA-A-004",
+          "created_at": "2026-09-29T15:05:20.899194Z",
+          "lifecycle_status": "active",
+          "version": "1.0.0",
+          "quantity": {
+            "value": 0.305,
+            "unit": "um/s",
+            "uncertainty": 0.021,
+            "uncertainty_type": "standard_error",
+            "representation": "point_estimate"
+          },
+          "measured_property": "velocity",
+          "entity_id": "ENT-KIF5B-HUMAN",
+          "conditions": {
+            "atp_concentration_uM": 50.0,
+            "load_force_pN": 0.0,
+            "temperature_degC": 24.0,
+            "sample_size_n": 30
+          },
+          "method": "optical_trap_tracking",
+          "observation_id": "OBS-A-004"
+        }
+      ],
+      "raw_data_ref": "schnitzer_block_1997_unloaded_velocity.csv:row_5"
+    },
+    {
+      "id": "OBS-A-005",
+      "created_at": "2026-09-29T15:05:20.899217Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "experiment_id": "EXP-SCHNITZER-1997-MOTILITY",
+      "description": "KIF5B unloaded velocity at 100.0 uM ATP: 0.472 um/s",
+      "measurements": [
+        {
+          "id": "MEA-A-005",
+          "created_at": "2026-09-29T15:05:20.899213Z",
+          "lifecycle_status": "active",
+          "version": "1.0.0",
+          "quantity": {
+            "value": 0.472,
+            "unit": "um/s",
+            "uncertainty": 0.028,
+            "uncertainty_type": "standard_error",
+            "representation": "point_estimate"
+          },
+          "measured_property": "velocity",
+          "entity_id": "ENT-KIF5B-HUMAN",
+          "conditions": {
+            "atp_concentration_uM": 100.0,
+            "load_force_pN": 0.0,
+            "temperature_degC": 24.0,
+            "sample_size_n": 32
+          },
+          "method": "optical_trap_tracking",
+          "observation_id": "OBS-A-005"
+        }
+      ],
+      "raw_data_ref": "schnitzer_block_1997_unloaded_velocity.csv:row_6"
+    },
+    {
+      "id": "OBS-A-006",
+      "created_at": "2026-09-29T15:05:20.899234Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "experiment_id": "EXP-SCHNITZER-1997-MOTILITY",
+      "description": "KIF5B unloaded velocity at 200.0 uM ATP: 0.612 um/s",
+      "measurements": [
+        {
+          "id": "MEA-A-006",
+          "created_at": "2026-09-29T15:05:20.899231Z",
+          "lifecycle_status": "active",
+          "version": "1.0.0",
+          "quantity": {
+            "value": 0.612,
+            "unit": "um/s",
+            "uncertainty": 0.034,
+            "uncertainty_type": "standard_error",
+            "representation": "point_estimate"
+          },
+          "measured_property": "velocity",
+          "entity_id": "ENT-KIF5B-HUMAN",
+          "conditions": {
+            "atp_concentration_uM": 200.0,
+            "load_force_pN": 0.0,
+            "temperature_degC": 24.0,
+            "sample_size_n": 28
+          },
+          "method": "optical_trap_tracking",
+          "observation_id": "OBS-A-006"
+        }
+      ],
+      "raw_data_ref": "schnitzer_block_1997_unloaded_velocity.csv:row_7"
+    },
+    {
+      "id": "OBS-A-007",
+      "created_at": "2026-09-29T15:05:20.899253Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "experiment_id": "EXP-SCHNITZER-1997-MOTILITY",
+      "description": "KIF5B unloaded velocity at 500.0 uM ATP: 0.735 um/s",
+      "measurements": [
+        {
+          "id": "MEA-A-007",
+          "created_at": "2026-09-29T15:05:20.899250Z",
+          "lifecycle_status": "active",
+          "version": "1.0.0",
+          "quantity": {
+            "value": 0.735,
+            "unit": "um/s",
+            "uncertainty": 0.038,
+            "uncertainty_type": "standard_error",
+            "representation": "point_estimate"
+          },
+          "measured_property": "velocity",
+          "entity_id": "ENT-KIF5B-HUMAN",
+          "conditions": {
+            "atp_concentration_uM": 500.0,
+            "load_force_pN": 0.0,
+            "temperature_degC": 24.0,
+            "sample_size_n": 35
+          },
+          "method": "optical_trap_tracking",
+          "observation_id": "OBS-A-007"
+        }
+      ],
+      "raw_data_ref": "schnitzer_block_1997_unloaded_velocity.csv:row_8"
+    },
+    {
+      "id": "OBS-A-008",
+      "created_at": "2026-09-29T15:05:20.899269Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "experiment_id": "EXP-SCHNITZER-1997-MOTILITY",
+      "description": "KIF5B unloaded velocity at 1000.0 uM ATP: 0.814 um/s",
+      "measurements": [
+        {
+          "id": "MEA-A-008",
+          "created_at": "2026-09-29T15:05:20.899267Z",
+          "lifecycle_status": "active",
+          "version": "1.0.0",
+          "quantity": {
+            "value": 0.814,
+            "unit": "um/s",
+            "uncertainty": 0.04,
+            "uncertainty_type": "standard_error",
+            "representation": "point_estimate"
+          },
+          "measured_property": "velocity",
+          "entity_id": "ENT-KIF5B-HUMAN",
+          "conditions": {
+            "atp_concentration_uM": 1000.0,
+            "load_force_pN": 0.0,
+            "temperature_degC": 24.0,
+            "sample_size_n": 42
+          },
+          "method": "optical_trap_tracking",
+          "observation_id": "OBS-A-008"
+        }
+      ],
+      "raw_data_ref": "schnitzer_block_1997_unloaded_velocity.csv:row_9"
+    },
+    {
+      "id": "OBS-A-009",
+      "created_at": "2026-09-29T15:05:20.899285Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "experiment_id": "EXP-SCHNITZER-1997-MOTILITY",
+      "description": "KIF5B unloaded velocity at 2000.0 uM ATP: 0.832 um/s",
+      "measurements": [
+        {
+          "id": "MEA-A-009",
+          "created_at": "2026-09-29T15:05:20.899282Z",
+          "lifecycle_status": "active",
+          "version": "1.0.0",
+          "quantity": {
+            "value": 0.832,
+            "unit": "um/s",
+            "uncertainty": 0.042,
+            "uncertainty_type": "standard_error",
+            "representation": "point_estimate"
+          },
+          "measured_property": "velocity",
+          "entity_id": "ENT-KIF5B-HUMAN",
+          "conditions": {
+            "atp_concentration_uM": 2000.0,
+            "load_force_pN": 0.0,
+            "temperature_degC": 24.0,
+            "sample_size_n": 26
+          },
+          "method": "optical_trap_tracking",
+          "observation_id": "OBS-A-009"
+        }
+      ],
+      "raw_data_ref": "schnitzer_block_1997_unloaded_velocity.csv:row_10"
+    }
+  ],
+  "evidences": [
+    {
+      "id": "EVI-A-000",
+      "created_at": "2026-09-29T15:05:20.899101Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "source_id": "SRC-SCHNITZER-1997",
+      "experiment_id": "EXP-SCHNITZER-1997-MOTILITY",
+      "observation_ids": [
+        "OBS-A-000"
+      ],
+      "supports_claims": [],
+      "contradicts_claims": [],
+      "conditions": {
+        "atp_concentration_uM": 2.0,
+        "load_force_pN": 0.0,
+        "temperature_degC": 24.0
+      },
+      "epistemic_record": {
+        "status": "OBSERVED",
+        "data_tier": "RAW",
+        "provenance": {
+          "source_uri": "doi:10.1038/41111",
+          "method": "optical_trap_tracking",
+          "operator": "HUMAN",
+          "conditions": {
+            "atp_uM": 2.0,
+            "load_pN": 0.0
+          }
+        },
+        "basis": [],
+        "conditions": {},
+        "limitations": [
+          "In vitro unloaded motility in BRB80 buffer; single-molecule."
+        ],
+        "confidence_evidence_count": 1
+      }
+    },
+    {
+      "id": "EVI-A-001",
+      "created_at": "2026-09-29T15:05:20.899138Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "source_id": "SRC-SCHNITZER-1997",
+      "experiment_id": "EXP-SCHNITZER-1997-MOTILITY",
+      "observation_ids": [
+        "OBS-A-001"
+      ],
+      "supports_claims": [],
+      "contradicts_claims": [],
+      "conditions": {
+        "atp_concentration_uM": 5.0,
+        "load_force_pN": 0.0,
+        "temperature_degC": 24.0
+      },
+      "epistemic_record": {
+        "status": "OBSERVED",
+        "data_tier": "RAW",
+        "provenance": {
+          "source_uri": "doi:10.1038/41111",
+          "method": "optical_trap_tracking",
+          "operator": "HUMAN",
+          "conditions": {
+            "atp_uM": 5.0,
+            "load_pN": 0.0
+          }
+        },
+        "basis": [],
+        "conditions": {},
+        "limitations": [
+          "In vitro unloaded motility in BRB80 buffer; single-molecule."
+        ],
+        "confidence_evidence_count": 1
+      }
+    },
+    {
+      "id": "EVI-A-002",
+      "created_at": "2026-09-29T15:05:20.899162Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "source_id": "SRC-SCHNITZER-1997",
+      "experiment_id": "EXP-SCHNITZER-1997-MOTILITY",
+      "observation_ids": [
+        "OBS-A-002"
+      ],
+      "supports_claims": [],
+      "contradicts_claims": [],
+      "conditions": {
+        "atp_concentration_uM": 10.0,
+        "load_force_pN": 0.0,
+        "temperature_degC": 24.0
+      },
+      "epistemic_record": {
+        "status": "OBSERVED",
+        "data_tier": "RAW",
+        "provenance": {
+          "source_uri": "doi:10.1038/41111",
+          "method": "optical_trap_tracking",
+          "operator": "HUMAN",
+          "conditions": {
+            "atp_uM": 10.0,
+            "load_pN": 0.0
+          }
+        },
+        "basis": [],
+        "conditions": {},
+        "limitations": [
+          "In vitro unloaded motility in BRB80 buffer; single-molecule."
+        ],
+        "confidence_evidence_count": 1
+      }
+    },
+    {
+      "id": "EVI-A-003",
+      "created_at": "2026-09-29T15:05:20.899184Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "source_id": "SRC-SCHNITZER-1997",
+      "experiment_id": "EXP-SCHNITZER-1997-MOTILITY",
+      "observation_ids": [
+        "OBS-A-003"
+      ],
+      "supports_claims": [],
+      "contradicts_claims": [],
+      "conditions": {
+        "atp_concentration_uM": 20.0,
+        "load_force_pN": 0.0,
+        "temperature_degC": 24.0
+      },
+      "epistemic_record": {
+        "status": "OBSERVED",
+        "data_tier": "RAW",
+        "provenance": {
+          "source_uri": "doi:10.1038/41111",
+          "method": "optical_trap_tracking",
+          "operator": "HUMAN",
+          "conditions": {
+            "atp_uM": 20.0,
+            "load_pN": 0.0
+          }
+        },
+        "basis": [],
+        "conditions": {},
+        "limitations": [
+          "In vitro unloaded motility in BRB80 buffer; single-molecule."
+        ],
+        "confidence_evidence_count": 1
+      }
+    },
+    {
+      "id": "EVI-A-004",
+      "created_at": "2026-09-29T15:05:20.899203Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "source_id": "SRC-SCHNITZER-1997",
+      "experiment_id": "EXP-SCHNITZER-1997-MOTILITY",
+      "observation_ids": [
+        "OBS-A-004"
+      ],
+      "supports_claims": [],
+      "contradicts_claims": [],
+      "conditions": {
+        "atp_concentration_uM": 50.0,
+        "load_force_pN": 0.0,
+        "temperature_degC": 24.0
+      },
+      "epistemic_record": {
+        "status": "OBSERVED",
+        "data_tier": "RAW",
+        "provenance": {
+          "source_uri": "doi:10.1038/41111",
+          "method": "optical_trap_tracking",
+          "operator": "HUMAN",
+          "conditions": {
+            "atp_uM": 50.0,
+            "load_pN": 0.0
+          }
+        },
+        "basis": [],
+        "conditions": {},
+        "limitations": [
+          "In vitro unloaded motility in BRB80 buffer; single-molecule."
+        ],
+        "confidence_evidence_count": 1
+      }
+    },
+    {
+      "id": "EVI-A-005",
+      "created_at": "2026-09-29T15:05:20.899223Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "source_id": "SRC-SCHNITZER-1997",
+      "experiment_id": "EXP-SCHNITZER-1997-MOTILITY",
+      "observation_ids": [
+        "OBS-A-005"
+      ],
+      "supports_claims": [],
+      "contradicts_claims": [],
+      "conditions": {
+        "atp_concentration_uM": 100.0,
+        "load_force_pN": 0.0,
+        "temperature_degC": 24.0
+      },
+      "epistemic_record": {
+        "status": "OBSERVED",
+        "data_tier": "RAW",
+        "provenance": {
+          "source_uri": "doi:10.1038/41111",
+          "method": "optical_trap_tracking",
+          "operator": "HUMAN",
+          "conditions": {
+            "atp_uM": 100.0,
+            "load_pN": 0.0
+          }
+        },
+        "basis": [],
+        "conditions": {},
+        "limitations": [
+          "In vitro unloaded motility in BRB80 buffer; single-molecule."
+        ],
+        "confidence_evidence_count": 1
+      }
+    },
+    {
+      "id": "EVI-A-006",
+      "created_at": "2026-09-29T15:05:20.899243Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "source_id": "SRC-SCHNITZER-1997",
+      "experiment_id": "EXP-SCHNITZER-1997-MOTILITY",
+      "observation_ids": [
+        "OBS-A-006"
+      ],
+      "supports_claims": [],
+      "contradicts_claims": [],
+      "conditions": {
+        "atp_concentration_uM": 200.0,
+        "load_force_pN": 0.0,
+        "temperature_degC": 24.0
+      },
+      "epistemic_record": {
+        "status": "OBSERVED",
+        "data_tier": "RAW",
+        "provenance": {
+          "source_uri": "doi:10.1038/41111",
+          "method": "optical_trap_tracking",
+          "operator": "HUMAN",
+          "conditions": {
+            "atp_uM": 200.0,
+            "load_pN": 0.0
+          }
+        },
+        "basis": [],
+        "conditions": {},
+        "limitations": [
+          "In vitro unloaded motility in BRB80 buffer; single-molecule."
+        ],
+        "confidence_evidence_count": 1
+      }
+    },
+    {
+      "id": "EVI-A-007",
+      "created_at": "2026-09-29T15:05:20.899259Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "source_id": "SRC-SCHNITZER-1997",
+      "experiment_id": "EXP-SCHNITZER-1997-MOTILITY",
+      "observation_ids": [
+        "OBS-A-007"
+      ],
+      "supports_claims": [],
+      "contradicts_claims": [],
+      "conditions": {
+        "atp_concentration_uM": 500.0,
+        "load_force_pN": 0.0,
+        "temperature_degC": 24.0
+      },
+      "epistemic_record": {
+        "status": "OBSERVED",
+        "data_tier": "RAW",
+        "provenance": {
+          "source_uri": "doi:10.1038/41111",
+          "method": "optical_trap_tracking",
+          "operator": "HUMAN",
+          "conditions": {
+            "atp_uM": 500.0,
+            "load_pN": 0.0
+          }
+        },
+        "basis": [],
+        "conditions": {},
+        "limitations": [
+          "In vitro unloaded motility in BRB80 buffer; single-molecule."
+        ],
+        "confidence_evidence_count": 1
+      }
+    },
+    {
+      "id": "EVI-A-008",
+      "created_at": "2026-09-29T15:05:20.899275Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "source_id": "SRC-SCHNITZER-1997",
+      "experiment_id": "EXP-SCHNITZER-1997-MOTILITY",
+      "observation_ids": [
+        "OBS-A-008"
+      ],
+      "supports_claims": [],
+      "contradicts_claims": [],
+      "conditions": {
+        "atp_concentration_uM": 1000.0,
+        "load_force_pN": 0.0,
+        "temperature_degC": 24.0
+      },
+      "epistemic_record": {
+        "status": "OBSERVED",
+        "data_tier": "RAW",
+        "provenance": {
+          "source_uri": "doi:10.1038/41111",
+          "method": "optical_trap_tracking",
+          "operator": "HUMAN",
+          "conditions": {
+            "atp_uM": 1000.0,
+            "load_pN": 0.0
+          }
+        },
+        "basis": [],
+        "conditions": {},
+        "limitations": [
+          "In vitro unloaded motility in BRB80 buffer; single-molecule."
+        ],
+        "confidence_evidence_count": 1
+      }
+    },
+    {
+      "id": "EVI-A-009",
+      "created_at": "2026-09-29T15:05:20.899292Z",
+      "lifecycle_status": "active",
+      "version": "1.0.0",
+      "source_id": "SRC-SCHNITZER-1997",
+      "experiment_id": "EXP-SCHNITZER-1997-MOTILITY",
+      "observation_ids": [
+        "OBS-A-009"
+      ],
+      "supports_claims": [],
+      "contradicts_claims": [],
+      "conditions": {
+        "atp_concentration_uM": 2000.0,
+        "load_force_pN": 0.0,
+        "temperature_degC": 24.0
+      },
+      "epistemic_record": {
+        "status": "OBSERVED",
+        "data_tier": "RAW",
+        "provenance": {
+          "source_uri": "doi:10.1038/41111",
+          "method": "optical_trap_tracking",
+          "operator": "HUMAN",
+          "conditions": {
+            "atp_uM": 2000.0,
+            "load_pN": 0.0
+          }
+        },
+        "basis": [],
+        "conditions": {},
+        "limitations": [
+          "In vitro unloaded motility in BRB80 buffer; single-molecule."
+        ],
+        "confidence_evidence_count": 1
+      }
+    }
+  ]
+}

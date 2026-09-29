@@ -1,7 +1,7 @@
 {
   "source": {
-    "id": "736d7672-fd4e-4abc-8f58-cfe89eab344d",
-    "created_at": "2026-09-29T17:01:02.616081Z",
+    "id": "d62b7c05-f5e2-4135-83fa-f7e5f60d3752",
+    "created_at": "2026-09-29T17:15:24.199002Z",
     "lifecycle_status": "active",
     "version": "1.0.0",
     "source_type": "journal_article",
@@ -19,11 +19,11 @@
     "content_hash_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
   "experiment": {
-    "id": "f0e7005c-169c-4620-832b-141f93734eca",
-    "created_at": "2026-09-29T17:01:02.616098Z",
+    "id": "6224813c-0e0e-49ef-925f-acc02a713cba",
+    "created_at": "2026-09-29T17:15:24.199012Z",
     "lifecycle_status": "active",
     "version": "1.0.0",
-    "source_id": "736d7672-fd4e-4abc-8f58-cfe89eab344d",
+    "source_id": "d62b7c05-f5e2-4135-83fa-f7e5f60d3752",
     "name": "Optical tweezers single-molecule kinesin motility assay",
     "method": "optical_trap_nanometry",
     "protocol_description": "In vitro motility of native KIF5B homodimer on taxol-stabilized microtubules",
@@ -36,8 +36,8 @@
     }
   },
   "kinesin": {
-    "id": "1128158b-56a4-4a93-bf5d-059757ba55ca",
-    "created_at": "2026-09-29T17:01:02.616113Z",
+    "id": "a6f317c6-7d0c-483e-8a7a-1ec4a126e48e",
+    "created_at": "2026-09-29T17:15:24.199022Z",
     "lifecycle_status": "active",
     "version": "1.0.0",
     "category": "biological",
@@ -46,8 +46,8 @@
     "systematic_name": "Kinesin-1 heavy chain",
     "external_identifiers": [
       {
-        "id": "51bdd9b9-007b-43fb-b329-320c0fca754e",
-        "created_at": "2026-09-29T17:01:02.616107Z",
+        "id": "7fd3290b-e6d8-4939-b96f-45314a9d4397",
+        "created_at": "2026-09-29T17:15:24.199017Z",
         "lifecycle_status": "active",
         "version": "1.0.0",
         "database_name": "UniProt",
@@ -60,8 +60,8 @@
     }
   },
   "microtubule": {
-    "id": "1e276914-acc0-4766-8057-1a28111e6c73",
-    "created_at": "2026-09-29T17:01:02.616121Z",
+    "id": "2604d2cc-cda1-4b79-aea5-2d2beae06c02",
+    "created_at": "2026-09-29T17:15:24.199027Z",
     "lifecycle_status": "active",
     "version": "1.0.0",
     "category": "physical",
@@ -74,16 +74,16 @@
     }
   },
   "observation": {
-    "id": "c467a7d1-b862-475c-8196-fa7b5e282dc3",
-    "created_at": "2026-09-29T17:01:02.616142Z",
+    "id": "11d46076-4d40-4aac-b464-decc9a04bda6",
+    "created_at": "2026-09-29T17:15:24.199041Z",
     "lifecycle_status": "active",
     "version": "1.0.0",
-    "experiment_id": "f0e7005c-169c-4620-832b-141f93734eca",
+    "experiment_id": "6224813c-0e0e-49ef-925f-acc02a713cba",
     "description": "Processive stepping velocity of KIF5B along microtubule under saturating ATP",
     "measurements": [
       {
-        "id": "b7ac835a-7822-484c-bdef-d2184fc57391",
-        "created_at": "2026-09-29T17:01:02.616135Z",
+        "id": "ca818cbd-a5ae-4de3-b586-9a649cf517c2",
+        "created_at": "2026-09-29T17:15:24.199036Z",
         "lifecycle_status": "active",
         "version": "1.0.0",
         "quantity": {
@@ -94,30 +94,30 @@
           "representation": "point_estimate"
         },
         "measured_property": "velocity",
-        "entity_id": "1128158b-56a4-4a93-bf5d-059757ba55ca",
+        "entity_id": "a6f317c6-7d0c-483e-8a7a-1ec4a126e48e",
         "conditions": {
           "atp_mM": 1.0,
           "load_pN": 0.0,
           "temp_degC": 25.0
         },
         "method": "optical_trap_tracking",
-        "observation_id": "c467a7d1-b862-475c-8196-fa7b5e282dc3"
+        "observation_id": "11d46076-4d40-4aac-b464-decc9a04bda6"
       }
     ],
     "raw_data_ref": "L2/raw/svoboda1993/velocity_traces_run01.csv"
   },
   "evidence": {
-    "id": "2b61a966-3018-4a06-bd87-e80e4f8d1d4e",
-    "created_at": "2026-09-29T17:01:02.616168Z",
+    "id": "7bbcda4c-8a7a-4652-b21f-74b4141bed58",
+    "created_at": "2026-09-29T17:15:24.199057Z",
     "lifecycle_status": "active",
     "version": "1.0.0",
-    "source_id": "736d7672-fd4e-4abc-8f58-cfe89eab344d",
-    "experiment_id": "f0e7005c-169c-4620-832b-141f93734eca",
+    "source_id": "d62b7c05-f5e2-4135-83fa-f7e5f60d3752",
+    "experiment_id": "6224813c-0e0e-49ef-925f-acc02a713cba",
     "observation_ids": [
-      "c467a7d1-b862-475c-8196-fa7b5e282dc3"
+      "11d46076-4d40-4aac-b464-decc9a04bda6"
     ],
     "supports_claims": [
-      "4e5e8936-4133-474d-abd1-e15a038b86eb"
+      "dc0c2dc9-9ea2-41be-a301-fae3cdbf4607"
     ],
     "contradicts_claims": [],
     "conditions": {
@@ -144,47 +144,47 @@
     }
   },
   "claim": {
-    "id": "4e5e8936-4133-474d-abd1-e15a038b86eb",
-    "created_at": "2026-09-29T17:01:02.616181Z",
+    "id": "dc0c2dc9-9ea2-41be-a301-fae3cdbf4607",
+    "created_at": "2026-09-29T17:15:24.199066Z",
     "lifecycle_status": "active",
     "version": "1.0.0",
     "statement": "KIF5B translocates processively toward the microtubule plus-end with velocity ~0.82 um/s at 1.0 mM ATP (25 degC)",
-    "subject_entity_id": "1128158b-56a4-4a93-bf5d-059757ba55ca",
+    "subject_entity_id": "a6f317c6-7d0c-483e-8a7a-1ec4a126e48e",
     "predicate": "translocates_along",
-    "object_entity_id": "1e276914-acc0-4766-8057-1a28111e6c73",
+    "object_entity_id": "2604d2cc-cda1-4b79-aea5-2d2beae06c02",
     "epistemic_record": {
       "status": "OBSERVED",
       "data_tier": "DERIVED",
       "provenance": null,
       "basis": [
-        "2b61a966-3018-4a06-bd87-e80e4f8d1d4e"
+        "7bbcda4c-8a7a-4652-b21f-74b4141bed58"
       ],
       "conditions": {},
       "limitations": [],
       "confidence_evidence_count": 1
     },
     "supporting_evidence_ids": [
-      "2b61a966-3018-4a06-bd87-e80e4f8d1d4e"
+      "7bbcda4c-8a7a-4652-b21f-74b4141bed58"
     ],
     "conflicting_evidence_ids": []
   },
   "relation": {
-    "id": "dd172be2-5f27-4c3a-9f1c-e87d226c5750",
-    "created_at": "2026-09-29T17:01:02.616194Z",
+    "id": "20d39272-8506-4fba-883a-c80ee45a09df",
+    "created_at": "2026-09-29T17:15:24.199079Z",
     "lifecycle_status": "active",
     "version": "1.0.0",
-    "source_entity_id": "1128158b-56a4-4a93-bf5d-059757ba55ca",
-    "target_entity_id": "1e276914-acc0-4766-8057-1a28111e6c73",
+    "source_entity_id": "a6f317c6-7d0c-483e-8a7a-1ec4a126e48e",
+    "target_entity_id": "2604d2cc-cda1-4b79-aea5-2d2beae06c02",
     "relation_type": "translocates_along",
     "bidirectional": false,
     "supporting_evidence_ids": [
-      "2b61a966-3018-4a06-bd87-e80e4f8d1d4e"
+      "7bbcda4c-8a7a-4652-b21f-74b4141bed58"
     ],
     "metadata": {}
   },
   "model": {
-    "id": "caaac4f7-bc2c-4b71-b422-212bbc110d08",
-    "created_at": "2026-09-29T17:01:02.616214Z",
+    "id": "a0ad16df-d8e3-4f04-888b-20fb43fea3b9",
+    "created_at": "2026-09-29T17:15:24.199091Z",
     "lifecycle_status": "active",
     "version": "1.0.0",
     "name": "KIF5B_Minimal_2State_MichaelisMenten",
@@ -202,7 +202,7 @@
         "unit": "1/s",
         "default_value": 105.0,
         "origin": "measured",
-        "evidence_id": "2b61a966-3018-4a06-bd87-e80e4f8d1d4e",
+        "evidence_id": "7bbcda4c-8a7a-4652-b21f-74b4141bed58",
         "sensitivity_bounds": [
           95.0,
           115.0
@@ -214,7 +214,7 @@
         "unit": "uM",
         "default_value": 90.0,
         "origin": "measured",
-        "evidence_id": "2b61a966-3018-4a06-bd87-e80e4f8d1d4e",
+        "evidence_id": "7bbcda4c-8a7a-4652-b21f-74b4141bed58",
         "sensitivity_bounds": [
           70.0,
           110.0
@@ -226,7 +226,7 @@
         "unit": "nm",
         "default_value": 8.2,
         "origin": "measured",
-        "evidence_id": "2b61a966-3018-4a06-bd87-e80e4f8d1d4e",
+        "evidence_id": "7bbcda4c-8a7a-4652-b21f-74b4141bed58",
         "sensitivity_bounds": [
           8.0,
           8.4
@@ -245,11 +245,11 @@
     "validation_status": "provisionally_consistent"
   },
   "simulation": {
-    "id": "38992c17-0ee7-447d-9ca9-3041ca19a5a9",
-    "created_at": "2026-09-29T17:01:02.616224Z",
+    "id": "322460b4-137c-4d93-9865-2c8728af5dc8",
+    "created_at": "2026-09-29T17:15:24.199098Z",
     "lifecycle_status": "active",
     "version": "1.0.0",
-    "model_id": "caaac4f7-bc2c-4b71-b422-212bbc110d08",
+    "model_id": "a0ad16df-d8e3-4f04-888b-20fb43fea3b9",
     "model_version": "1.0.0",
     "dataset_version": "1.0.0",
     "parameter_overrides": {
@@ -267,12 +267,12 @@
     },
     "predictions": [
       {
-        "id": "a09890f5-f4c6-4647-a720-163e84ce4246",
-        "created_at": "2026-09-29T17:01:02.616241Z",
+        "id": "2cdf57e7-b7ed-4a85-ab9c-fe5c9f4ece2a",
+        "created_at": "2026-09-29T17:15:24.199113Z",
         "lifecycle_status": "active",
         "version": "1.0.0",
-        "model_id": "caaac4f7-bc2c-4b71-b422-212bbc110d08",
-        "simulation_id": "38992c17-0ee7-447d-9ca9-3041ca19a5a9",
+        "model_id": "a0ad16df-d8e3-4f04-888b-20fb43fea3b9",
+        "simulation_id": "322460b4-137c-4d93-9865-2c8728af5dc8",
         "predicted_property": "velocity",
         "quantity": {
           "value": 0.818,
@@ -289,7 +289,7 @@
           "status": "PREDICTED",
           "data_tier": "GENERATED",
           "provenance": {
-            "source_uri": "model:caaac4f7-bc2c-4b71-b422-212bbc110d08",
+            "source_uri": "model:a0ad16df-d8e3-4f04-888b-20fb43fea3b9",
             "method": "analytical_evaluation",
             "operator": "MODEL",
             "conditions": {
@@ -305,12 +305,12 @@
     ]
   },
   "prediction": {
-    "id": "a09890f5-f4c6-4647-a720-163e84ce4246",
-    "created_at": "2026-09-29T17:01:02.616241Z",
+    "id": "2cdf57e7-b7ed-4a85-ab9c-fe5c9f4ece2a",
+    "created_at": "2026-09-29T17:15:24.199113Z",
     "lifecycle_status": "active",
     "version": "1.0.0",
-    "model_id": "caaac4f7-bc2c-4b71-b422-212bbc110d08",
-    "simulation_id": "38992c17-0ee7-447d-9ca9-3041ca19a5a9",
+    "model_id": "a0ad16df-d8e3-4f04-888b-20fb43fea3b9",
+    "simulation_id": "322460b4-137c-4d93-9865-2c8728af5dc8",
     "predicted_property": "velocity",
     "quantity": {
       "value": 0.818,
@@ -327,7 +327,7 @@
       "status": "PREDICTED",
       "data_tier": "GENERATED",
       "provenance": {
-        "source_uri": "model:caaac4f7-bc2c-4b71-b422-212bbc110d08",
+        "source_uri": "model:a0ad16df-d8e3-4f04-888b-20fb43fea3b9",
         "method": "analytical_evaluation",
         "operator": "MODEL",
         "conditions": {
@@ -341,13 +341,13 @@
     }
   },
   "conflict": {
-    "id": "0171e4ed-943f-47eb-8901-8dd5cbfb3a5d",
-    "created_at": "2026-09-29T17:01:02.616252Z",
+    "id": "a79a8708-5bb5-4a03-8138-9fce025d39d6",
+    "created_at": "2026-09-29T17:15:24.199123Z",
     "lifecycle_status": "active",
     "version": "1.0.0",
     "claim_a_id": null,
     "claim_b_id": null,
-    "evidence_a_id": "2b61a966-3018-4a06-bd87-e80e4f8d1d4e",
+    "evidence_a_id": "7bbcda4c-8a7a-4652-b21f-74b4141bed58",
     "evidence_b_id": "EVID-SAMPLE-COLD-TEMP",
     "divergence_metric": "Velocidade em 20 degC (0.45 um/s) vs 25 degC (0.82 um/s)",
     "conditions_comparison": {

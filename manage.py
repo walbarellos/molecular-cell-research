@@ -27,6 +27,8 @@ from application.exploration_service import (
 from application.run_reproduction_cycle import execute_dataset_a_reproduction
 from application.run_falsification_cycle import execute_dataset_b_falsification
 from application.run_experimental_design import execute_experimental_design_cycle
+from application.simulate_tug_of_war import execute_tug_of_war_cycle
+from application.simulate_langevin import execute_langevin_cycle
 from presentation.cli.user_view import render_user_view
 from presentation.cli.engineer_view import render_engineer_view
 from presentation.cli.scientist_view import render_scientist_view
@@ -238,15 +240,77 @@ def cmd_demo(args) -> int:
     return 0
 
 
+def cmd_ui(args) -> int:
+    import uvicorn
+    print_banner("CELL LAB - SERVIDOR WEB INTERATIVO (L7 WEB)")
+    print(f"│ Painel Cientifico acessivel em: http://{args.host}:{args.port}")
+    print("│ Pressione Ctrl+C para encerrar o servidor.")
+    print("└" + "─" * 76 + "┘")
+    uvicorn.run("presentation.web.server:app", host=args.host, port=args.port, reload=args.reload)
+    return 0
+
+
+def cmd_tug_of_war(args) -> int:
+    print_banner("CELL LAB - COMPETICAO MOTORA TUG-OF-WAR (CICLO 12)")
+    res = execute_tug_of_war_cycle(
+        num_kinesins=args.nk,
+        num_dyneins=args.nd,
+        external_load_pN=args.load,
+        duration_s=args.duration,
+        seed=args.seed,
+    )
+    m = res.metrics
+    print("┌──────────────────────────────────────────────────────────────────────────────┐")
+    print("│                     ENSAIO ESTOCASTICO GILLESPIE (MONTE CARLO)               │")
+    print("├──────────────────────────────────────────────────────────────────────────────┤")
+    print(f"│ Configuracao : N_kinesin = {args.nk:<2} | N_dynein = {args.nd:<2} | F_ext = {args.load:>5.1f} pN | t = {args.duration:>4.1f} s │")
+    print("├──────────────────────────────────────────────────────────────────────────────┤")
+    print(f"│ Velocidade Liquida : {m.net_velocity_nm_s:>8.2f} nm/s                                         │")
+    print(f"│ Deslocamento Total : {m.total_distance_nm:>8.2f} nm                                           │")
+    print(f"│ Inversoes Direcionais: {m.directional_reversals:>6} transicoes                                   │")
+    print(f"│ Fracao Plus-End (Kinesina) : {m.fraction_plus_end * 100:>5.1f} %                                    │")
+    print(f"│ Fracao Minus-End (Dineina) : {m.fraction_minus_end * 100:>5.1f} %                                    │")
+    print(f"│ Fracao Tug-of-War (Pausa)  : {m.fraction_pause_tug_of_war * 100:>5.1f} %                                    │")
+    print(f"│ Media Motores Engajados    : Kinesinas: {m.mean_kinesins_engaged:.1f} | Dineinas: {m.mean_dyneins_engaged:.1f}                 │")
+    print("└──────────────────────────────────────────────────────────────────────────────┘")
+    return 0
+
+
+def cmd_langevin(args) -> int:
+    print_banner("CELL LAB - DINAMICA DE LANGEVIN COM RUIDO TERMICO (CICLO 13)")
+    traj = execute_langevin_cycle(
+        atp_uM=args.atp,
+        trap_stiffness_pN_nm=args.ktrap,
+        total_time_ms=args.time,
+        seed=args.seed,
+    )
+    m = traj.metrics
+    print("┌──────────────────────────────────────────────────────────────────────────────┐")
+    print("│               INTEGRACAO ESTOCASTICA CONTINUA (ORNSTEIN-UHLENBECK)          │")
+    print("├──────────────────────────────────────────────────────────────────────────────┤")
+    print(f"│ Parametros  : [ATP] = {args.atp:>6.1f} μM | κ_trap = {args.ktrap:.3f} pN/nm | t = {args.time:>4.1f} ms        │")
+    print("├──────────────────────────────────────────────────────────────────────────────┤")
+    print(f"│ Passos Mecanicos Registrados : {m.total_steps:>4} passos (8.2 nm)                             │")
+    print(f"│ Forca Maxima na Pinca Atingida: {m.stall_force_reached_pN:>6.3f} pN                                     │")
+    print(f"│ Ruido Termico RMS Observado  : {m.thermal_noise_rms_nm:>6.2f} nm                                     │")
+    print(f"│ Coeficiente de Arrasto (γ)   : {m.drag_coefficient_pN_us_nm:>10.6f} pN·μs/nm                      │")
+    print(f"│ Constante de Difusao (D)     : {m.diffusion_coefficient_nm2_us:>8.2f} nm²/μs                               │")
+    print("└──────────────────────────────────────────────────────────────────────────────┘")
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="manage.py",
         description="Central de Administracao e Gerenciamento da Plataforma SSEP (L1-L7)",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""Exemplos de Uso:
+  python manage.py ui                         # Inicia o Web Dashboard interativo
   python manage.py status                     # Exibe resumo do grafo de conhecimento
   python manage.py user --atp 1000 --load 0   # Executa simulacao sob regime validado
   python manage.py user --atp 1000 --load 4   # Dispara alerta de quebra sob carga
+  python manage.py tug-of-war --nk 4 --nd 4   # Executa ensaio de competicao motora
+  python manage.py langevin --atp 1000        # Executa dinamica estocastica Langevin
   python manage.py engineer                   # Abre componentes, entidades e limites
   python manage.py scientist                  # Abre premissas, proveniencia e conflitos
   python manage.py design                     # Calcula ensaio de maxima discriminacao
@@ -259,9 +323,34 @@ def build_parser() -> argparse.ArgumentParser:
     )
     subparsers = parser.add_subparsers(dest="subcommand", help="Comando a executar")
 
+    # ui
+    p_ui = subparsers.add_parser("ui", help="Inicia o Web Dashboard L7 interativo (FastAPI)")
+    p_ui.add_argument("--host", default="0.0.0.0", help="Endereco de host (padrao: 0.0.0.0)")
+    p_ui.add_argument("--port", type=int, default=8000, help="Porta HTTP (padrao: 8000)")
+    p_ui.add_argument("--reload", action="store_true", help="Recarregamento automatico em desenvolvimento")
+    p_ui.set_defaults(func=cmd_ui)
+
+    # tug-of-war
+    p_tow = subparsers.add_parser("tug-of-war", help="Simulacao estocastica de competicao motora (Kinesin vs Dynein - Ciclo 12)")
+    p_tow.add_argument("--nk", type=int, default=4, help="Numero de kinesinas N_+ (padrao: 4)")
+    p_tow.add_argument("--nd", type=int, default=4, help="Numero de dineinas N_- (padrao: 4)")
+    p_tow.add_argument("--load", type=float, default=0.0, help="Carga externa F_ext em pN (padrao: 0.0)")
+    p_tow.add_argument("--duration", type=float, default=5.0, help="Duracao da simulacao em segundos (padrao: 5.0)")
+    p_tow.add_argument("--seed", type=int, default=42, help="Semente pseudoaleatoria (padrao: 42)")
+    p_tow.set_defaults(func=cmd_tug_of_war)
+
+    # langevin
+    p_lang = subparsers.add_parser("langevin", help="Dinamica continua Langevin em microsegundos com pinca optica (Ciclo 13)")
+    p_lang.add_argument("--atp", type=float, default=1000.0, help="Concentracao de ATP em μM (padrao: 1000.0)")
+    p_lang.add_argument("--ktrap", type=float, default=0.04, help="Rigidez da pinca optica em pN/nm (padrao: 0.04)")
+    p_lang.add_argument("--time", type=float, default=50.0, help="Tempo total em ms (padrao: 50.0)")
+    p_lang.add_argument("--seed", type=int, default=42, help="Semente pseudoaleatoria (padrao: 42)")
+    p_lang.set_defaults(func=cmd_langevin)
+
     # status
     p_status = subparsers.add_parser("status", help="Resumo global do grafo epistêmico")
     p_status.set_defaults(func=cmd_status)
+
 
     # user
     p_user = subparsers.add_parser("user", help="Modo Usuario (operacional / simulacao)")

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CELL LAB — Scientific Systems Exploration Platform (SSEP)</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Academic Navigation & Epistemic Header -->
+  <header class="app-header">
+    <div class="brand">
+      <h1>CELL LAB</h1>
+      <span class="subtitle">SSEP // Scientific Systems Exploration Platform (L1-L7)</span>
+    </div>
+    <div class="header-meta">
+      <span class="badge-tag tier-badge" id="headerTierBadge">[TIER::DERIVED]</span>
+      <span class="badge-tag validated" id="headerFirewallBadge">[EPISTEMIC::VALIDATED]</span>
+      <span style="font-family: var(--font-mono); font-size: 11px; color: var(--text-dim);" id="clockDisplay">2026-09-29 UTC</span>
+    </div>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <nav class="app-nav">
+    <button class="nav-tab active" data-tab="tab-kinesin">01. Mecanoquimica KIF5B (M1 vs M2)</button>
+    <button class="nav-tab" data-tab="tab-tug-of-war">02. Competicao Motora (Tug-of-War)</button>
+    <button class="nav-tab" data-tab="tab-langevin">03. Dinamica Langevin (Ruido Termico)</button>
+    <button class="nav-tab" data-tab="tab-provenance">04. Grafo Epistemico & Conflitos</button>
+    <button class="nav-tab" data-tab="tab-design">05. Desenho Discriminatorio</button>
+  </nav>
+
+  <!-- Main Content Body -->
+  <main class="app-main">
+
+    <!-- ====================================================================
+         TAB 1: Single Motor Mechanochemistry (M1 vs M2)
+         ==================================================================== -->
+    <section id="tab-kinesin" class="tab-pane active">
+      <div class="grid-3col">
+        
+        <!-- Controls Column -->
+        <div class="panel-controls">
+          <div class="card">
+            <div class="card-title">Parametros Experimentais</div>
+            
+            <div class="control-group">
+              <div class="control-label">
+                <span>Concentracao [ATP]</span>
+                <span class="control-value" id="valAtp">1000.0 μM</span>
+              </div>
+              <input type="range" id="sliderAtp" min="1" max="2500" step="5" value="1000">
+            </div>
+
+            <div class="control-group">
+              <div class="control-label">
+                <span>Forca Contraria F_load</span>
+                <span class="control-value" id="valLoad">0.00 pN</span>
+              </div>
+              <input type="range" id="sliderLoad" min="0.0" max="7.0" step="0.1" value="0.0">
+            </div>
+
+            <div class="control-group">
+              <div class="control-label">
+                <span>Temperatura</span>
+                <span class="control-value" id="valTemp">24.0 °C</span>
+              </div>
+              <input type="range" id="sliderTemp" min="15.0" max="37.0" step="0.5" value="24.0">
+            </div>
+
+            <div class="control-group">
+              <div class="control-label">
+                <span>Modelo Ativo de Avaliacao</span>
+              </div>
+              <select id="selectModel" class="btn" style="width: 100%; padding: 8px;">
+                <option value="MOD-KIF5B-MINIMAL-MM">M1: Quimioestatico Minimal (Schnitzer 1997)</option>
+                <option value="MOD-KIF5B-4STATE-FORCE-DEPENDENT" selected>M2: Mecanoquimico Bell/Kramers (Visscher 1999)</option>
+              </select>
+            </div>
+
+            <div class="btn-group">
+              <button class="btn" id="btnPresetValid">Preset: Carga Nula (0 pN)</button>
+              <button class="btn" id="btnPresetFalsified">Preset: Carga 4.0 pN (Refutacao)</button>
+              <button class="btn" id="btnPresetStall">Preset: Forca de Stall (6.0 pN)</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Equacoes Formais</div>
+            <div class="equation-box">
+              v_M1 = (k_cat · [ATP] / (K_m + [ATP])) · d_step
+            </div>
+            <div class="equation-box">
+              k_cat(F) = k_cat_0 · exp(-F · δ / k_B·T)<br>
+              v_M2 = v_step(F, [ATP]) · (1 - (F / F_s)^2.05)
+            </div>
+          </div>
+        </div>
+
+        <!-- Center Visualization & Plots -->
+        <div class="panel-center">
+          
+          <!-- Motor Stepping Animation Canvas -->
+          <div class="card">
+            <div class="card-title">
+              <span>Tracao Mecanoquimica em Protofilamento de Microtubulo</span>
+              <span id="steppingRateLabel" style="color: var(--text-muted); font-size: 11px;">Taxa: 94.9 passos/s</span>
+            </div>
+            <div class="canvas-container">
+              <canvas id="canvasStepping" class="stepping-canvas" width="800" height="160"></canvas>
+            </div>
+          </div>
+
+          <!-- Publication Plots Grid -->
+          <div class="grid-charts">
+            <div class="card">
+              <div class="card-title">Curva Forca-Velocidade v(F_load)</div>
+              <div class="canvas-container">
+                <canvas id="canvasFV" class="scientific-plot" width="400" height="280"></canvas>
+              </div>
+              <div style="font-family: var(--font-mono); font-size: 10px; color: var(--text-dim); text-align: center;">
+                Dataset B (Visscher 1999) com barras de erro ±σ | Linha continua: M2 | Linha tracejada: M1
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-title">Cinetica Michaelis-Menten v([ATP])</div>
+              <div class="canvas-container">
+                <canvas id="canvasMM" class="scientific-plot" width="400" height="280"></canvas>
+              </div>
+              <div style="font-family: var(--font-mono); font-size: 10px; color: var(--text-dim); text-align: center;">
+                Dataset A (Schnitzer 1997) com barras de erro ±σ | Linha continua: M2 | Linha tracejada: M1
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Epistemic Firewall Panel -->
+        <div class="panel-firewall">
+          <div class="card">
+            <div class="card-title">Auditoria do Epistemic Firewall</div>
+            
+            <div class="metric-box">
+              <div class="metric-label">Velocidade Prevista (M2)</div>
+              <div class="metric-val" id="dispVelM2">0.778 μm/s</div>
+              <div class="metric-sub">Incerteza: ± 0.035 μm/s</div>
+            </div>
+
+            <div class="metric-box">
+              <div class="metric-label">Velocidade Prevista (M1)</div>
+              <div class="metric-val" id="dispVelM1">0.778 μm/s</div>
+              <div class="metric-sub">Cego a carga mecanica contraria</div>
+            </div>
+
+            <div class="metric-box">
+              <div class="metric-label">Regime Operacional</div>
+              <div class="metric-val" style="font-size: 14px;" id="dispOperState">Saturating ATP Motility</div>
+            </div>
+
+            <div id="firewallAlertContainer">
+              <div class="alert-box alert-valid" id="firewallAlertValid">
+                <strong>[STATUS::VALIDATED]</strong><br>
+                Operacao dentro dos limites comprovados do modelo biofisico selecionado.
+              </div>
+              <div class="alert-box alert-danger" id="firewallAlertDanger" style="display: none;">
+                <strong>[FIREWALL::ENGAGED - VIOLACAO EPISTEMICA]</strong><br>
+                <span id="firewallAlertText">Condicao sob carga refutada pelo Dataset B.</span>
+              </div>
+            </div>
+
+            <div style="margin-top: 16px;">
+              <table class="academic-table">
+                <tbody>
+                  <tr><td>Stall Force Assintotica</td><td>6.13 pN</td></tr>
+                  <tr><td>Passo Elementar (d_step)</td><td>8.20 nm</td></tr>
+                  <tr><td>Taxa Maxima (k_cat_0)</td><td>108.33 s^-1</td></tr>
+                  <tr><td>Constante Afinidade (K_m_0)</td><td>101.80 μM</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TAB 2: Motor Competition (Tug-of-War Kinesin vs Dynein)
+         ==================================================================== -->
+    <section id="tab-tug-of-war" class="tab-pane">
+      <div class="grid-2col">
+        
+        <!-- Controls Column -->
+        <div class="panel-controls">
+          <div class="card">
+            <div class="card-title">Configuracao das Equipes Motoras</div>
+            
+            <div class="control-group">
+              <div class="control-label">
+                <span>Motores Anterogrados (Kinesin N_+)</span>
+                <span class="control-value" id="valTowNk">4</span>
+              </div>
+              <input type="range" id="sliderTowNk" min="1" max="10" step="1" value="4">
+            </div>
+
+            <div class="control-group">
+              <div class="control-label">
+                <span>Motores Retrogrados (Dynein N_-)</span>
+                <span class="control-value" id="valTowNd">4</span>
+              </div>
+              <input type="range" id="sliderTowNd" min="1" max="10" step="1" value="4">
+            </div>
+
+            <div class="control-group">
+              <div class="control-label">
+                <span>Carga Externa F_ext</span>
+                <span class="control-value" id="valTowFext">0.0 pN</span>
+              </div>
+              <input type="range" id="sliderTowFext" min="-10.0" max="10.0" step="0.5" value="0.0">
+            </div>
+
+            <div class="control-group">
+              <div class="control-label">
+                <span>Duracao do Ensaio</span>
+                <span class="control-value" id="valTowDur">5.0 s</span>
+              </div>
+              <input type="range" id="sliderTowDur" min="1.0" max="15.0" step="0.5" value="5.0">
+            </div>
+
+            <button class="btn btn-primary" id="btnRunTow" style="width: 100%; margin-top: 10px;">
+              Executar Simulacao Estocastica (Gillespie)
+            </button>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Metricas da Trajetoria</div>
+            <table class="academic-table" id="tableTowMetrics">
+              <tbody>
+                <tr><td>Velocidade Liquida</td><td id="mTowNetVel">--</td></tr>
+                <tr><td>Deslocamento Total</td><td id="mTowTotDist">--</td></tr>
+                <tr><td>Inversoes Direcionais</td><td id="mTowReversals">--</td></tr>
+                <tr><td>Fracao Plus-End (Kinesin)</td><td id="mTowFracPlus">--</td></tr>
+                <tr><td>Fracao Minus-End (Dynein)</td><td id="mTowFracMinus">--</td></tr>
+                <tr><td>Fracao Tug-of-War (Pausa)</td><td id="mTowFracPause">--</td></tr>
+                <tr><td>Media Kinesinas Ativas</td><td id="mTowMeanNk">--</td></tr>
+                <tr><td>Media Dineinas Ativas</td><td id="mTowMeanNd">--</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Charts Column -->
+        <div class="panel-main-charts">
+          <div class="card">
+            <div class="card-title">Trajetoria da Carga Vesicular x(t) [Monte Carlo Cinetico]</div>
+            <div class="canvas-container">
+              <canvas id="canvasTowTrajectory" class="scientific-plot" width="850" height="260"></canvas>
+            </div>
+          </div>
+
+          <div class="grid-charts">
+            <div class="card">
+              <div class="card-title">Motores Engajados n_+(t) e n_-(t)</div>
+              <div class="canvas-container">
+                <canvas id="canvasTowMotors" class="scientific-plot" width="400" height="220"></canvas>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-title">Distribuicao Estacionaria de Estados P(n_+, n_-)</div>
+              <div class="canvas-container">
+                <canvas id="canvasTowDistribution" class="scientific-plot" width="400" height="220"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TAB 3: Langevin Stochastic Dynamics (Thermal Noise & Optical Trap)
+         ==================================================================== -->
+    <section id="tab-langevin" class="tab-pane">
+      <div class="grid-2col">
+        
+        <!-- Controls Column -->
+        <div class="panel-controls">
+          <div class="card">
+            <div class="card-title">Parametros de Langevin & Pinca Optica</div>
+            
+            <div class="control-group">
+              <div class="control-label">
+                <span>Rigidez da Pinca Optica (κ_trap)</span>
+                <span class="control-value" id="valLangKtrap">0.040 pN/nm</span>
+              </div>
+              <input type="range" id="sliderLangKtrap" min="0.01" max="0.15" step="0.005" value="0.04">
+            </div>
+
+            <div class="control-group">
+              <div class="control-label">
+                <span>Concentracao [ATP]</span>
+                <span class="control-value" id="valLangAtp">1000 μM</span>
+              </div>
+              <input type="range" id="sliderLangAtp" min="10" max="2000" step="10" value="1000">
+            </div>
+
+            <div class="control-group">
+              <div class="control-label">
+                <span>Tempo Total de Simulacao</span>
+                <span class="control-value" id="valLangTime">50 ms</span>
+              </div>
+              <input type="range" id="sliderLangTime" min="20" max="150" step="5" value="50">
+            </div>
+
+            <div class="control-group">
+              <div class="control-label">
+                <span>Passo de Integracao (Δt)</span>
+                <span class="control-value">2.0 μs (Euler-Maruyama)</span>
+              </div>
+            </div>
+
+            <button class="btn btn-primary" id="btnRunLang" style="width: 100%; margin-top: 10px;">
+              Integrar Trajetoria Estocastica (Ornstein-Uhlenbeck)
+            </button>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Parametros Biofisicos Fundamentais</div>
+            <table class="academic-table" id="tableLangMetrics">
+              <tbody>
+                <tr><td>Passos Mecanicos Detectados</td><td id="mLangSteps">--</td></tr>
+                <tr><td>Forca Maxima de Pinca Atingida</td><td id="mLangMaxForce">--</td></tr>
+                <tr><td>Ruido Termico RMS (σ_x)</td><td id="mLangRms">--</td></tr>
+                <tr><td>Coeficiente de Arrasto (γ)</td><td id="mLangGamma">0.004712 pN·μs/nm</td></tr>
+                <tr><td>Constante de Difusao (D)</td><td id="mLangDiff">870.6 nm²/μs</td></tr>
+                <tr><td>Passo Elementar Nominal</td><td>8.20 nm</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Charts Column -->
+        <div class="panel-main-charts">
+          <div class="card">
+            <div class="card-title">Trajetoria Continua da Microesfera x_bead(t) [Microsegundos]</div>
+            <div class="canvas-container">
+              <canvas id="canvasLangTrajectory" class="scientific-plot" width="850" height="260"></canvas>
+            </div>
+            <div style="font-family: var(--font-mono); font-size: 10px; color: var(--text-dim); text-align: center;">
+              Linha amarela: posicao do motor em degraus de 8.2 nm | Linha ciano: microesfera em pinca optica com flutuacoes brownianas
+            </div>
+          </div>
+
+          <div class="grid-charts">
+            <div class="card">
+              <div class="card-title">Forca Restauradora da Pinca F_trap(t)</div>
+              <div class="canvas-container">
+                <canvas id="canvasLangForce" class="scientific-plot" width="400" height="220"></canvas>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-title">Histograma Espacial de Posicao (Picos de 8.2 nm)</div>
+              <div class="canvas-container">
+                <canvas id="canvasLangHistogram" class="scientific-plot" width="400" height="220"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TAB 4: Epistemic Provenance Graph & Conflicts
+         ==================================================================== -->
+    <section id="tab-provenance" class="tab-pane">
+      <div class="card">
+        <div class="card-title">Grafo de Linhagem e Proveniencia Epistemica (L1 a L7)</div>
+        <div class="canvas-container">
+          <canvas id="canvasProvenance" class="scientific-plot" width="1200" height="380"></canvas>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Registro de Conflitos Epistemicos Auditados</div>
+        <table class="academic-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Severidade</th>
+              <th>Z-Score</th>
+              <th>Descricao Biofisica</th>
+              <th>Status de Resolucao</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>CONF-KIF5B-LOAD-001</td>
+              <td><span class="badge-tag refuted">CRITICAL</span></td>
+              <td>z = -49.8 σ</td>
+              <td>Incapacidade do Modelo M1 (quimioestatico) de reproduzir desaceleracao e stall force sob carga contraria (Dataset B).</td>
+              <td><span class="badge-tag validated">RESOLVED_BY_M2</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TAB 5: Discriminatory Experimental Design
+         ==================================================================== -->
+    <section id="tab-design" class="tab-pane">
+      <div class="grid-2col">
+        <div class="card">
+          <div class="card-title">Proposta de Ensaio Discriminatorio Otimo (Ciclo 09)</div>
+          <table class="academic-table">
+            <tbody>
+              <tr><td>ID do Experimento</td><td>EXP-DESIGN-KIF5B-LOAD-DISCRIM-001</td></tr>
+              <tr><td>Alvo Epistemico</td><td>Discriminacao Quimioestatico (M1) vs. Mecanoquimico Kramers (M2)</td></tr>
+              <tr><td>Tecnica Proposta</td><td>Optical Force Clamp (Pinca Optica com Clamp Ativo)</td></tr>
+              <tr><td>Condicao Otima [ATP]</td><td>1000.0 μM</td></tr>
+              <tr><td>Condicao Otima F_load</td><td>2.50 pN</td></tr>
+              <tr><td>Poder Discriminatorio</td><td>1.000 (Maximo Teorico)</td></tr>
+              <tr><td>Previsao Modelo M1</td><td>0.778 μm/s (Cego a forca)</td></tr>
+              <tr><td>Previsao Modelo M2</td><td>0.179 μm/s (Desaceleracao mecanoquimica)</td></tr>
+              <tr><td>Divergencia Absoluta (Δv)</td><td>0.599 μm/s</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Matriz de Sensibilidade e Separabilidade (|v_M1 - v_M2|)</div>
+          <div class="canvas-container">
+            <canvas id="canvasDiscriminator" class="scientific-plot" width="600" height="320"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

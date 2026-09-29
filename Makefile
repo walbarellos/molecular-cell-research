@@ -1,11 +1,14 @@
 # Makefile da Scientific Systems Exploration Platform (SSEP)
 PYTHON = .venv/bin/python
 
-.PHONY: help status user user-falsified engineer scientist design reproduce falsify evaluate-m2 test verify demo
+.PHONY: help status ui tug-of-war langevin user user-falsified engineer scientist design reproduce falsify evaluate-m2 test verify demo
 
 help:
 	@echo "Central de Administracao SSEP (Camadas L1 a L7)"
 	@echo "Comandos disponiveis:"
+	@echo "  make ui             - Inicia o Web Dashboard Interativo (L7 Web na porta 8000)"
+	@echo "  make tug-of-war     - Executa simulacao estocastica de competicao motora (Ciclo 12)"
+	@echo "  make langevin       - Executa integracao continua Langevin em microsegundos (Ciclo 13)"
 	@echo "  make status         - Exibe resumo do grafo epistemico"
 	@echo "  make user           - Executa simulacao em regime validado (1000 uM ATP, 0 pN carga)"
 	@echo "  make user-falsified - Executa simulacao sob forca (alerta Epistemic Firewall)"
@@ -19,7 +22,17 @@ help:
 	@echo "  make verify         - Executa auditoria formal de integridade e dados"
 	@echo "  make demo           - Executa bateria de demonstracao completa"
 
+ui:
+	@$(PYTHON) manage.py ui
+
+tug-of-war:
+	@$(PYTHON) manage.py tug-of-war
+
+langevin:
+	@$(PYTHON) manage.py langevin
+
 status:
+
 	@$(PYTHON) manage.py status
 
 user:

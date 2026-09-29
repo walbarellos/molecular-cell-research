@@ -72,46 +72,44 @@ Toda a documentação do projeto está padronizada e indexada em diretórios num
 
 ---
 
-## 4. Como Executar a Interface CLI (L7)
+## 4. Web Dashboard Interativo L7 (Ciclo 11)
 
-O ponto de entrada CLI encontra-se em [`presentation/cli/main.py`](file:///home/walbarellos/Projects/microbiology-cell/presentation/cli/main.py):
+A plataforma conta com uma interface gráfica completa no navegador, desenvolvida com padrões visuais de publicação acadêmica e científica (**estritamente sem emojis**), proporcionando exploração mecanoquímica reativa:
 
 ```bash
-# 1. Resumo epistêmico do grafo de conhecimento
-.venv/bin/python presentation/cli/main.py status
-
-# 2. Modo Usuário: Simulação com proteção do Epistemic Firewall
-.venv/bin/python presentation/cli/main.py user --atp 1000 --load 0
-.venv/bin/python presentation/cli/main.py user --atp 1000 --load 4.0  # Alerta de quebra de modelo
-
-# 3. Modo Engenheiro: Inspeção de entidades, parâmetros e sensibilidade
-.venv/bin/python presentation/cli/main.py engineer
-
-# 4. Modo Científico: Premissas, trilha de proveniência e conflitos
-.venv/bin/python presentation/cli/main.py scientist
-
-# 5. Execução dos Pipelines de Reprodução e Falsificação
-.venv/bin/python presentation/cli/main.py run-reproduction
-.venv/bin/python presentation/cli/main.py run-falsification
-
-# 6. Proposta de Desenho Experimental Discriminatório (Ciclo 09)
-.venv/bin/python presentation/cli/main.py design-experiment
+# Iniciar o painel web interativo (FastAPI na porta 8000)
+./cell-ctl ui
+# ou: make ui
+# ou: python manage.py ui --host 0.0.0.0 --port 8000
 ```
+
+Acesse no navegador: **`http://localhost:8000`**
+
+### Recursos da Interface Web:
+* **01. Mecanoquímica KIF5B (M1 vs M2):** Sliders dinâmicos de $[\text{ATP}]$, $F_{\text{load}}$ e temperatura, animação física do motor caminhando no protofilamento de microtúbulo e gráficos interativos em Canvas ($v(F)$ e $v([\text{ATP}])$) com os dados empíricos de Schnitzer 1997 e Visscher 1999 com barras de erro $\pm\sigma$.
+* **02. Competição Motora (Tug-of-War Kinesin vs. Dynein - Ciclo 12):** Simulação de transporte vesicular bidirecional via algoritmo estocástico de Gillespie, plotagem contínua de trajetória $x(t)$, motores ativos $n_+(t), n_-(t)$ e distribuição estacionária da equação mestra de Markov.
+* **03. Dinâmica Langevin Estocástica (Ruído Térmico - Ciclo 13):** Integração contínua em microsegundos da equação de Langevin sobreamortecida (Ornstein-Uhlenbeck) sob poço óptico, exibindo ruído térmico browniano e passos discretos de $8.20 \ \text{nm}$.
+* **04. Grafo Epistêmico & Conflitos:** Topologia interativa de linhagem formal de conhecimento e auditoria de resoluções.
+* **05. Desenho Experimental Discriminatório:** Mapa de calor de poder resolutivo no espaço $[\text{ATP}] \times F_{\text{load}}$.
 
 ---
 
-## 5. Central de Administração e Gerenciamento em Camadas
+## 5. Central de Administração e Linha de Comando (CLI)
 
-Para simplificar a operação, manutenção e auditoria do sistema, foram disponibilizados três mecanismos unificados de controle:
+Todos os ensaios podem também ser executados e auditados diretamente via terminal:
 
 ### Opção A: Script Executável Unificado (`./cell-ctl`)
 ```bash
-./cell-ctl status            # Resumo do grafo epistêmico
+./cell-ctl ui                # Inicia o Web Dashboard Interativo (Porta 8000)
+./cell-ctl status            # Resumo global do grafo epistêmico (4 modelos registrados)
 ./cell-ctl user              # Modo Usuário (regime validado, F = 0 pN)
 ./cell-ctl user --load 4.0   # Modo Usuário (alerta Epistemic Firewall sob carga)
+./cell-ctl tug-of-war        # Simulação estocástica de competição motora (Ciclo 12)
+./cell-ctl langevin          # Dinâmica contínua Langevin com ruído térmico (Ciclo 13)
 ./cell-ctl engineer          # Modo Engenheiro (componentes, entidades e parâmetros)
 ./cell-ctl scientist         # Modo Científico (proveniência e conflitos formais)
 ./cell-ctl design            # Desenho Experimental Discriminatório (Ciclo 09)
+./cell-ctl evaluate-m2       # Validação multivariada do Modelo M2 (Ciclo 10)
 ./cell-ctl reproduce         # Executa ciclo de reprodução (Dataset A)
 ./cell-ctl falsify           # Executa ciclo de falsificação (Dataset B)
 ./cell-ctl test              # Executa suíte de testes (pytest)
@@ -119,40 +117,26 @@ Para simplificar a operação, manutenção e auditoria do sistema, foram dispon
 ./cell-ctl demo              # Bateria completa pedagógica de demonstração (L1 a L7)
 ```
 
-### Opção B: Central Python (`manage.py`)
+### Opção B: Automação via `make`
 ```bash
-python manage.py status
-python manage.py user --preset-valid
-python manage.py user --preset-falsified
-python manage.py engineer
-python manage.py scientist
-python manage.py design
-python manage.py demo
-python manage.py verify
-```
-
-### Opção C: Automação via `make`
-```bash
-make status
-make user
-make user-falsified
-make engineer
-make scientist
-make design
-make test
-make verify
-make demo
+make ui                      # Inicia o Web Dashboard L7
+make tug-of-war              # Executa ensaio de Tug-of-War (Ciclo 12)
+make langevin                # Executa dinâmica Langevin (Ciclo 13)
+make status                  # Resumo do grafo epistêmico
+make test                    # Executa suíte de testes
+make demo                    # Executa bateria pedagógica
 ```
 
 ---
 
 ## 6. Como Executar os Testes Automatizados
 
-A suíte de testes do pytest verifica a integridade de todas as camadas, cobrindo validações de esquemas JSON, inviolabilidade de invariantes epistêmicas, controle de qualidade de dados brutos e cálculos biofísicos:
+A suíte de testes automatizados cobre validações de esquemas JSON, integridade referencial ponta a ponta, inviolabilidade de invariantes epistêmicas, controle de qualidade de dados brutos e todos os 4 motores biofísicos computacionais:
 
 ```bash
 ./cell-ctl test
 # ou: .venv/bin/pytest -v
 ```
 
-*Status:* **29 testes automatizados aprovados (100% de sucesso).**
+*Status:* **49 testes automatizados aprovados (100% de sucesso).**
+

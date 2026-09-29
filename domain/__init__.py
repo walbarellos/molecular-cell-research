@@ -38,6 +38,20 @@ from domain.simulation import Simulation, Prediction
 from domain.hypothesis import Hypothesis
 from domain.experiment_design import ExperimentDesign
 from domain.conflict import ConflictRecord, ConflictResolutionStatus
+from domain.tug_of_war import (
+    MotorDirection,
+    MotorSpeciesSpec,
+    TugOfWarConfig,
+    TugOfWarState,
+    TugOfWarMetrics,
+    TugOfWarSimulationResult,
+)
+from domain.langevin import (
+    LangevinConfig,
+    LangevinPoint,
+    LangevinStepMetrics,
+    LangevinTrajectory,
+)
 
 __all__ = [
     # Tipos fundamentais
@@ -75,4 +89,16 @@ __all__ = [
     "Hypothesis",
     "ExperimentDesign",
     "ConflictRecord",
+    # Ciclo 12 & Ciclo 13
+    "MotorDirection",
+    "MotorSpeciesSpec",
+    "TugOfWarConfig",
+    "TugOfWarState",
+    "TugOfWarMetrics",
+    "TugOfWarSimulationResult",
+    "LangevinConfig",
+    "LangevinPoint",
+    "LangevinStepMetrics",
+    "LangevinTrajectory",
 ]
+

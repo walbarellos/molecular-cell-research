@@ -73,7 +73,7 @@
   },
   "claim": {
     "id": "CLM-VALID-KIF5B-FORCE-M2-001",
-    "created_at": "2026-09-29T17:01:02.591727Z",
+    "created_at": "2026-09-29T17:15:24.926400Z",
     "lifecycle_status": "active",
     "version": "1.0.0",
     "statement": "O modelo mecanoquimico MOD-KIF5B-4STATE-FORCE-DEPENDENT (Bell/Kramers) reproduz com fidelidade estatistica (R2 = 0.9987, chi2_red = 0.375) a velocidade de translocacao de KIF5B sob todo o envelope experimental de forca contraria (0 a 6 pN) e concentracao de ATP (2 a 2000 uM), superando categoricamente a falha do modelo minimo quimioestatico.",

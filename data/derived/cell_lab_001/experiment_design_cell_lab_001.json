@@ -3,7 +3,7 @@
   "phenomenon": "CELL-LAB-001",
   "target_hypothesis": {
     "id": "HYP-KIF5B-KRAMERS-COUPLING-001",
-    "created_at": "2026-09-29T17:01:02.582707Z",
+    "created_at": "2026-09-29T17:15:29.343473Z",
     "lifecycle_status": "active",
     "version": "1.0.0",
     "statement": "O avanço de KIF5B sob forca contraria e governado por transicoes conformacionais do neck linker com taxa catalitica dependente de energia de deformacao mecânica (k_cat(F) = k_cat_0 * exp(-F*delta / k_B*T)), prevendo cessacao de avanço proximo a stall force de ~6.0 pN.",
@@ -36,7 +36,7 @@
   },
   "optimal_experiment_design": {
     "id": "EXP-DESIGN-KIF5B-LOAD-DISCRIM-001",
-    "created_at": "2026-09-29T17:01:02.582686Z",
+    "created_at": "2026-09-29T17:15:29.343449Z",
     "lifecycle_status": "active",
     "version": "1.0.0",
     "title": "Ensaio de Pinca de Forca Optica para Discriminacao Quimioestatica vs. Mecanoquimica",

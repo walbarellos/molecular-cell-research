@@ -2,11 +2,11 @@
   "falsification_phenomenon": "CELL-LAB-001",
   "dataset_evaluated": "DTS-CELL-LAB-001-FALSIFICATION",
   "model_id": "MOD-KIF5B-MINIMAL-MM",
-  "simulation_id": "e1e03cda-f5bc-4828-aeaa-a014f7463874",
+  "simulation_id": "f6748f9f-c119-46f3-99b0-7b728f61ce4e",
   "execution_hash": "b2bf34616621646cb05477a3a940f3aecc1ed65ed23f9e11118708ef939d64c7",
   "comparison": {
     "model_id": "MOD-KIF5B-MINIMAL-MM",
-    "simulation_id": "e1e03cda-f5bc-4828-aeaa-a014f7463874",
+    "simulation_id": "f6748f9f-c119-46f3-99b0-7b728f61ce4e",
     "target_property": "velocity",
     "point_comparisons": [
       {
@@ -163,7 +163,7 @@
   },
   "conflict_record": {
     "id": "CONF-KIF5B-LOAD-001",
-    "created_at": "2026-09-29T16:04:27.277129Z",
+    "created_at": "2026-09-29T16:08:02.835023Z",
     "lifecycle_status": "active",
     "version": "1.0.0",
     "claim_a_id": "CLM-REPRO-KIF5B-UNLOADED-001",
@@ -182,7 +182,7 @@
   },
   "falsification_claim": {
     "id": "CLM-FALSIF-KIF5B-LOAD-001",
-    "created_at": "2026-09-29T16:04:27.277168Z",
+    "created_at": "2026-09-29T16:08:02.835046Z",
     "lifecycle_status": "active",
     "version": "1.0.0",
     "statement": "O modelo cinetico MOD-KIF5B-MINIMAL-MM e empiricamente refutado para regimes sob forca de carga contraria (F_load > 0 pN), divergindo em ate 49.8 desvios-padrao na forca de parada (stall force ~6 pN).",

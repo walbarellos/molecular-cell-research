@@ -2,11 +2,11 @@
   "reproduction_phenomenon": "CELL-LAB-001",
   "dataset_evaluated": "DTS-CELL-LAB-001-CALIBRATION",
   "model_id": "MOD-KIF5B-MINIMAL-MM",
-  "simulation_id": "50c8949e-9a8e-4b6b-97de-02355082983b",
+  "simulation_id": "3cf37c89-d075-4ff1-8002-02f50069490f",
   "execution_hash": "466eacda6fd6a4202e1317c80739304a482d568d32db1f4572e133609f266d11",
   "comparison": {
     "model_id": "MOD-KIF5B-MINIMAL-MM",
-    "simulation_id": "50c8949e-9a8e-4b6b-97de-02355082983b",
+    "simulation_id": "3cf37c89-d075-4ff1-8002-02f50069490f",
     "target_property": "velocity",
     "point_comparisons": [
       {
@@ -151,7 +151,7 @@
   },
   "validation_claim": {
     "id": "CLM-REPRO-KIF5B-UNLOADED-001",
-    "created_at": "2026-09-29T16:04:27.279789Z",
+    "created_at": "2026-09-29T16:08:02.837297Z",
     "lifecycle_status": "active",
     "version": "1.0.0",
     "statement": "O modelo MOD-KIF5B-MINIMAL-MM reproduz com fidelidade estatistica a velocidade de translocacao desimpedida (carga nula) de KIF5B sob concentracoes de ATP de 2 a 2000 uM a 24 degC em acordo com as medicoes de Schnitzer & Block 1997.",

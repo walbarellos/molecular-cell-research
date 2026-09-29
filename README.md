@@ -100,12 +100,59 @@ O ponto de entrada CLI encontra-se em [`presentation/cli/main.py`](file:///home/
 
 ---
 
-## 5. Como Executar os Testes Automatizados
+## 5. Central de Administração e Gerenciamento em Camadas
+
+Para simplificar a operação, manutenção e auditoria do sistema, foram disponibilizados três mecanismos unificados de controle:
+
+### Opção A: Script Executável Unificado (`./cell-ctl`)
+```bash
+./cell-ctl status            # Resumo do grafo epistêmico
+./cell-ctl user              # Modo Usuário (regime validado, F = 0 pN)
+./cell-ctl user --load 4.0   # Modo Usuário (alerta Epistemic Firewall sob carga)
+./cell-ctl engineer          # Modo Engenheiro (componentes, entidades e parâmetros)
+./cell-ctl scientist         # Modo Científico (proveniência e conflitos formais)
+./cell-ctl design            # Desenho Experimental Discriminatório (Ciclo 09)
+./cell-ctl reproduce         # Executa ciclo de reprodução (Dataset A)
+./cell-ctl falsify           # Executa ciclo de falsificação (Dataset B)
+./cell-ctl test              # Executa suíte de testes (pytest)
+./cell-ctl verify            # Auditoria formal completa de dados, schemas e invariantes
+./cell-ctl demo              # Bateria completa pedagógica de demonstração (L1 a L7)
+```
+
+### Opção B: Central Python (`manage.py`)
+```bash
+python manage.py status
+python manage.py user --preset-valid
+python manage.py user --preset-falsified
+python manage.py engineer
+python manage.py scientist
+python manage.py design
+python manage.py demo
+python manage.py verify
+```
+
+### Opção C: Automação via `make`
+```bash
+make status
+make user
+make user-falsified
+make engineer
+make scientist
+make design
+make test
+make verify
+make demo
+```
+
+---
+
+## 6. Como Executar os Testes Automatizados
 
 A suíte de testes do pytest verifica a integridade de todas as camadas, cobrindo validações de esquemas JSON, inviolabilidade de invariantes epistêmicas, controle de qualidade de dados brutos e cálculos biofísicos:
 
 ```bash
-.venv/bin/pytest -v
+./cell-ctl test
+# ou: .venv/bin/pytest -v
 ```
 
 *Status:* **29 testes automatizados aprovados (100% de sucesso).**
